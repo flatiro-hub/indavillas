@@ -1,0 +1,37 @@
+<!-- @dsCard group="Navigation" height=200 subtitle="Over content, then solid after scroll" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>SiteHeader</title>
+<style>html,body{margin:0;background:var(--limewash)}.iv-root{padding:24px 0}</style>
+</head>
+<body>
+<div class="iv-root">
+<header class="iv-header">
+  <a class="iv-brand" href="#home" aria-label="IndaVillas home"><img data-mark src="/_blob/796235b20551ebe79bd8cb51e5d8b091" alt=""><span><b>Inda</b>Villas</span></a>
+  <nav class="iv-nav" aria-label="Primary">
+    <a href="#home" aria-current="page">Home</a><a href="#services">Services</a><a href="#system">The system</a><a href="#pricing">Pricing</a>
+  </nav>
+  <a class="iv-btn iv-btn--primary iv-btn--sm" href="#analysis">Free analysis</a>
+</header>
+<div style="height:24px"></div>
+<header class="iv-header iv-header--solid">
+  <a class="iv-brand" href="#home" aria-label="IndaVillas home"><img data-mark src="/_blob/796235b20551ebe79bd8cb51e5d8b091" alt=""><span><b>Inda</b>Villas</span></a>
+  <nav class="iv-nav" aria-label="Primary (scrolled)">
+    <a href="#home">Home</a><a href="#services">Services</a><a href="#system">The system</a><a href="#pricing" aria-current="page">Pricing</a>
+  </nav>
+  <a class="iv-btn iv-btn--primary iv-btn--sm" href="#analysis">Free analysis</a>
+</header>
+</div>
+<script>
+  /* Swap the logo file to the brass mark when the frame is in the dark theme (an img cannot inherit colour). */
+  (function () {
+    function sync() {
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.querySelectorAll('img[data-mark]').forEach(function (i) { i.src = dark ? '/_blob/625d17c53bcc9e37516703a82b1471cb' : '/_blob/796235b20551ebe79bd8cb51e5d8b091'; });
+    }
+    sync();
+    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  })();
+</script>
+</body>
+</html>

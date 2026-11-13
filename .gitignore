@@ -1,0 +1,14 @@
+# secrets and purchased data: never in this public repo
+api/config.php
+api/data/*.php
+*.csv
+.dev.vars
+.env*
+# build output and dependencies
+dist/
+node_modules/
+firebase/functions/node_modules/
+.wrangler/
+# old FTP upload bundles
+*.zip
+.DS_Store

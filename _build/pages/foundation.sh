@@ -1,0 +1,507 @@
+page_foundation(){
+# Foundation - the $290 Airbnb revenue audit.
+# The hero works like flatiro.com/audit: paste a listing, get an instant score -
+# except here WhatsApp + email are required to run it. Sections marked
+# data-after stay hidden until a report has rendered; data-before ones hide then.
+# assets/js/foundation.js drives all of it. Every \$ below is escaped on purpose:
+# an unescaped "\$290" would be read by the shell as "\$2" followed by "90".
+# The ads page keeps its October icons while it runs on the frozen foundation.css;
+# the main pages moved to Phosphor (parts.sh), so the tick is pinned here.
+local TICK='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>'
+local XMARK='<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>'
+local LOCK='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="10.5" width="16" height="10" rx="2"/><path d="M8 10.5V7a4 4 0 0 1 8 0v3.5"/></svg>'
+local NO='<span class="fd-no" role="img" aria-label="Not included"></span>'
+local YES="<span class=\"fd-yes\" role=\"img\" aria-label=\"Included\">$TICK</span>"
+local HONEY='<input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px">'
+# An ads landing page: no site header or footer, so nothing leads away from the offer. Before a
+# report only the snapshot form and "What you get free" show; everything else is data-after.
+cat <<HTML
+<main id="main">
+
+<!-- ============ HERO: the free snapshot form ============ -->
+<section class="hero hero--snap hero--lp" id="top">
+  <div class="hero__media">
+    <img src="/assets/img/villa-drone.jpg" alt="" width="1600" height="1066" fetchpriority="high" decoding="async">
+  </div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="wrap hero__inner">
+    <div class="lp-brand" aria-label="IndaVillas"><span class="brand__mark">$BRAND_MARK</span><span><b>Inda</b>Villas</span></div>
+    <div class="glass hero__panel">
+      <span class="eyebrow">Free Airbnb revenue snapshot</span>
+      <h1>Audit your listing <span class="em">in 1 minute.</span></h1>
+      <p class="hero__sub">Paste your Airbnb or Booking.com URL below to get an instant score on your listing's photos, description and market revenue gap. Add your WhatsApp and email to get your audit.</p>
+    </div>
+
+    <div class="lead snap" id="snapshot">
+      <form class="lead__form snap__form" data-snap="hero" novalidate aria-label="Get your free revenue snapshot">
+        $HONEY
+        <div class="lead__field snap__url">
+          <label for="snap-url-hero">Airbnb or Booking.com listing URL</label>
+          <input type="text" id="snap-url-hero" name="url" placeholder="airbnb.com/rooms/…" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" required>
+        </div>
+        <div class="lead__field">
+          <label for="snap-wa-hero">WhatsApp number</label>
+          <input type="tel" id="snap-wa-hero" name="whatsapp" placeholder="+62 …" autocomplete="tel" required>
+        </div>
+        <div class="lead__field">
+          <label for="snap-email-hero">Email</label>
+          <input type="email" id="snap-email-hero" name="email" placeholder="you@email.com" autocomplete="email" required>
+        </div>
+        <div class="lead__submit"><button class="btn btn--primary" type="submit">Audit my listing <span class="arr" aria-hidden="true">&rarr;</span></button></div>
+      </form>
+      <p class="snap__err" role="alert" hidden></p>
+      <div class="lead__note snap__note">
+        $LOCK
+        <span>Free. Public listing data only - no login, nothing connected.</span>
+        <button class="link-arrow snap__manual" type="button" data-open-manual>No link handy? Enter the details by hand <span class="arr" aria-hidden="true">&rarr;</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE SNAPSHOT (status, manual mode, report) ============ -->
+<section class="section section--paper fd-result" id="report" aria-label="Your revenue snapshot" hidden>
+  <div class="wrap">
+    <div class="astatus" id="fd-status" role="status" aria-live="polite" hidden></div>
+
+    <div id="fd-manual" hidden>
+      <div class="amanual__head">
+        <h3>Enter the details by hand</h3>
+        <p>Fill in what you know. Anything you leave blank is dropped from the score and its weight moves to the other checks - a blank is never counted against you.</p>
+      </div>
+      <form class="ascorer" id="fd-manual-form" novalidate>
+        <div class="ascorer__grid">
+          <div class="afield">
+            <label for="mf-wa">WhatsApp number <b>*</b></label>
+            <input type="tel" id="mf-wa" name="whatsapp" placeholder="+62 …" autocomplete="tel" required>
+          </div>
+          <div class="afield">
+            <label for="mf-email">Email <b>*</b></label>
+            <input type="email" id="mf-email" name="email" placeholder="you@email.com" autocomplete="email" required>
+          </div>
+          <div class="afield">
+            <label for="mf-url">Listing URL</label>
+            <input type="text" id="mf-url" name="url" placeholder="If you have one" inputmode="url" autocapitalize="off" spellcheck="false">
+          </div>
+
+          <div class="afield afield--wide">
+            <label for="mf-title">Listing title <b>*</b></label>
+            <input type="text" id="mf-title" name="title" placeholder="e.g. Clifftop 5BR Villa, Infinity Pool, Uluwatu" maxlength="120" required>
+            <span class="afield__hint">Paste it exactly as it appears - length, wording and the area name are all scored.</span>
+          </div>
+          <div class="afield afield--wide">
+            <label for="mf-desc">Description <b>*</b></label>
+            <textarea id="mf-desc" name="description" rows="7" placeholder="Paste your full listing description here, line breaks and all." required></textarea>
+            <span class="afield__hint">Line breaks matter - paste it as it is rather than tidying it up.</span>
+          </div>
+
+          <div class="afield">
+            <label for="mf-area">Area / location</label>
+            <input type="text" id="mf-area" name="location" placeholder="e.g. Uluwatu">
+          </div>
+          <div class="afield">
+            <label for="mf-bedrooms">Bedrooms</label>
+            <input type="number" id="mf-bedrooms" name="bedrooms" min="1" max="50" placeholder="e.g. 5" inputmode="numeric">
+          </div>
+          <div class="afield">
+            <label for="mf-photos">Number of photos</label>
+            <input type="number" id="mf-photos" name="photoCount" min="0" max="500" placeholder="e.g. 24" inputmode="numeric">
+          </div>
+          <div class="afield">
+            <label for="mf-captions">Do your photos have captions?</label>
+            <select id="mf-captions" name="captions">
+              <option value="">Not sure</option>
+              <option value="yes">Yes, all or most</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="afield">
+            <label for="mf-amenities">Amenities listed (total)</label>
+            <input type="number" id="mf-amenities" name="amenitiesCount" min="0" max="200" placeholder="e.g. 32" inputmode="numeric">
+          </div>
+          <div class="afield">
+            <label for="mf-rating">Star rating</label>
+            <input type="number" id="mf-rating" name="rating" min="0" max="5" step="0.01" placeholder="e.g. 4.87" inputmode="decimal">
+          </div>
+          <div class="afield">
+            <label for="mf-reviews">Number of reviews</label>
+            <input type="number" id="mf-reviews" name="reviewCount" min="0" max="10000" placeholder="e.g. 46" inputmode="numeric">
+          </div>
+          <div class="afield">
+            <label for="mf-superhost">Superhost</label>
+            <select id="mf-superhost" name="superhost">
+              <option value="">Not sure</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+          <div class="afield">
+            <label for="mf-instant">Instant Book</label>
+            <select id="mf-instant" name="instantBook">
+              <option value="">Not sure</option>
+              <option value="yes">On</option>
+              <option value="no">Off</option>
+            </select>
+          </div>
+          <div class="afield">
+            <label for="mf-minnights">Minimum stay (nights)</label>
+            <input type="number" id="mf-minnights" name="minNights" min="1" max="365" placeholder="e.g. 2" inputmode="numeric">
+          </div>
+          <div class="afield">
+            <label for="mf-cancel">Cancellation policy</label>
+            <select id="mf-cancel" name="cancellation">
+              <option value="">Not sure</option>
+              <option value="flexible">Flexible</option>
+              <option value="moderate">Moderate</option>
+              <option value="firm">Firm</option>
+              <option value="strict">Strict</option>
+            </select>
+          </div>
+        </div>
+        <p class="snap__err" role="alert" hidden></p>
+        <div class="ascorer__actions">
+          <button class="btn btn--primary" type="submit">Get my snapshot <span class="arr" aria-hidden="true">&rarr;</span></button>
+        </div>
+      </form>
+    </div>
+
+    <div class="aresult" id="fd-report" tabindex="-1" hidden></div>
+
+  </div>
+</section>
+
+<!-- ============ THE FOUNDATION PACKAGE (after the report) ============ -->
+<section class="section section--sand" id="foundation" data-after hidden>
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <span class="eyebrow">The full \$290 Foundation package</span>
+      <h2>Foundation - <span class="teal">Airbnb Revenue Audit.</span></h2>
+      <hr class="rule-line">
+    </div>
+
+    <div class="fd-pkg">
+      <article class="plan plan--reco fd-plan">
+        <span class="plan__tag">Buy anytime</span>
+        <div class="plan__label">Foundation</div>
+        <p class="plan__desc">Airbnb Revenue Audit</p>
+        <div class="plan__price"><em>One-time</em>\$290<span>One payment, buy anytime. No subscription.</span></div>
+        <p class="plan__intro">What you get</p>
+        <ul class="plan__list">
+          <li>$TICK <span><b>Full listing audit with your inputs</b> - your villa vs comparable properties: ADR, occupancy, revenue signals, review score, min-stay, amenities listed and missing.</span></li>
+          <li>$TICK <span><b>1-on-1 60-min expert consultation</b> - a screen-share walkthrough of the findings, with the recording to keep.</span></li>
+          <li>$TICK <span><b>30-day gameplan for your property</b> - what to fix first, with KPI targets to watch.</span></li>
+          <li>$TICK <span><b>Q&amp;A during the 30 days</b>, plus AI prompts for your guest messaging.</span></li>
+          <li>$TICK <span><b>Airbnb owner community.</b></span></li>
+        </ul>
+        <div class="plan__cta"><a class="btn btn--primary btn--block" href="#foundation" data-buy>Unlock Foundation - \$290 <span class="arr" aria-hidden="true">&rarr;</span></a></div>
+      </article>
+
+      <aside class="fd-side">
+        <img class="fd-photo" src="/assets/img/villa-living.jpg" alt="Villa bedroom with a revenue analytics overlay" width="1024" height="585" loading="lazy" decoding="async">
+        <div class="fd-mini fd-mini--seal">
+          $(fd_seal pkg)
+          <div>
+            <span class="eyebrow eyebrow--gold">Guarantee</span>
+            <p><b>90 days or your money back.</b> Follow your personalised gameplan. If your numbers don't improve in 90 days, we refund you in full.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHAT YOU GET FREE (before the report) ============ -->
+<section class="section section--paper" data-before>
+  <div class="wrap">
+    <div class="split">
+      <div class="split__media">
+        <img src="/assets/img/dashboard.png" alt="Example of a scored listing snapshot" loading="lazy" decoding="async" width="699" height="533">
+      </div>
+      <div>
+        <span class="eyebrow">What you get free</span>
+        <h2 class="split__title" style="margin-top:.5em">Free Airbnb <b>Revenue Snapshot.</b></h2>
+        <p class="lead-p">Send your listing link. We read it, compare it with villas of the same size around you, and show you the gaps:</p>
+        <ul class="ticks" style="margin-top:1.2rem">
+          <li>$TICK <span><b>Your market band</b>: what same-size villas near you earn, and where the top 10% start.</span></li>
+          <li>$TICK <span><b>The rating of your current listing</b>, scored out of 100.</span></li>
+          <li>$TICK <span><b>You vs the top 10%</b>: rating, reviews, Superhost and amenities.</span></li>
+          <li>$TICK <span><b>Your top fixes</b>, and which upgrades would pay for themselves.</span></li>
+        </ul>
+        <p class="fd-plain">No prioritised action plan. No login. No fluff.</p>
+        <div class="btn-row">
+          <a class="btn btn--primary" href="#snapshot" data-focus-snap>Get my free snapshot <span class="arr" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE VS FOUNDATION (after the report) ============ -->
+<section class="section section--sand" id="compare" data-after hidden>
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <span class="eyebrow">Free vs Foundation</span>
+      <h2>\$2,900 of work. <span class="teal">Yours for \$290.</span></h2>
+      <hr class="rule-line">
+    </div>
+
+    <div class="fd-table-wrap fd-table-wrap--value">
+      <table class="fd-table fd-table--value">
+        <caption class="sr-only">What the free snapshot and the \$290 Foundation package include, and what each part normally costs</caption>
+        <thead>
+          <tr>
+            <th scope="col">What you get</th>
+            <th scope="col">Free snapshot</th>
+            <th scope="col">Normally costs</th>
+            <th scope="col" class="is-pro">Foundation<small>\$290</small></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Listing basic audit</th><td>$YES</td><td class="fd-was"><s>\$450</s></td><td class="is-pro">$YES</td></tr>
+          <tr><th scope="row">Listing full audit with your inputs</th><td>$NO</td><td class="fd-was"><s>\$500</s></td><td class="is-pro">$YES</td></tr>
+          <tr><th scope="row">1-on-1 60-min expert consultation</th><td>$NO</td><td class="fd-was"><s>\$400</s></td><td class="is-pro">$YES</td></tr>
+          <tr><th scope="row">Call recording</th><td>$NO</td><td class="fd-was"><s>\$150</s></td><td class="is-pro">$YES</td></tr>
+          <tr><th scope="row">30-day gameplan for your property</th><td>$NO</td><td class="fd-was"><s>\$700</s></td><td class="is-pro">$YES</td></tr>
+          <tr><th scope="row">Q&amp;A session during the 30 days</th><td>$NO</td><td class="fd-was"><s>\$250</s></td><td class="is-pro">$YES</td></tr>
+          <tr><th scope="row">AI prompts for messaging</th><td>$NO</td><td class="fd-was"><s>\$250</s></td><td class="is-pro">$YES</td></tr>
+          <tr><th scope="row">KPI targets</th><td>$NO</td><td class="fd-was"><s>\$150</s></td><td class="is-pro">$YES</td></tr>
+          <tr><th scope="row">Airbnb owner community</th><td>$NO</td><td class="fd-was"><s>\$50</s></td><td class="is-pro">$YES</td></tr>
+        </tbody>
+        <tfoot>
+          <tr class="fd-total"><th scope="row">Total</th><td>$NO</td><td class="fd-was">\$2,900</td><td class="is-pro"><b>\$290</b></td></tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="section section--paper" id="how" data-after hidden>
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <span class="eyebrow">How it works</span>
+      <h2>Four steps. <span class="teal">One clear plan.</span></h2>
+      <hr class="rule-line">
+    </div>
+
+    <div class="steps steps--4" style="margin-top:clamp(38px,5vw,58px)">
+      <div class="step">
+        <img class="step__img" src="/assets/img/why-sops.jpg" alt="Intake documents on a villa table" width="1048" height="766" loading="lazy" decoding="async">
+        <span class="step__n" aria-hidden="true">1</span>
+        <h3>Buy Foundation - \$290</h3>
+        <p>Complete a short intake: OTA links, current revenue, occupancy and so on.</p>
+      </div>
+      <div class="step">
+        <img class="step__img" src="/assets/img/diff-insights.jpg" alt="Market data for comparable villas" width="1024" height="585" loading="lazy" decoding="async">
+        <span class="step__n" aria-hidden="true">2</span>
+        <h3>Personalised analytics in 24h</h3>
+        <p>We prepare public data + comps. No account access. Nothing connected.</p>
+      </div>
+      <div class="step">
+        <img class="step__img" src="/assets/img/why-standards.jpg" alt="Your IndaVillas consultant" width="1100" height="770" loading="lazy" decoding="async">
+        <span class="step__n" aria-hidden="true">3</span>
+        <h3>Live consult (60 min)</h3>
+        <p>We walk through the findings together and build your personalised 30-day gameplan.</p>
+      </div>
+      <div class="step">
+        <img class="step__img" src="/assets/img/villa-pool.jpg" alt="Villa owner relaxing on a terrace above the ocean" width="1307" height="729" loading="lazy" decoding="async">
+        <span class="step__n" aria-hidden="true">4</span>
+        <h3>You leave with clarity</h3>
+        <p>Recording, outline and next steps.</p>
+      </div>
+    </div>
+
+    <div class="fd-not">
+      <h3>What Foundation is not - in plain words</h3>
+      <ul>
+        <li>$XMARK <span>No account access, no logins, nothing connected, nothing synced.</span></li>
+        <li>$XMARK <span>No tool setup, no integrations, no messaging sequences, no channel manager.</span></li>
+        <li>$XMARK <span>No tool-specific "how to configure it" steps. The gameplan names the category of tool and the criteria to choose one, because PMS platforms differ.</span></li>
+        <li>$XMARK <span>No ongoing work of any kind.</span></li>
+      </ul>
+    </div>
+
+    <div class="fd-guarantee">
+      $(fd_seal how)
+      <div>
+        <span class="eyebrow eyebrow--light">Our guarantee</span>
+        <h3>90 days, or your money back.</h3>
+        <p>If you follow your personalised gameplan and your numbers don't improve in 90 days, we refund you in full.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY INDAVILLAS (after the report) ============ -->
+<section class="section section--sand" id="why" data-after hidden>
+  <div class="wrap">
+    <div class="sec-head sec-head--center">
+      <span class="eyebrow">The difference</span>
+      <h2>Why work <span class="teal">with us?</span></h2>
+      <p>We are not property managers. We run a 3-phase system built for luxury 5+ bedroom properties, aimed at one thing: your villa in the top 10% of its market.</p>
+      <hr class="rule-line">
+    </div>
+    <div class="grid grid--3 fd-phases" style="margin-top:clamp(34px,4.5vw,52px)">
+      <article class="card">
+        <span class="fd-phase">Phase 1</span>
+        <h3>Revenue strategy</h3>
+        <ul class="ticks">
+          <li>$TICK <span><b>Know your numbers.</b> Full revenue analytics and a tailored growth strategy.</span></li>
+          <li>$TICK <span><b>Beat your competition.</b> Benchmark against the villas competing for your guests.</span></li>
+          <li>$TICK <span><b>Invest smarter.</b> The upgrades and amenities with the highest return.</span></li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="fd-phase">Phase 2</span>
+        <h3>Brand and demand</h3>
+        <ul class="ticks">
+          <li>$TICK <span><b>A brand guests remember</b>, consistent across your website and social media.</span></li>
+          <li>$TICK <span><b>More booking channels:</b> direct bookings, SEO, AI search and partnerships.</span></li>
+          <li>$TICK <span><b>Demand:</b> social campaigns, travel agents, weddings, events and retreats.</span></li>
+        </ul>
+      </article>
+      <article class="card">
+        <span class="fd-phase">Phase 3</span>
+        <h3>Conversion and growth</h3>
+        <ul class="ticks">
+          <li>$TICK <span><b>More enquiries into bookings</b>, with a smoother guest journey.</span></li>
+          <li>$TICK <span><b>Repeat revenue:</b> retention campaigns, referrals and reputation.</span></li>
+          <li>$TICK <span><b>More per stay:</b> upsells and curated guest experiences.</span></li>
+        </ul>
+      </article>
+    </div>
+    <div class="fd-goal">
+      <span class="fd-goal__n">10%</span>
+      <div>
+        <span class="eyebrow eyebrow--gold">The goal</span>
+        <h3>Your villa in the top 10% of its market.</h3>
+        <p>The top 10% is where guests pay a premium for a villa that is built and marketed to be distinct: fewer nights discounted, more booked a year ahead. Results start to show after 4 months, and your own team keeps running the house.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section section--paper" id="faq" data-after hidden>
+  <div class="wrap wrap--narrow">
+    <div class="sec-head sec-head--center">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions, <span class="teal">answered.</span></h2>
+      <hr class="rule-line">
+    </div>
+
+    <div class="fd-faq">
+      <details>
+        <summary>Do I need to give you my Airbnb login?</summary>
+        <p>No. Public listing data only.</p>
+      </details>
+      <details>
+        <summary>Is there a free sales call?</summary>
+        <p>No. The free piece is the snapshot. The paid consult is the product - and where we discuss upgrade options if relevant.</p>
+      </details>
+      <details>
+        <summary>Is this a cohort, or is there a start date?</summary>
+        <p>No. Buy anytime. We schedule your consult after payment.</p>
+      </details>
+      <details>
+        <summary>How fast do I get the free snapshot?</summary>
+        <p>Your score and top fixes appear on this page in about a minute. The snapshot follows on WhatsApp or email, usually within 24 hours after you submit the form.</p>
+      </details>
+      <details>
+        <summary>Refunds?</summary>
+        <p>If you follow your personalised gameplan and your numbers don't improve in 90 days, we refund you in full.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA (after the report) ============ -->
+<section class="final" id="final" data-after hidden>
+  <div class="final__video" data-video="Igwinx0keg8" aria-hidden="true"></div>
+  <div class="wrap final__inner">
+    <span class="eyebrow eyebrow--light">Foundation - \$290</span>
+    <h2>Stop guessing why your villa isn't making more.</h2>
+    <ul class="fd-final__points">
+      <li>$TICK <span>Unlock Foundation for \$290 to see where your gaps are.</span></li>
+      <li>$TICK <span>Get a personalised gameplan for maximum revenue.</span></li>
+    </ul>
+    <div class="fd-final__buy">
+      <a class="btn btn--gold" href="#foundation" data-buy>Unlock Foundation - \$290 <span class="arr" aria-hidden="true">&rarr;</span></a>
+      <p>One-time payment. 90-day money-back guarantee.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORDER REQUEST (used until a checkout link is set) ============ -->
+<dialog class="fd-dialog" id="fd-buy" aria-labelledby="fd-buy-h">
+  <form class="fd-dialog__form" method="dialog" novalidate>
+    $HONEY
+    <button class="fd-dialog__x" type="button" data-close aria-label="Close">$XMARK</button>
+    <span class="eyebrow">Foundation - \$290</span>
+    <h3 id="fd-buy-h">Reserve your Foundation audit</h3>
+    <p class="fd-dialog__p">Leave your details and we'll send your secure payment link and the short intake form within one business day.</p>
+    <div class="afield">
+      <label for="buy-email">Email <b>*</b></label>
+      <input type="email" id="buy-email" name="email" placeholder="you@email.com" autocomplete="email" required>
+    </div>
+    <div class="afield">
+      <label for="buy-wa">WhatsApp number <b>*</b></label>
+      <input type="tel" id="buy-wa" name="whatsapp" placeholder="+62 …" autocomplete="tel" required>
+    </div>
+    <div class="afield">
+      <label for="buy-url">Listing URL</label>
+      <input type="text" id="buy-url" name="listing_url" placeholder="airbnb.com/rooms/…" inputmode="url" autocapitalize="off" spellcheck="false">
+    </div>
+    <p class="snap__err" role="alert" hidden></p>
+    <button class="btn btn--primary btn--block" type="submit">Reserve Foundation - \$290</button>
+    <p class="fd-dialog__fine">Nothing is charged here. 90-day money-back guarantee.</p>
+  </form>
+  <div class="fd-dialog__done" role="status" aria-live="polite" hidden>
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-4.5"/></svg>
+    <h3>You're on the list.</h3>
+    <p>We'll send your secure payment link and the intake form within one business day.</p>
+    <button class="btn btn--outline btn--sm" type="button" data-close>Close</button>
+  </div>
+</dialog>
+
+</main>
+
+<div class="dock" aria-hidden="false">
+  <div class="dock__row">
+    <a class="btn btn--primary btn--sm btn--block" href="#snapshot" data-focus-snap>Get my free snapshot</a>
+  </div>
+</div>
+HTML
+}
+
+# The guarantee seal. "MONEY-BACK" runs over the top and "GUARANTEE" under the
+# bottom, each on its own arc so both read upright. <id> keeps the paths unique.
+fd_seal(){
+cat <<SVG
+<svg class="seal" viewBox="0 0 200 200" role="img" aria-label="90-day money-back guarantee">
+  <defs>
+    <path id="seal-top-$1" d="M32,100 A68,68 0 0 1 168,100"/>
+    <path id="seal-bot-$1" d="M20,100 A80,80 0 0 0 180,100"/>
+  </defs>
+  <circle cx="100" cy="100" r="98" fill="#B98C3E"/>
+  <circle cx="100" cy="100" r="91" fill="none" stroke="#F6EEDD" stroke-width="1.2" stroke-dasharray="1.5 4"/>
+  <circle cx="100" cy="100" r="58" fill="#0C3E38"/>
+  <circle cx="100" cy="100" r="53" fill="none" stroke="#D8BC7E" stroke-width="1"/>
+  <text font-family="Poppins, sans-serif" font-size="17" font-weight="600" letter-spacing="2.5" fill="#FCFAF5"><textPath href="#seal-top-$1" startOffset="50%" text-anchor="middle">MONEY-BACK</textPath></text>
+  <text font-family="Poppins, sans-serif" font-size="17" font-weight="600" letter-spacing="2.5" fill="#FCFAF5"><textPath href="#seal-bot-$1" startOffset="50%" text-anchor="middle">GUARANTEE</textPath></text>
+  <circle cx="25" cy="100" r="3.2" fill="#FCFAF5"/>
+  <circle cx="175" cy="100" r="3.2" fill="#FCFAF5"/>
+  <text x="100" y="108" text-anchor="middle" font-family="Poppins, sans-serif" font-size="48" font-weight="600" fill="#FCFAF5">90</text>
+  <text x="100" y="130" text-anchor="middle" font-family="Poppins, sans-serif" font-size="12" font-weight="600" letter-spacing="3" fill="#D8BC7E">DAYS</text>
+</svg>
+SVG
+}
+
+# Ads landing page footer: no links, just the name.
+foundation_footer(){
+cat <<HTML
+<footer class="lp-foot"><p>&copy; <span data-year>2026</span> IndaVillas &middot; <a href="/privacy/" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Privacy</a> &middot; <a href="/terms/" style="color:inherit;text-decoration:underline;text-underline-offset:3px">Terms</a></p></footer>
+</body>
+</html>
+HTML
+}

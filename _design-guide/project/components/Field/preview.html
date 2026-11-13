@@ -1,0 +1,38 @@
+<!-- @dsCard group="Forms" height=300 subtitle="Default, error" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Field</title>
+<style>html,body{margin:0;background:var(--limewash)}</style>
+</head>
+<body>
+<div class="iv-root">
+<form style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;padding:24px" onsubmit="event.preventDefault()">
+  <div class="iv-field">
+    <label for="f-loc">Where is the villa?</label>
+    <input id="f-loc" type="text" placeholder="Area or Airbnb link" autocomplete="off">
+    <span class="iv-field__hint">An Airbnb link lets us pull the numbers for you.</span>
+  </div>
+  <div class="iv-field iv-field--error">
+    <label for="f-wa">WhatsApp number</label>
+    <input id="f-wa" type="tel" value="+62 812" aria-invalid="true" aria-describedby="f-wa-err">
+    <span class="iv-field__hint" id="f-wa-err">This number is too short. Add the full number with country code.</span>
+  </div>
+  <div class="iv-field">
+    <label for="f-br">Bedrooms</label>
+    <select id="f-br"><option>5</option><option>6</option><option>7</option><option>8+</option></select>
+  </div>
+</form>
+</div>
+<script>
+  /* Swap the logo file to the brass mark when the frame is in the dark theme (an img cannot inherit colour). */
+  (function () {
+    function sync() {
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.querySelectorAll('img[data-mark]').forEach(function (i) { i.src = dark ? '/_blob/625d17c53bcc9e37516703a82b1471cb' : '/_blob/796235b20551ebe79bd8cb51e5d8b091'; });
+    }
+    sync();
+    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- @dsCard height=300 -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>IndaVillas cover</title>
+<style>
+  html, body { margin: 0; background: var(--limewash); }
+  .cv { position: relative; width: 960px; height: 300px; overflow: hidden; background: var(--limewash); }
+  .cv svg { position: absolute; inset: 0; display: block; }
+  .b-teal { fill: var(--teal); }
+  .b-ink { fill: var(--ink); }
+  .b-brass { fill: var(--brass); }
+  .b-cut { fill: var(--limewash); }
+  .cv-text { position: absolute; left: var(--space-48); bottom: var(--space-48); max-width: 440px; display: grid; gap: var(--space-12); }
+  .cv-name { margin: 0; font-family: var(--font-display); font-size: 76px; line-height: .92; font-weight: 400; font-variation-settings: 'opsz' 96; letter-spacing: -.01em; color: var(--ink); }
+  .cv-tag { margin: 0; font-family: var(--font-text); font-size: 14px; line-height: 20px; color: var(--ink-mute); }
+</style>
+</head>
+<body>
+<div class="cv">
+  <svg viewBox="0 0 960 300" width="960" height="300" aria-hidden="true">
+    <!--
+      blocks: teal slab 320x300 (space-64 x5, bleeds top, right, bottom); ink block 128x128 (space-128); brass square 64x64 (space-64). radius-0 throughout.
+      arrangement: one tall slab with two satellites stepping down to its left, all right of x=480.
+      pattern: literal motif row. The brand's own mark, eight triangles, cut out of the teal slab in the ground colour, because the mark is the one shape only IndaVillas owns.
+      scales: space-64, space-128, space-48 for the text inset; radius-0 (square architecture).
+    -->
+    <rect class="b-teal" x="640" y="0" width="320" height="300"/>
+    <rect class="b-ink" x="512" y="172" width="128" height="128"/>
+    <rect class="b-brass" x="576" y="108" width="64" height="64"/>
+    <g class="b-cut" transform="translate(682 53) scale(.8)">
+      <polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/>
+    </g>
+  </svg>
+  <div class="cv-text">
+    <h1 class="cv-name">IndaVillas</h1>
+    <p class="cv-tag">Revenue management for 5+ bedroom luxury villas.</p>
+  </div>
+</div>
+</body>
+</html>

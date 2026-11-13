@@ -1,0 +1,73 @@
+/* IndaVillas — generated from tokens.json */
+@font-face { font-family: "Bodoni Moda"; src: url("fonts/BodoniModa-Variable.woff2") format("woff2"); font-weight: 400 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Hanken Grotesk"; src: url("fonts/HankenGrotesk-Variable.woff2") format("woff2"); font-weight: 300 700; font-style: normal; font-display: swap; }
+:root, [data-theme="light"] {
+  --limewash: #F3F4F1;
+  --paper: #FBFBF9;
+  --stone: #E6E8E3;
+  --line: #C9CEC7;
+  --line-strong: #7F8984;
+  --ink: #1A2220;
+  --ink-soft: #47524E;
+  --ink-mute: #5C6763;
+  --teal: #13564F;
+  --on-teal: #F3F4F1;
+  --teal-deep: #0B3430;
+  --on-band: #F3F4F1;
+  --band-soft: #AFC4BE;
+  --teal-tint: #E1EBE8;
+  --brass: #A47C3A;
+  --brass-ink: #7A5A22;
+  --alert: #A3402A;
+  --shadow-float: 0 1px 2px rgba(11, 52, 48, 0.06), 0 12px 32px rgba(11, 52, 48, 0.10);
+}
+[data-theme="dark"] {
+  --limewash: #0E1513;
+  --paper: #151E1B;
+  --stone: #1B2622;
+  --line: #3A4844;
+  --line-strong: #6E7B76;
+  --ink: #ECEEE9;
+  --ink-soft: #BAC2BD;
+  --ink-mute: #959F9A;
+  --teal: #86C0B5;
+  --on-teal: #0E1513;
+  --teal-deep: #102F2A;
+  --on-band: #ECEEE9;
+  --band-soft: #A9BFB9;
+  --teal-tint: #16302C;
+  --brass: #C7A263;
+  --brass-ink: #D6B67A;
+  --alert: #E8866E;
+  --shadow-float: 0 1px 2px rgba(0, 0, 0, 0.4), 0 12px 32px rgba(0, 0, 0, 0.45);
+}
+:root {
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-64: 64px;
+  --space-96: 96px;
+  --space-128: 128px;
+  --radius-0: 0;
+  --radius-sm: 2px;
+  --radius-md: 6px;
+  --radius-full: 999px;
+  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --font-text: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+}
+.display-xl { font-family: var(--font-display); font-size: 72px; line-height: 76px; font-weight: 400; letter-spacing: -0.01em; font-variation-settings: 'opsz' 96; }
+.display-lg { font-family: var(--font-display); font-size: 52px; line-height: 56px; font-weight: 400; letter-spacing: -0.01em; font-variation-settings: 'opsz' 72; }
+.heading-1 { font-family: var(--font-display); font-size: 38px; line-height: 44px; font-weight: 400; font-variation-settings: 'opsz' 48; }
+.heading-2 { font-family: var(--font-display); font-size: 28px; line-height: 34px; font-weight: 500; font-variation-settings: 'opsz' 28; }
+.figure { font-family: var(--font-display); font-size: 56px; line-height: 56px; font-weight: 400; font-variation-settings: 'opsz' 96; }
+.lead { font-family: var(--font-text); font-size: 19px; line-height: 30px; font-weight: 300; }
+.title { font-family: var(--font-text); font-size: 18px; line-height: 26px; font-weight: 600; }
+.body { font-family: var(--font-text); font-size: 16px; line-height: 26px; font-weight: 400; }
+.body-sm { font-family: var(--font-text); font-size: 14px; line-height: 22px; font-weight: 400; }
+.button { font-family: var(--font-text); font-size: 15px; line-height: 20px; font-weight: 600; letter-spacing: 0.01em; }
+.spec-label { font-family: var(--font-text); font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: 0.08em; }
+.caption { font-family: var(--font-text); font-size: 13px; line-height: 18px; font-weight: 400; }

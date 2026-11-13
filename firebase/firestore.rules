@@ -1,0 +1,73 @@
+rules_version = '2';
+// IndaVillas portal: who can read and change what.
+// Admins: anyone whose email (lowercase) has a document in the "admins" collection.
+// Clients: only their own record (clients/<their email>) and what sits under it.
+// Cleaners: only their own cleaners/<their email> record; their jobs come through the portalApi function.
+// Villa managers: only their own managers/<their email> record; everything they do goes through portalApi,
+// which checks their villas and permissions on every call.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null && request.auth.token.email is string; }
+    function me() { return request.auth.token.email.lower(); }
+    function isAdmin() { return signedIn() && exists(/databases/$(database)/documents/admins/$(me())); }
+    function isOwner(email) { return signedIn() && email == me(); }
+
+    match /admins/{email} {
+      allow read: if signedIn() && (email == me() || isAdmin());
+      allow write: if false; // add admins in the Firebase console
+    }
+
+    match /clients/{email} {
+      allow read: if isAdmin() || isOwner(email);
+      allow create, delete: if isAdmin();
+      // Owners may only change their answers, never their email, Guesty links or invite status.
+      allow update: if isAdmin()
+        || (isOwner(email)
+            && request.resource.data.diff(resource.data).affectedKeys()
+                 .hasOnly(['data', 'step', 'visited', 'progress', 'villaName', 'ownerName',
+                           'submitted', 'submittedAt', 'updatedAt']));
+
+      // Figures from Guesty: written only by the sync function.
+      match /analytics/{doc} {
+        allow read: if isAdmin() || isOwner(email);
+        allow write: if false;
+      }
+      // Invoices and reports: admins add them, owners read them.
+      match /docs/{doc} {
+        allow read: if isAdmin() || isOwner(email);
+        allow write: if isAdmin();
+      }
+      // Photos and videos IndaVillas made for the villa: admins add them, owners view them.
+      match /media/{item} {
+        allow read: if isAdmin() || isOwner(email);
+        allow write: if isAdmin();
+      }
+      // Pricing approach, change log, competitors and improvement ideas: written by admins.
+      match /strategy/{doc} {
+        allow read: if isAdmin() || isOwner(email);
+        allow write: if isAdmin();
+      }
+    }
+
+    // Cleaner logins: the cleaner reads their own record (to open the cleaner app); only the functions write them.
+    match /cleaners/{email} {
+      allow read: if isAdmin() || isOwner(email);
+      allow write: if false;
+    }
+
+    // Villa manager logins: the manager reads their own record (to open the manager app); only the functions write them.
+    // Their activity log (mgrlog) is read by admins through portalApi and stays closed here.
+    // A manager only reads it from the account activated by "Send login" (authUid), so a pre-registered look-alike account gets nothing.
+    match /managers/{email} {
+      allow read: if isAdmin() || (isOwner(email) && resource.data.authUid == request.auth.uid);
+      allow write: if false;
+    }
+
+    // Last sync result, shown on the admin list.
+    match /system/{doc} {
+      allow read: if isAdmin();
+      allow write: if false;
+    }
+    // Everything else (including the cached Guesty token in _private) stays closed.
+  }
+}

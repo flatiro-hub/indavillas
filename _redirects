@@ -1,0 +1,3 @@
+# Cloudflare Pages redirects (https and /services -> /services/ are automatic on Pages).
+# Old-host leftovers: WordPress uploads are gone, send old image links to the home page instead of a 404.
+/wp-content/*  /  301

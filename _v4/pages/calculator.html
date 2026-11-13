@@ -1,0 +1,103 @@
+<!-- ============ 01 HERO: the model is the hero, the commission is the big number ============ -->
+<section class="cx s-night" id="top" aria-labelledby="hero-title">
+  <div class="wrap">
+    <div class="cx__head" data-hero>
+      <div>
+        <p class="idx" data-hero-mark><span>01</span>Free tool: commission calculator</p>
+        <h1 class="cx__title" id="hero-title">Stop bleeding Airbnb revenue.</h1>
+      </div>
+      <div>
+        <p class="lede">Put in your own numbers and see what platform commission costs your villa each year, and what you keep by moving some bookings direct.</p>
+        <p class="pg__proof">{{icon:check-circle}} Takes 30 seconds. Your numbers, not ours. No email needed.</p>
+      </div>
+    </div>
+
+    <!-- The figures below are the defaults worked out in advance, so the page reads
+         correctly before (or without) the script; main.js recalculates on every change. -->
+    <div class="cx__model" id="model">
+      <div class="cx__panel">
+        <h2 class="cx__h">Your villa</h2>
+        <div class="field cx__rate">
+          <label for="dbc-rate">Average nightly rate, in US dollars</label>
+          <span class="money"><span aria-hidden="true">$</span><input type="number" id="dbc-rate" value="650" min="0" step="10" inputmode="numeric" autocomplete="off" aria-describedby="dbc-rate-hint"></span>
+          <p class="field__hint" id="dbc-rate-hint">What a typical night bills at, averaged across the year.</p>
+        </div>
+        <div class="rng">
+          <div class="rng__top"><label for="dbc-occ">Occupancy</label><output for="dbc-occ" data-dbc="occ-v">65%</output></div>
+          <input type="range" id="dbc-occ" min="20" max="95" step="1" value="65">
+          <div class="rng__scale" aria-hidden="true"><span>20%</span><span>95%</span></div>
+        </div>
+        <div class="rng">
+          <div class="rng__top"><label for="dbc-com">Platform commission</label><output for="dbc-com" data-dbc="com-v">15%</output></div>
+          <input type="range" id="dbc-com" min="3" max="25" step="1" value="15">
+          <div class="rng__scale" aria-hidden="true"><span>3%</span><span>25%</span></div>
+        </div>
+        <div class="rng">
+          <div class="rng__top"><label for="dbc-dir">Bookings moved direct</label><output for="dbc-dir" data-dbc="dir-v">40%</output></div>
+          <input type="range" id="dbc-dir" min="10" max="80" step="5" value="40">
+          <div class="rng__scale" aria-hidden="true"><span>10%</span><span>80%</span></div>
+        </div>
+      </div>
+
+      <div class="cx__out">
+        <p class="cx__lbl">You are handing the platforms</p>
+        <p class="cx__big" aria-live="polite" aria-atomic="true"><b data-dbc="feesnow">$23,132</b><span>a year</span></p>
+        <dl class="cx__rows">
+          <div><dt>Annual gross revenue</dt><dd data-dbc="gross">$154,213</dd></div>
+          <div><dt>Platform fees after going direct</dt><dd data-dbc="feesafter">$13,879</dd></div>
+          <div><dt>Card processing on direct bookings (2%)</dt><dd data-dbc="processing">$1,234</dd></div>
+          <div class="is-keep"><dt>You keep</dt><dd data-dbc="keep">$8,019</dd></div>
+          <div><dt>That is, per month</dt><dd data-dbc="monthly">$668</dd></div>
+        </dl>
+        <p class="cx__note">The saving is the platform fee you stop paying, less about 2% card processing on direct bookings, and before website and marketing costs. We would rather show you the honest number than a flattering one.</p>
+        <a class="btn" href="#analysis">Show me how to keep it {{btn}}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 THREE LEAKS ============ -->
+<section class="pb s-lime" aria-labelledby="leaks-title">
+  <div class="wrap">
+    <p class="idx"><span>02</span>Three leaks</p>
+    <h2 class="h2" id="leaks-title" data-split>Commission is only the loss you can see.</h2>
+    <div class="fx__grid fx__grid--3">
+      <article class="fx__item"><span>01</span><h3>The fee you can see</h3><p>Between 3% and 25% of every booking, depending on the platform, your fee setup and the market. On a villa grossing six figures, that is a salary leaving every year.</p></article>
+      <article class="fx__item"><span>02</span><h3>The rate the algorithm sets</h3><p>Smart pricing tools are tuned for the platform’s booking volume, not your yield, so peak dates often go for less than the calendar could hold.</p></article>
+      <article class="fx__item"><span>03</span><h3>The guest you never own</h3><p>Every repeat stay booked through the platform pays commission again. Without the guest’s email, you buy the same guest back year after year.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 HOW WE FIX IT ============ -->
+<section class="hs s-lime2" aria-labelledby="fix-title">
+  <div class="wrap hs__grid">
+    <figure class="hs__media" data-reveal>
+      <img src="/v4/img/terrace-p.jpg" alt="A guest with a coffee and a tablet, relaxing on a villa terrace" width="583" height="729" loading="lazy" decoding="async">
+    </figure>
+    <div class="hs__copy">
+      <p class="idx"><span>03</span>What we actually do</p>
+      <h2 class="h2" id="fix-title" data-split>Direct bookings, without losing the platforms.</h2>
+      <ul class="tl" data-reveal>
+        <li>{{icon:check-circle}}<span><b>Keep the booking sites working.</b> They stay switched on for discovery. We stop them owning every repeat guest.</span></li>
+        <li>{{icon:check-circle}}<span><b>A direct booking engine.</b> Your own site and calendar, with no platform commission on the booking.</span></li>
+        <li>{{icon:check-circle}}<span><b>Own the guest list.</b> Post stay campaigns and referral offers bring guests back without paying to reach them twice.</span></li>
+        <li>{{icon:check-circle}}<span><b>Pricing set for your yield.</b> Seasons, weekends and events priced for your revenue, not the platform’s volume.</span></li>
+      </ul>
+      <a class="btn btn--ghost" href="/system/">See the full system {{btn}}</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 A MODEL IS NOT AN AUDIT ============ -->
+<section class="mf s-night" aria-labelledby="real-title">
+  <div class="wrap">
+    <p class="idx"><span>04</span>Your actual numbers</p>
+    <h2 class="mf__text" id="real-title" data-split="scrub">A model is not an audit. The free analysis uses your real listing and the villas around it, and puts a number on the gap.</h2>
+    <div class="pg__cta">
+      <a class="lnk" href="/listing-audit/">Score my listing first {{icon:arrow-right-up}}</a>
+    </div>
+  </div>
+</section>
+
+{{FINAL:05}}

@@ -1,0 +1,45 @@
+<!-- @dsCard group="Content" height=600 width=1000 subtitle="Growth and Excellence" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>PlanCard</title>
+<style>html,body{margin:0;background:var(--limewash)}</style>
+</head>
+<body>
+<div class="iv-root">
+<div class="iv-plans">
+  <article class="iv-plan" aria-labelledby="p-growth">
+    <div><h3 id="p-growth">Growth</h3><p class="iv-plan__for">Entry plan for 5+ bedroom properties</p></div>
+    <div class="iv-figure"><span class="iv-figure__value">$3,999<small>/ year</small></span><span class="iv-figure__label">Setup included, billed once a year</span></div>
+    <ul>
+      <li>Rate strategy and dynamic pricing</li>
+      <li>Airbnb, Booking.com and Google Vacation Rentals</li>
+      <li>Property brand and direct booking website</li>
+      <li>Photo shoot with 100+ photos</li>
+    </ul>
+    <a class="iv-btn iv-btn--primary" href="#growth">Start with Growth</a>
+  </article>
+  <article class="iv-plan iv-plan--tint" aria-labelledby="p-exc">
+    <div><h3 id="p-exc">Excellence</h3><p class="iv-plan__for">For properties earning $90K or more a year</p></div>
+    <div class="iv-figure"><span class="iv-figure__value">Custom</span><span class="iv-figure__label">Quoted for your villa, setup included</span></div>
+    <ul>
+      <li>Everything in Growth</li>
+      <li>Agoda, Expedia, Traveloka and Vrbo</li>
+      <li>Social content, search, email and repeat guests</li>
+    </ul>
+    <a class="iv-btn iv-btn--secondary" href="#quote">Get a custom quote</a>
+  </article>
+</div>
+</div>
+<script>
+  /* Swap the logo file to the brass mark when the frame is in the dark theme (an img cannot inherit colour). */
+  (function () {
+    function sync() {
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.querySelectorAll('img[data-mark]').forEach(function (i) { i.src = dark ? '/_blob/625d17c53bcc9e37516703a82b1471cb' : '/_blob/796235b20551ebe79bd8cb51e5d8b091'; });
+    }
+    sync();
+    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  })();
+</script>
+</body>
+</html>

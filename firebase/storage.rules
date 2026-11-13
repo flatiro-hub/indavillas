@@ -1,0 +1,19 @@
+rules_version = '2';
+// Invoice and report files live at clients/<owner email>/docs/<file>.
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() { return request.auth != null && request.auth.token.email is string; }
+    function me() { return request.auth.token.email.lower(); }
+    function isAdmin() { return signedIn() && firestore.exists(/databases/(default)/documents/admins/$(me())); }
+
+    match /clients/{email}/{path=**} {
+      allow read: if isAdmin() || (signedIn() && email == me());
+      allow create, update: if isAdmin() && request.resource.size < 25 * 1024 * 1024;
+      allow delete: if isAdmin();
+    }
+    // Photos and videos can be larger: up to 300 MB each.
+    match /clients/{email}/media/{file} {
+      allow create, update: if isAdmin() && request.resource.size < 300 * 1024 * 1024;
+    }
+  }
+}

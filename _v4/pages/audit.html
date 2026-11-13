@@ -1,0 +1,195 @@
+<!-- ============ 01 HERO: the scorer itself, so the first thing you can do is use it ============ -->
+<section class="pg s-night au-hero" id="top" data-hero aria-labelledby="hero-title">
+  <div class="pg__copy">
+    <p class="idx" data-hero-mark><span>01</span>Free tool: listing audit</p>
+    <h1 class="pg__title" id="hero-title">Audit your listing in one minute.</h1>
+    <p class="lede pg__lede">Paste your Airbnb or Booking.com link. We fetch the listing and score it out of 100 on photos, title, description, amenities, reviews and booking setup, with every fix ranked by what it is worth.</p>
+
+    <form class="au-url" id="audit-url-form" novalidate>
+      <div class="field">
+        <label for="au-url">Your Airbnb or Booking.com link</label>
+        <input type="url" id="au-url" name="url" placeholder="https://www.airbnb.com/rooms/12345678" inputmode="url" autocomplete="url" spellcheck="false" required>
+      </div>
+      <button class="btn" type="submit"><span data-label>Audit my listing</span> {{btn}}</button>
+    </form>
+    <div class="astatus" id="audit-status" role="status" aria-live="polite" hidden></div>
+    <p class="au-alt"><button class="lnk" type="button" id="audit-open-manual" aria-controls="audit-manual">No link handy? Enter the details by hand {{icon:arrow-down}}</button></p>
+    <p class="pg__proof">{{icon:check-circle}} Free. Your score appears right here, no email needed.</p>
+  </div>
+  <figure class="pg__media" data-hero-media>
+    <img src="/v4/img/camera-1400.jpg" srcset="/v4/img/camera-800.jpg 800w, /v4/img/camera-1400.jpg 1400w" sizes="(min-width: 901px) 38vw, 100vw" alt="A camera on a tripod and a softbox set up in a villa living room that opens onto the pool" width="1400" height="1045" fetchpriority="high" decoding="async">
+  </figure>
+</section>
+
+<!-- ============ YOUR SCORE: manual entry, the result and the next step appear here.
+     The section is hidden by CSS until one of the three is shown. ============ -->
+<section class="au-out s-lime" id="score" aria-label="Your listing audit">
+  <div class="wrap">
+
+    <div class="amanual" id="audit-manual" hidden>
+      <p class="idx">Manual mode</p>
+      <h2 class="h2">Enter the details by hand.</h2>
+      <p class="lede">Fill in what you know. Anything left blank is dropped from the score and its weight moves to the other checks, so a blank never counts against you.</p>
+
+      <form class="ascorer" id="audit-form" novalidate>
+        <div class="field field--wide">
+          <label for="af-title">Listing title <span>required</span></label>
+          <input type="text" id="af-title" name="title" placeholder="e.g. Clifftop 5BR Villa, Infinity Pool, Uluwatu…" maxlength="120" autocomplete="off" required aria-describedby="af-title-hint">
+          <p class="field__hint" id="af-title-hint">Paste it exactly as it appears: length, wording and the area name are all scored.</p>
+        </div>
+        <div class="field field--wide">
+          <label for="af-desc">Description <span>required</span></label>
+          <textarea id="af-desc" name="description" rows="7" placeholder="Paste your full listing description here, line breaks and all…" required aria-describedby="af-desc-hint"></textarea>
+          <p class="field__hint" id="af-desc-hint">Line breaks matter, so paste it as it is rather than tidying it up.</p>
+        </div>
+        <div class="field">
+          <label for="af-area">Area or location</label>
+          <input type="text" id="af-area" name="area" placeholder="e.g. Uluwatu…" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="af-photos">Number of photos</label>
+          <input type="number" id="af-photos" name="photos" min="0" max="200" placeholder="e.g. 24" inputmode="numeric" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="af-captions">Photo captions</label>
+          <select id="af-captions" name="captions">
+            <option value="">Not sure</option>
+            <option value="most">Most photos have captions</option>
+            <option value="some">Some do</option>
+            <option value="none">None do</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="af-amenities">Amenities listed, in total</label>
+          <input type="number" id="af-amenities" name="amenities" min="0" max="200" placeholder="e.g. 32" inputmode="numeric" autocomplete="off">
+        </div>
+        <fieldset class="field field--wide">
+          <legend>Which of these are on your listing?</legend>
+          <div class="achecks">
+            <label><input type="checkbox" name="ess_wifi"> Wifi</label>
+            <label><input type="checkbox" name="ess_kitchen"> Kitchen</label>
+            <label><input type="checkbox" name="ess_washer"> Washer</label>
+            <label><input type="checkbox" name="ess_workspace"> Dedicated workspace</label>
+            <label><input type="checkbox" name="ess_tv"> TV</label>
+            <label><input type="checkbox" name="ess_parking"> Parking</label>
+          </div>
+          <p class="field__hint">These six are the filters guests use most. Each missing one hides you from that search.</p>
+        </fieldset>
+        <div class="field">
+          <label for="af-rating">Star rating</label>
+          <input type="number" id="af-rating" name="rating" min="0" max="5" step="0.01" placeholder="e.g. 4.87" inputmode="decimal" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="af-reviews">Number of reviews</label>
+          <input type="number" id="af-reviews" name="reviews" min="0" max="10000" placeholder="e.g. 46" inputmode="numeric" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="af-superhost">Superhost</label>
+          <select id="af-superhost" name="superhost">
+            <option value="">Not sure</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="af-instant">Instant Book</label>
+          <select id="af-instant" name="instant">
+            <option value="">Not sure</option>
+            <option value="yes">On</option>
+            <option value="no">Off</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="af-minnights">Minimum stay, in nights</label>
+          <input type="number" id="af-minnights" name="minnights" min="1" max="365" placeholder="e.g. 2" inputmode="numeric" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="af-cancel">Cancellation policy</label>
+          <select id="af-cancel" name="cancellation">
+            <option value="">Not sure</option>
+            <option value="flexible">Flexible</option>
+            <option value="moderate">Moderate</option>
+            <option value="firm">Firm</option>
+            <option value="strict">Strict</option>
+          </select>
+        </div>
+        <div class="ascorer__actions">
+          <button class="btn" type="submit"><span data-label>Score my listing</span> {{btn}}</button>
+          <button class="btn btn--ghost btn--plain" type="reset">Clear the form</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="aresult" id="audit-result" role="region" aria-live="polite" aria-label="Your listing score" hidden></div>
+
+    <div class="afollow s-night" id="audit-followup" hidden>
+      <div class="afollow__txt">
+        <p class="idx">Want these fixed?</p>
+        <h3 class="afollow__title">We will do it, and show you what it is worth.</h3>
+        <p>Send us the listing and we come back with a revenue gap analysis: what the villa earns now, what comparable villas earn, and the difference we would go after. Your score comes with it.</p>
+        <p class="afollow__fine">Your details are used for the analysis only. <a href="/privacy/">Privacy policy</a></p>
+      </div>
+      <form class="form afollow__form" data-form novalidate aria-label="Request your free revenue gap analysis">
+        <input type="hidden" name="_subject" value="Listing audit completed - IndaVillas">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="listing_score" value="">
+        <input type="text" name="_honey" class="form__honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="field">
+          <label for="fu-listing">Your listing link</label>
+          <input id="fu-listing" name="listing_url" type="url" inputmode="url" autocomplete="url" spellcheck="false" placeholder="https://www.airbnb.com/rooms/12345678" required aria-describedby="fu-listing-err">
+          <p class="field__err" id="fu-listing-err"></p>
+        </div>
+        <div class="field">
+          <label for="fu-email">Email address</label>
+          <input id="fu-email" name="email" type="email" autocomplete="email" spellcheck="false" placeholder="you@email.com" required aria-describedby="fu-email-err">
+          <p class="field__err" id="fu-email-err"></p>
+        </div>
+        <button class="btn form__submit" type="submit"><span data-label>Send me the revenue gap analysis</span> {{btn}}</button>
+        <p class="form__status" role="status" aria-live="polite" data-status></p>
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ 02 WHAT THE SCORE COVERS: the engine's real weights ============ -->
+<section class="wt-sec s-lime2" aria-labelledby="cover-title">
+  <div class="wrap">
+    <p class="idx"><span>02</span>What the score covers</p>
+    <h2 class="h2" id="cover-title" data-split>Six things, weighted by what moves bookings.</h2>
+    <p class="lede">Reviews carry the most weight, then photos and the description. Every check below is part of the score you get.</p>
+    <div class="wt" role="img" aria-label="How the 100 points are split: photos 20, title 10, description 20, amenities 10, reviews and host 25, booking setup 15" data-reveal>
+      <span style="--w:20">20</span><span style="--w:10">10</span><span style="--w:20">20</span><span style="--w:10">10</span><span style="--w:25">25</span><span style="--w:15">15</span>
+    </div>
+    <ol class="wt__list">
+      <li data-reveal><b class="wt__pts">20</b><h3>Photos</h3><p>How many photos there are, and how many carry a caption.</p></li>
+      <li data-reveal><b class="wt__pts">10</b><h3>Title</h3><p>How much of the 50 characters it uses, whether the area is named, and whether it reads clean or shouts in capitals and emoji.</p></li>
+      <li data-reveal><b class="wt__pts">20</b><h3>Description</h3><p>Length, line breaks, the selling points it names, and how strong the first line is.</p></li>
+      <li data-reveal><b class="wt__pts">10</b><h3>Amenities</h3><p>The six filters guests use most (wifi, kitchen, washer, workspace, TV, parking) and the total listed.</p></li>
+      <li data-reveal><b class="wt__pts">25</b><h3>Reviews and host</h3><p>Average rating, number of reviews and Superhost status.</p></li>
+      <li data-reveal><b class="wt__pts">15</b><h3>Booking setup</h3><p>Instant Book, the minimum stay and the cancellation policy.</p></li>
+    </ol>
+    <p class="src wt__src">Scores are guidance based on hosting best practice, not the platforms’ official ranking. Nobody outside Airbnb has that.</p>
+  </div>
+</section>
+
+<!-- ============ 03 WHAT WE USUALLY FIND ============ -->
+<section class="pb s-night" aria-labelledby="find-title">
+  <div class="wrap">
+    <p class="idx"><span>03</span>What we usually find</p>
+    <h2 class="h2" id="find-title" data-split>The same four things, again and again.</h2>
+    <div class="fx__grid">
+      <article class="fx__item"><span>01</span><h3>Uncaptioned photos</h3><p>Guests skim captions, and the platform reads them to understand the listing. One line each: what the space is, and why it is good.</p></article>
+      <article class="fx__item"><span>02</span><h3>Half a title</h3><p>Airbnb allows 50 characters and many titles use barely half, with the area name buried in the description where nobody searches.</p></article>
+      <article class="fx__item"><span>03</span><h3>Missing amenities</h3><p>Hosts often leave boxes unticked. Each one is a search filter the villa never appears in, however good it is.</p></article>
+      <article class="fx__item"><span>04</span><h3>A minimum stay that hides you</h3><p>A long minimum stay filters the villa out of shorter searches. Outside high season it often costs more than it protects.</p></article>
+    </div>
+    <div class="pg__cta">
+      <a class="btn" href="#top">Score my listing {{btn}}</a>
+      <a class="lnk" href="/revenue-calculator/">See what commission costs you {{icon:arrow-right-up}}</a>
+    </div>
+  </div>
+</section>
+
+{{FINAL:04}}

@@ -1,0 +1,9 @@
+AddDefaultCharset UTF-8
+# Always load the newest version of the portal after you upload changes
+<FilesMatch "\.html$">
+  Header set Cache-Control "no-cache, must-revalidate"
+</FilesMatch>
+# villa photos
+AddType image/avif .avif
+DirectoryIndex index.html
+Options -Indexes

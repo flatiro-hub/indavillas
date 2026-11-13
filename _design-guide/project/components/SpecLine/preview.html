@@ -1,0 +1,27 @@
+<!-- @dsCard group="Content" height=150 subtitle="The identity motif" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>SpecLine</title>
+<style>html,body{margin:0;background:var(--limewash)}</style>
+</head>
+<body>
+<div class="iv-root">
+<div style="display:grid;gap:24px;padding:24px">
+  <ul class="iv-spec" aria-label="Growth plan includes"><li>Airbnb</li><li>Booking.com</li><li>Google Vacation Rentals</li></ul>
+  <ul class="iv-spec" aria-label="Plan terms"><li>Setup included</li><li>Billed once a year</li><li>One flat yearly fee</li></ul>
+</div>
+<div class="iv-band" style="padding:24px"><ul class="iv-spec iv-spec--band" aria-label="Foundation"><li>Comp audit</li><li>60 minute consult</li><li>One time $290</li></ul></div>
+</div>
+<script>
+  /* Swap the logo file to the brass mark when the frame is in the dark theme (an img cannot inherit colour). */
+  (function () {
+    function sync() {
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.querySelectorAll('img[data-mark]').forEach(function (i) { i.src = dark ? '/_blob/625d17c53bcc9e37516703a82b1471cb' : '/_blob/796235b20551ebe79bd8cb51e5d8b091'; });
+    }
+    sync();
+    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  })();
+</script>
+</body>
+</html>

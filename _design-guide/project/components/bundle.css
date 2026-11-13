@@ -1,0 +1,153 @@
+/* IndaVillas components. Loaded after tokens.css; every value is a token.
+   One easing curve for everything that moves: cubic-bezier(.22,1,.36,1).
+   300ms for colour and opacity, 500ms for position. Only transform and opacity animate. */
+
+.iv-root {
+  background: var(--limewash);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 16px;
+  line-height: 26px;
+  -webkit-font-smoothing: antialiased;
+}
+.iv-root *, .iv-root *::before, .iv-root *::after { box-sizing: border-box; }
+.iv-root :focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+/* ---------- Button ---------- */
+.iv-btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: var(--space-8);
+  min-height: 48px; padding: 0 var(--space-24);
+  border: 1px solid transparent; border-radius: var(--radius-sm);
+  font-family: var(--font-text); font-size: 15px; line-height: 20px; font-weight: 600; letter-spacing: .01em;
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: background-color .3s cubic-bezier(.22,1,.36,1), color .3s cubic-bezier(.22,1,.36,1), border-color .3s cubic-bezier(.22,1,.36,1);
+}
+.iv-btn--primary { background: var(--teal); color: var(--on-teal); }
+.iv-btn--primary:hover { background: color-mix(in oklab, var(--teal) 84%, var(--ink)); }
+.iv-btn--secondary { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+.iv-btn--secondary:hover { border-color: var(--ink); }
+.iv-btn--band { background: transparent; color: var(--on-band); border-color: var(--band-soft); }
+.iv-btn--band:hover { border-color: var(--on-band); }
+.iv-btn--invert { background: var(--on-band); color: var(--teal-deep); }
+.iv-btn--invert:hover { background: var(--band-soft); }
+.iv-btn--sm { min-height: 44px; padding: 0 var(--space-16); }
+.iv-btn[disabled], .iv-btn[aria-disabled="true"] { opacity: .45; cursor: not-allowed; }
+
+/* ---------- TextLink ---------- */
+.iv-link {
+  color: var(--teal); font-weight: 600;
+  text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px;
+  text-decoration-color: var(--brass);
+  transition: text-decoration-color .3s cubic-bezier(.22,1,.36,1);
+}
+.iv-link:hover { text-decoration-color: var(--teal); }
+
+/* ---------- SpecLine (the identity motif) ---------- */
+.iv-spec { display: flex; flex-wrap: wrap; align-items: center; row-gap: var(--space-8); margin: 0; padding: 0; list-style: none; }
+.iv-spec li {
+  font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--ink-mute); padding: 0 var(--space-16); border-left: 1px solid var(--line);
+}
+.iv-spec li:first-child { padding-left: 0; border-left: 0; }
+.iv-spec--band li { color: var(--band-soft); border-color: color-mix(in oklab, var(--band-soft) 40%, transparent); }
+
+/* ---------- Figure ---------- */
+.iv-figure { display: grid; gap: var(--space-8); padding-top: var(--space-16); border-top: 1px solid var(--brass); min-width: 0; }
+.iv-figure__value {
+  font-family: var(--font-display); font-size: 56px; line-height: 56px; font-weight: 400;
+  font-variation-settings: 'opsz' 96; font-variant-numeric: lining-nums tabular-nums; color: var(--ink);
+}
+.iv-figure__value small { font-family: var(--font-text); font-size: 16px; font-weight: 400; color: var(--ink-soft); margin-left: var(--space-4); }
+.iv-figure__label { font-size: 12px; line-height: 16px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-mute); }
+.iv-source { font-size: 13px; line-height: 18px; color: var(--ink-mute); }
+
+/* ---------- Field ---------- */
+.iv-field { display: grid; gap: var(--space-8); }
+.iv-field label { font-size: 14px; line-height: 22px; font-weight: 600; color: var(--ink); }
+.iv-field input, .iv-field select {
+  height: 52px; padding: 0 var(--space-16); width: 100%;
+  background: var(--paper); color: var(--ink);
+  border: 1px solid var(--line-strong); border-radius: var(--radius-sm);
+  font: 400 16px/26px var(--font-text);
+  transition: border-color .3s cubic-bezier(.22,1,.36,1);
+}
+.iv-field input::placeholder { color: var(--ink-mute); }
+.iv-field input:focus { outline: 2px solid var(--teal); outline-offset: 2px; border-color: var(--teal); }
+.iv-field__hint { font-size: 14px; line-height: 22px; color: var(--ink-mute); }
+.iv-field--error input { border-color: var(--alert); }
+.iv-field--error .iv-field__hint { color: var(--alert); font-weight: 600; }
+
+/* ---------- SiteHeader ---------- */
+.iv-header {
+  display: flex; align-items: center; gap: var(--space-32);
+  height: 72px; padding: 0 var(--space-48);
+  background: transparent; border-bottom: 1px solid var(--line);
+}
+.iv-header--solid { background: var(--paper); border-bottom-color: transparent; box-shadow: var(--shadow-float); }
+.iv-brand { display: inline-flex; align-items: center; gap: var(--space-12); color: var(--ink); text-decoration: none; font-size: 19px; letter-spacing: -.01em; }
+.iv-brand img { width: 30px; height: auto; display: block; }
+.iv-brand b { font-weight: 650; }
+.iv-brand span { font-weight: 400; }
+.iv-nav { display: flex; gap: var(--space-32); margin-left: auto; }
+.iv-nav a {
+  color: var(--ink-soft); text-decoration: none; font-size: 15px; line-height: 20px; font-weight: 500;
+  padding: var(--space-8) 0; border-bottom: 1px solid transparent;
+  transition: color .3s cubic-bezier(.22,1,.36,1), border-color .3s cubic-bezier(.22,1,.36,1);
+}
+.iv-nav a:hover { color: var(--ink); }
+.iv-nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--brass); }
+
+/* ---------- Hero ---------- */
+.iv-hero { display: grid; gap: var(--space-48); padding: var(--space-48); }
+.iv-hero__photo { margin: 0; display: grid; gap: var(--space-8); }
+.iv-hero__photo img { width: 100%; aspect-ratio: 16 / 7; object-fit: cover; border-radius: var(--radius-0); display: block; }
+.iv-hero__photo figcaption { font-size: 13px; line-height: 18px; color: var(--ink-mute); text-align: right; }
+.iv-hero__body { display: grid; grid-template-columns: 7fr 5fr; gap: var(--space-48); align-items: end; }
+.iv-hero h1 {
+  margin: 0; font-family: var(--font-display); font-size: 72px; line-height: 76px; font-weight: 400;
+  letter-spacing: -.01em; font-variation-settings: 'opsz' 96; text-wrap: balance;
+}
+.iv-hero__side { display: grid; gap: var(--space-24); }
+.iv-hero__side p { margin: 0; font-size: 19px; line-height: 30px; font-weight: 300; color: var(--ink-soft); max-width: 52ch; }
+.iv-hero__actions { display: flex; flex-wrap: wrap; gap: var(--space-16); align-items: center; }
+
+/* ---------- PlanCard ---------- */
+.iv-plans { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-24); padding: var(--space-32); align-items: start; }
+.iv-plan {
+  display: grid; gap: var(--space-24); padding: var(--space-32);
+  background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-md);
+}
+.iv-plan--tint { background: var(--teal-tint); border-color: transparent; }
+.iv-plan h3 { margin: 0; font-family: var(--font-display); font-size: 28px; line-height: 34px; font-weight: 500; font-variation-settings: 'opsz' 28; }
+.iv-plan__for { margin: var(--space-4) 0 0; font-size: 14px; line-height: 22px; color: var(--ink-mute); }
+.iv-plan ul { margin: 0; padding: var(--space-24) 0 0; list-style: none; display: grid; gap: var(--space-12); border-top: 1px solid var(--line); }
+.iv-plan li { display: grid; grid-template-columns: 16px 1fr; gap: var(--space-12); align-items: baseline; }
+.iv-plan li::before { content: ""; height: 1px; background: var(--brass); transform: translateY(-4px); }
+.iv-plan__note { margin: 0; font-size: 14px; line-height: 22px; color: var(--ink-soft); }
+
+/* ---------- Band (closing CTA) ---------- */
+.iv-band { background: var(--teal-deep); color: var(--on-band); padding: var(--space-64) var(--space-48); display: grid; gap: var(--space-24); }
+.iv-band h2 { margin: 0; font-family: var(--font-display); font-size: 52px; line-height: 56px; font-weight: 400; font-variation-settings: 'opsz' 72; max-width: 16ch; text-wrap: balance; }
+.iv-band p { margin: 0; color: var(--band-soft); font-size: 19px; line-height: 30px; font-weight: 300; max-width: 46ch; }
+
+/* ---------- Phones (under 768px) ---------- */
+@media (max-width: 767px) {
+  .iv-header { gap: var(--space-16); padding: 0 var(--space-16); }
+  .iv-nav { display: none; } /* links move to the menu drawer */
+  .iv-brand { margin-right: auto; }
+  .iv-hero { gap: var(--space-24); padding: var(--space-16); }
+  .iv-hero__photo img { aspect-ratio: 4 / 3; }
+  .iv-hero__body { grid-template-columns: minmax(0, 1fr); gap: var(--space-24); }
+  .iv-hero h1 { font-size: 52px; line-height: 56px; font-variation-settings: 'opsz' 72; }
+  .iv-plans { grid-template-columns: minmax(0, 1fr); padding: var(--space-16); }
+  .iv-plan { padding: var(--space-24); }
+  .iv-band { padding: var(--space-64) var(--space-16); }
+  .iv-band h2 { font-size: 38px; line-height: 44px; font-variation-settings: 'opsz' 48; }
+  .iv-figure__value { font-size: 44px; line-height: 48px; }
+  .iv-spec { flex-direction: column; align-items: flex-start; row-gap: var(--space-8); }
+  .iv-spec li { padding: 0; border-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iv-root *, .iv-root *::before, .iv-root *::after { transition: none !important; animation: none !important; }
+}

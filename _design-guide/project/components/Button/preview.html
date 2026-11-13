@@ -1,0 +1,31 @@
+<!-- @dsCard group="Actions" height=120 subtitle="Primary, secondary, on a dark band" -->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Button</title>
+<style>html,body{margin:0;background:var(--limewash)}</style>
+</head>
+<body>
+<div class="iv-root">
+<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;padding:24px">
+  <a class="iv-btn iv-btn--primary" href="#analysis">Book a free analysis</a>
+  <a class="iv-btn iv-btn--secondary" href="#plans">See the plans</a>
+  <button class="iv-btn iv-btn--primary iv-btn--sm" type="button">Free analysis</button>
+  <button class="iv-btn iv-btn--secondary" type="button" disabled>Sending</button>
+</div>
+<div class="iv-band" style="padding:24px;display:flex;flex-wrap:wrap;gap:16px">
+  <a class="iv-btn iv-btn--band" href="#pricing">Compare Growth and Excellence</a>
+</div>
+</div>
+<script>
+  /* Swap the logo file to the brass mark when the frame is in the dark theme (an img cannot inherit colour). */
+  (function () {
+    function sync() {
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.querySelectorAll('img[data-mark]').forEach(function (i) { i.src = dark ? '/_blob/625d17c53bcc9e37516703a82b1471cb' : '/_blob/796235b20551ebe79bd8cb51e5d8b091'; });
+    }
+    sync();
+    new MutationObserver(sync).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  })();
+</script>
+</body>
+</html>
