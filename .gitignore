@@ -1,5 +1,6 @@
 # secrets and purchased data: never in this public repo
 api/config.php
+api/market-key.txt
 api/data/*.php
 *.csv
 .dev.vars
