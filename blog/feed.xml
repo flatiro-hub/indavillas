@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>IndaVillas blog</title>
+  <subtitle>Market data on 5+ bedroom villas in Bali, and practical notes on listings, photography, pricing, reviews and guest communication.</subtitle>
+  <link href="https://indavillas.com/blog/"/>
+  <link rel="self" href="https://indavillas.com/blog/feed.xml"/>
+  <id>https://indavillas.com/blog/</id>
+  <updated>2026-11-14T09:00:00+08:00</updated>
+  <author><name>IndaVillas</name><uri>https://indavillas.com/</uri></author>
+  <entry>
+    <title>5 questions to ask a Bali villa management company before you sign</title>
+    <link href="https://indavillas.com/blog/questions-to-ask-villa-management-company/"/>
+    <id>https://indavillas.com/blog/questions-to-ask-villa-management-company/</id>
+    <published>2026-11-14T09:00:00+08:00</published>
+    <updated>2026-11-14T09:00:00+08:00</updated>
+    <category term="Choosing a manager"/>
+    <summary>Who reviews my prices? What is in the monthly report? Who answers guests at 2am? What does it cost in total? What if I leave? What a good answer sounds like.</summary>
+  </entry>
+  <entry>
+    <title>Building a villa in Bali? Four decisions to make before your first listing</title>
+    <link href="https://indavillas.com/blog/building-a-villa-in-bali-before-you-list/"/>
+    <id>https://indavillas.com/blog/building-a-villa-in-bali-before-you-list/</id>
+    <published>2026-11-14T09:00:00+08:00</published>
+    <updated>2026-11-14T09:00:00+08:00</updated>
+    <category term="Launching a villa"/>
+    <summary>Most launch problems start months earlier. Decide who the villa is for, what similar villas really earn, who runs the house and what the first guests will see.</summary>
+  </entry>
+  <entry>
+    <title>A guest messages at 2am: what should happen next</title>
+    <link href="https://indavillas.com/blog/after-hours-guest-messages-villa/"/>
+    <id>https://indavillas.com/blog/after-hours-guest-messages-villa/</id>
+    <published>2026-11-14T09:00:00+08:00</published>
+    <updated>2026-11-14T09:00:00+08:00</updated>
+    <category term="Guest experience"/>
+    <summary>The air conditioning stops, or the taxi cannot find the gate. A simple night plan for villa owners: who answers, how to sort the problem, and when to wake the team.</summary>
+  </entry>
+  <entry>
+    <title>Do higher Airbnb ratings mean more revenue? What 1,439 Bali villas show</title>
+    <link href="https://indavillas.com/blog/airbnb-rating-revenue-bali-villas/"/>
+    <id>https://indavillas.com/blog/airbnb-rating-revenue-bali-villas/</id>
+    <published>2026-11-14T09:00:00+08:00</published>
+    <updated>2026-11-14T09:00:00+08:00</updated>
+    <category term="Market data"/>
+    <summary>Bali villas rated 4.85 or higher earned a median of $65,900 a year. Villas under 4.5 earned $30,500. Where the gap opens, and what an owner controls.</summary>
+  </entry>
+  <entry>
+    <title>Where 5 star villa reviews come from: scent, light, comfort, clarity</title>
+    <link href="https://indavillas.com/blog/five-star-airbnb-reviews-villa/"/>
+    <id>https://indavillas.com/blog/five-star-airbnb-reviews-villa/</id>
+    <published>2026-11-14T09:00:00+08:00</published>
+    <updated>2026-11-14T09:00:00+08:00</updated>
+    <category term="Guest experience"/>
+    <summary>Five star reviews rarely come from the pool. They come from how a room smells, whether the lamp works, how the bed feels and how clear the arrival message is.</summary>
+  </entry>
+  <entry>
+    <title>The last ten minutes before a guest arrives: a villa checklist</title>
+    <link href="https://indavillas.com/blog/villa-arrival-checklist/"/>
+    <id>https://indavillas.com/blog/villa-arrival-checklist/</id>
+    <published>2026-11-14T09:00:00+08:00</published>
+    <updated>2026-11-14T09:00:00+08:00</updated>
+    <category term="How we work"/>
+    <summary>Guests never mention the crease you fixed. They mention the one you missed. A written ten minute checklist for your villa team, from the gate to the bedroom.</summary>
+  </entry>
+  <entry>
+    <title>What a 5+ bedroom villa in Bali earns: occupancy, nightly rate and revenue</title>
+    <link href="https://indavillas.com/blog/bali-villa-occupancy-revenue-5-bedroom/"/>
+    <id>https://indavillas.com/blog/bali-villa-occupancy-revenue-5-bedroom/</id>
+    <published>2026-11-14T09:00:00+08:00</published>
+    <updated>2026-11-14T09:00:00+08:00</updated>
+    <category term="Market data"/>
+    <summary>The median Bali villa with 5+ bedrooms was 44% occupied and earned $46,000 in the year to October 2026. The top quarter earned $101,700. Data by size and area.</summary>
+  </entry>
+  <entry>
+    <title>Villa revenue management vs full management: who does what</title>
+    <link href="https://indavillas.com/blog/villa-revenue-management-vs-full-management/"/>
+    <id>https://indavillas.com/blog/villa-revenue-management-vs-full-management/</id>
+    <published>2026-11-14T09:00:00+08:00</published>
+    <updated>2026-11-14T09:00:00+08:00</updated>
+    <category term="How we work"/>
+    <summary>Full villa management runs the house for a share of every booking. Revenue management keeps your team and works on rate, listing and reach for a flat fee.</summary>
+  </entry>
+  <entry>
+    <title>Your first Airbnb photo has one job: earn the click</title>
+    <link href="https://indavillas.com/blog/airbnb-cover-photo-villa/"/>
+    <id>https://indavillas.com/blog/airbnb-cover-photo-villa/</id>
+    <published>2026-11-14T09:00:00+08:00</published>
+    <updated>2026-11-14T09:00:00+08:00</updated>
+    <category term="How we work"/>
+    <summary>Your Airbnb cover photo decides whether a guest opens your villa or scrolls past. How to choose it, test it at thumbnail size and plan the shoot around it.</summary>
+  </entry>
+</feed>
