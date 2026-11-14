@@ -98,6 +98,7 @@ const ACTIONS = {
   "billing.publish": { fn: ({ db, b, me }) => billing.publish({ db, email: b.email, month: b.month, me }) },
   "billing.unpublish": { fn: ({ db, b }) => billing.unpublish({ db, email: b.email, month: b.month }) },
   "billing.invoice": { fn: ({ db, b, me }) => billing.createInvoice({ db, email: b.email, body: b, me, fromPlan: !!b.fromPlan }) },
+  "billing.notifyDoc": { fn: ({ db, b }) => billing.notifyUpload({ db, email: b.email, id: b.id }) },
 
   "ops.board": { fn: ({ api, db, now, b }) => ops.board({ api, db, now, days: Math.min(30, Math.max(3, Number(b.days) || 14)) }) },
   "ops.tasks": { fn: ({ api, b }) => ops.createTasks({ api, items: b.items || [] }) },
