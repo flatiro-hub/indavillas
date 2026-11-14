@@ -145,7 +145,8 @@ LEGAL = {
     "updated": "11 November 2026",
 }
 LEGAL_LABELS = {"name": "registered company name", "address": "registered address", "law": "country whose law applies"}
-NAV = [("services", "/services/", "Services"), ("system", "/system/", "The system"), ("pricing", "/pricing/", "Pricing")]
+NAV = [("services", "/services/", "Services"), ("system", "/system/", "The system"), ("pricing", "/pricing/", "Pricing"),
+       ("blog", "/blog/", "Blog")]
 CUR = ' aria-current="page"'      # marks the page you are on in the menus
 
 
