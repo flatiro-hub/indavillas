@@ -1,0 +1,186 @@
+/* ============================================================
+   IndaVillas blog (design v4, November 2026). Loaded only by /blog/
+   pages, after style.css, and built by _v4/blog.py.
+
+   Same idea as the rest of the site: a villa earns by the night, so
+   the figure is the picture. An article that has a number opens on
+   it; one that has a photo opens on the photo. Limestone to read on,
+   night for the single call to action, brass as the only accent.
+   Blog pages load no animation libraries: every word is in the HTML
+   and visible without JavaScript, for readers and for crawlers.
+   ============================================================ */
+
+/* ---------- 1. Article opening ---------- */
+.ar-hero{padding:clamp(112px,15vh,160px) 0 clamp(40px,5vw,64px)}
+.ar-hero__grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(32px,5vw,88px);align-items:end}
+.crumbs{display:flex;flex-wrap:wrap;align-items:center;gap:0 10px;font-size:.9rem;color:var(--fg3)}
+.crumbs li{display:flex;align-items:center;gap:10px}
+.crumbs li+li::before{content:"/";color:var(--ln)}
+.crumbs a{display:inline-flex;align-items:center;min-height:44px;color:var(--fg2);transition:color .3s var(--ease)}
+.crumbs a:hover{color:var(--hi)}
+.crumbs [aria-current]{color:var(--fg3)}
+.ar-kick{margin-top:8px}
+.ar-title{max-width:19ch;margin-top:20px;font-size:clamp(2.1rem,1.15rem + 3.4vw,4.5rem);line-height:1;letter-spacing:-.045em}
+.ar-lede{max-width:58ch;margin-top:26px;font-size:var(--t-lede);line-height:1.55;color:var(--fg2)}
+.ar-lede b{color:var(--fg)}
+.ar-meta{display:flex;flex-wrap:wrap;gap:4px 20px;margin-top:26px;font-size:.92rem;color:var(--fg3)}
+.ar-meta b{font-weight:600;color:var(--fg2)}
+
+/* the photo: portrait, as shot for the matching Instagram post */
+.ar-fig img{width:100%;aspect-ratio:4/5;object-fit:cover;background:var(--lime-2)}
+.ar-fig figcaption,.ar-bars figcaption,.ar-tw caption{font-size:.86rem;color:var(--fg3)}
+.ar-fig figcaption{margin-top:10px}
+
+/* the figure: one number, set as large as the column allows */
+.ar-num{display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(280px,34vw,460px);padding:clamp(24px,3vw,40px);border-radius:16px}
+.ar-num__n{font:500 clamp(4.4rem,2rem + 8.4vw,9.6rem)/.86 var(--f-d);letter-spacing:-.06em;font-variant-numeric:tabular-nums;color:var(--brass)}
+.ar-num__n small{font-size:.34em;letter-spacing:-.03em;color:var(--fg)}
+.ar-num__l{max-width:24ch;margin-top:18px;font:500 1.2rem/1.3 var(--f-d);letter-spacing:-.02em}
+.ar-num__s{margin-top:14px;font-size:.84rem;color:var(--fg3)}
+
+/* ---------- 2. Reading column ---------- */
+.ar{padding-bottom:var(--section)}
+.ar__grid{display:grid;grid-template-columns:minmax(0,.3fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);padding-top:clamp(40px,5vw,64px);border-top:1px solid var(--ln)}
+.ar__body{max-width:70ch;font-size:1.09rem;line-height:1.68}
+.ar__body [id]{scroll-margin-top:96px}
+.ar__body>:first-child{margin-top:0}
+.ar__body p,.ar__body ul,.ar__body ol{margin-top:1.05em;color:var(--fg2)}
+.ar__body h2{margin-top:clamp(56px,7vw,88px);font-size:var(--t-h3);line-height:1.04;letter-spacing:-.035em}
+.ar__body h3{margin-top:36px;font:600 1.16rem/1.35 var(--f-t);letter-spacing:0;color:var(--fg)}
+.ar__body h2+p,.ar__body h3+p{margin-top:.7em}
+.ar__body b,.ar__body strong{color:var(--fg)}
+.ar__body a:not(.btn){color:var(--fg);text-decoration:underline;text-decoration-thickness:1px;text-decoration-color:var(--acc);text-underline-offset:4px;transition:color .3s var(--ease)}
+.ar__body a:not(.btn):hover{color:var(--hi)}
+.ar__body ul,.ar__body ol{display:grid;gap:10px}
+.ar__body li{position:relative;padding-left:26px}
+.ar__body ul>li::before{content:"";position:absolute;left:3px;top:.72em;width:7px;height:7px;border-radius:999px;background:var(--brass)}
+.ar__body ol{counter-reset:step}
+.ar__body ol>li{counter-increment:step;padding-left:40px}
+.ar__body ol>li::before{content:counter(step,decimal-leading-zero);position:absolute;left:0;top:.18em;font:600 .86rem/1.68 var(--f-t);font-variant-numeric:tabular-nums;color:var(--acc)}
+
+/* the short version: what the article says, before the article */
+.ar-key{padding:clamp(22px,2.6vw,32px);border-radius:16px;background:var(--surf)}
+.ar-key h2{margin:0;font:600 .92rem/1.3 var(--f-t);letter-spacing:0;color:var(--acc)}
+.ar__body .ar-key ol{margin-top:12px;gap:12px}
+.ar-key li{color:var(--fg)}
+
+/* a figure worth stopping on, inside the text */
+.ar__body .ar-stat{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 28px;align-items:center;margin-top:36px;padding-block:24px;border-block:1px solid var(--ln);color:var(--fg)}
+.ar-stat b{font:500 clamp(3rem,1.8rem + 4.4vw,5.4rem)/.9 var(--f-d);letter-spacing:-.055em;font-variant-numeric:tabular-nums;color:var(--hi)}
+.ar-stat span{max-width:30ch;font:500 1.14rem/1.35 var(--f-d);letter-spacing:-.015em}
+
+/* tables: the figures in a form that can be read, copied and quoted */
+.ar-tw{margin-top:28px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.ar-tw:focus-visible{outline-offset:6px}
+.ar-tw table{width:100%;min-width:520px;border-collapse:collapse;font-size:1rem;line-height:1.4;font-variant-numeric:tabular-nums}
+.ar-tw caption{position:sticky;left:0;max-width:min(70ch,100vw - 2*var(--gutter));padding-bottom:12px;text-align:left;caption-side:top;font-size:.92rem;font-weight:600;color:var(--fg)}
+.ar-tw th,.ar-tw td{padding:13px 20px 13px 0;text-align:left;vertical-align:top;border-bottom:1px solid var(--ln)}
+.ar-tw thead th{font-size:.86rem;font-weight:600;color:var(--fg3);border-bottom-color:var(--fg)}
+.ar-tw tbody th{font-weight:600;color:var(--fg)}
+.ar-tw td{color:var(--fg2)}
+.ar-tw :is(th,td):last-child{padding-right:0}
+.ar-tw .n{text-align:right;white-space:nowrap}
+.ar-tw tr.hi :is(th,td){color:var(--fg);font-weight:600}
+.ar__body .ar-cap{margin-top:10px;font-size:.86rem;color:var(--fg3)}
+
+/* definitions: the term, then what it means, one row each */
+.ar__body .ar-dl{display:grid;margin-top:24px;border-top:1px solid var(--ln)}
+.ar-dl div{display:grid;grid-template-columns:minmax(0,.3fr) minmax(0,1fr);gap:4px 24px;padding:14px 0;border-bottom:1px solid var(--ln)}
+.ar-dl dt{font-weight:600;color:var(--fg)}
+.ar-dl dd{color:var(--fg2)}
+
+/* bars: one measure, one colour, value written beside each bar */
+.ar-bars{margin-top:32px}
+.ar-bars figcaption{font-size:.92rem;font-weight:600;color:var(--fg)}
+.ar-bars dl{display:grid;gap:18px;margin-top:16px}
+.ar-bars dt{font-weight:600;color:var(--fg)}
+.ar-bars dd{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 16px;margin-top:8px;font-size:.96rem;font-variant-numeric:tabular-nums;color:var(--fg3)}
+.ar-bars dd b{color:var(--fg)}
+.ar-bars i{display:block;height:18px;margin-top:8px;background:var(--ln)}
+.ar-bars i::after{content:"";display:block;width:var(--w);height:100%;background:var(--lagoon)}
+.ar-bars .ar-cap{margin-top:14px;font-size:.86rem;color:var(--fg3)}
+
+/* how to read the numbers, and where they stop */
+.ar__body .ar-note{margin-top:28px;padding:18px 22px;border:1px solid var(--ln);border-radius:16px;font-size:.96rem;line-height:1.6}
+.ar-note b{display:block;margin-bottom:4px;font-size:.88rem}
+
+/* a checklist someone can print and walk the villa with */
+.ar__body .ar-check{gap:0;border-top:1px solid var(--ln)}
+.ar__body .ar-check>li{padding:14px 0 14px 40px;border-bottom:1px solid var(--ln);color:var(--fg)}
+.ar__body .ar-check>li::before{top:1.02em;left:4px;width:16px;height:16px;border-radius:4px;background:none;box-shadow:inset 0 0 0 1.5px var(--acc)}
+.ar-check small{display:block;margin-top:2px;font-size:.94rem;color:var(--fg2)}
+
+/* the one call to action inside the text */
+.ar__body .ar-cta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 32px;align-items:center;margin-top:clamp(40px,5vw,56px);padding:clamp(24px,3vw,36px);border-radius:16px}
+.ar-cta p{margin:0;color:var(--fg2)}
+.ar__body .ar-cta .ar-cta__h{font:500 clamp(1.3rem,1.05rem + .9vw,1.75rem)/1.12 var(--f-d);letter-spacing:-.03em;color:var(--fg)}
+.ar-cta .ar-cta__h+p{margin-top:8px;font-size:.98rem}
+
+/* questions owners ask: visible answers, no accordion */
+.ar-qa h3{margin-top:32px}
+
+/* sources and method */
+.ar-src{margin-top:clamp(56px,7vw,88px);padding-top:28px;border-top:1px solid var(--ln);font-size:.96rem;line-height:1.6}
+.ar__body .ar-src h2{margin-top:0;font:600 1.16rem/1.35 var(--f-t);letter-spacing:0}
+.ar__body .ar-src ol{gap:8px}
+.ar__body .ar-src li{overflow-wrap:anywhere}
+.ar-by{display:flex;gap:16px;align-items:flex-start;margin-top:32px;padding:20px 22px;border-radius:16px;background:var(--surf)}
+.ar-by svg{flex:none;width:auto;height:26px;margin-top:4px;color:var(--acc)}
+.ar__body .ar-by p{margin:0;font-size:.96rem}
+
+/* ---------- 3. Keep reading ---------- */
+.rel{padding-block:clamp(64px,8vw,112px)}
+.rel h2{font-size:var(--t-h3);letter-spacing:-.035em}
+.bl-list{margin-top:clamp(28px,4vw,48px);border-top:1px solid var(--ln)}
+.bl-row{position:relative;display:grid;grid-template-columns:minmax(0,.3fr) minmax(0,1fr) auto;gap:8px clamp(24px,5vw,80px);align-items:baseline;padding:clamp(22px,2.6vw,32px) 0;border-bottom:1px solid var(--ln)}
+.bl-row__meta{font-size:.9rem;color:var(--fg3)}
+.bl-row__meta b{display:block;font-weight:600;color:var(--acc)}
+.bl-row h2,.bl-row h3{font:500 clamp(1.3rem,1.05rem + 1vw,1.95rem)/1.1 var(--f-d);letter-spacing:-.03em}
+.bl-row h2 a::after,.bl-row h3 a::after{content:"";position:absolute;inset:0}
+.bl-row p{max-width:62ch;margin-top:10px;color:var(--fg2)}
+.bl-row__go{display:grid;place-items:center;width:44px;height:44px;border-radius:999px;box-shadow:inset 0 0 0 1px var(--ln);transition:background-color .3s var(--ease),color .3s var(--ease),transform .5s var(--ease)}
+.bl-row:hover .bl-row__go{background:var(--fg);color:var(--bg);transform:translateX(4px)}
+.bl-row:hover h2,.bl-row:hover h3{color:var(--hi)}
+.bl-row:focus-within{outline:2px solid var(--brass);outline-offset:4px}
+.bl-row a:focus-visible{outline:none}
+
+/* ---------- 4. Blog index ---------- */
+.bl-hero{padding:clamp(132px,17vh,184px) 0 clamp(40px,5vw,64px)}
+.bl-hero .lede{max-width:56ch;margin-top:28px}
+.bl-feat{position:relative;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(32px,5vw,88px);align-items:end;padding-block:clamp(40px,5vw,64px);border-top:1px solid var(--ln)}
+.bl-feat h2{max-width:18ch;margin-top:16px;font-size:clamp(2rem,1.2rem + 3vw,4rem);line-height:1;letter-spacing:-.045em}
+.bl-feat h2 a::after{content:"";position:absolute;inset:0}
+.bl-feat p.lede{margin-top:22px;max-width:54ch}
+.bl-feat .btn{position:relative;margin-top:28px;pointer-events:none}
+.bl-feat:hover h2{color:var(--hi)}
+.bl-feat:focus-within{outline:2px solid var(--brass);outline-offset:6px}
+.bl-feat a:focus-visible{outline:none}
+.bl{padding-bottom:var(--section)}
+.bl__note{max-width:62ch;margin-top:clamp(40px,5vw,64px);font-size:.96rem;color:var(--fg3)}
+.bl__note a{color:var(--fg2);text-decoration:underline;text-decoration-color:var(--ln);text-underline-offset:4px}
+.bl__note a:hover{color:var(--hi)}
+
+/* ---------- 5. Smaller screens ---------- */
+@media(max-width:900px){
+  .ar-hero__grid,.ar__grid,.bl-feat{grid-template-columns:minmax(0,1fr)}
+  .ar-hero__grid{align-items:start}
+  .ar-fig img{aspect-ratio:4/3}
+  .ar-num{min-height:0}
+  .ar__grid .lg__toc{position:static}
+  .bl-row{grid-template-columns:minmax(0,1fr) auto}
+  .bl-row__meta{grid-column:1/-1}
+  .bl-row__meta b{display:inline;margin-right:10px}
+  .ar__body .ar-cta{grid-template-columns:minmax(0,1fr)}
+}
+@media(max-width:600px){
+  .ar__body{font-size:1.04rem}
+  .ar__body .ar-stat{grid-template-columns:minmax(0,1fr)}
+  .ar-dl div{grid-template-columns:minmax(0,1fr)}
+  .bl-row__go{display:none}
+  .bl-row{grid-template-columns:minmax(0,1fr)}
+}
+@media print{
+  .nav,.menu,.fn,.ft,.rel,.ar-cta,.lg__toc{display:none!important}
+  .ar-hero{padding-top:0}
+  .ar__grid{display:block;border:0}
+}
