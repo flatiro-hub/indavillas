@@ -575,3 +575,64 @@ nights, at least one booked night (866 listings). Recompute with `python3 -I _v4
   -24% at 8+), so the data does not support it. The home page still uses it and the old
   3 to 5 bedroom top 25% figures.
 - Upload: `indavillas-v4-full-upload-2026-11-12.zip` (11c is now STALE).
+
+### 17f. Blog (13 November 2026)
+
+`/blog/` and nine articles, one per Instagram post planned for 11 to 30 November 2026.
+Built by `python3 _v4/blog.py` from `_v4/blog/*.html` (JSON meta block + plain HTML body);
+styles in `/v4/blog.css`, images in `/v4/img/blog/`. `python3 _v4/blog.py --og` also renders
+missing share images (1200x630, needs Chrome). The script rewrites `sitemap.xml` (every
+indexable page, real change dates), `llms.txt` and `blog/feed.xml` on every run.
+
+| # | Instagram post | Article |
+|---|---|---|
+| 01 | 11 Nov, first photo | `/blog/airbnb-cover-photo-villa/` |
+| 02 | 13 Nov, who does what | `/blog/villa-revenue-management-vs-full-management/` |
+| 03 | 16 Nov, Bali villa numbers | `/blog/bali-villa-occupancy-revenue-5-bedroom/` (featured) |
+| 04 | 18 Nov, the crease | `/blog/villa-arrival-checklist/` |
+| 05 | 20 Nov, small things | `/blog/five-star-airbnb-reviews-villa/` |
+| 06 | 23 Nov, reviews and revenue | `/blog/airbnb-rating-revenue-bali-villas/` |
+| 07 | 25 Nov, guest at 2am | `/blog/after-hours-guest-messages-villa/` |
+| 08 | 27 Nov, building a villa | `/blog/building-a-villa-in-bali-before-you-list/` |
+| 09 | 30 Nov, five questions | `/blog/questions-to-ask-villa-management-company/` |
+
+- **SEO and AI search rules** follow the open source skills AgriciDaniel/claude-seo and
+  claude-blog, zubair-trabzada/geo-seo-claude and coreyhaines31/marketingskills, which defer
+  to Google's guide ("optimising for generative AI is still SEO"): answer first lede, a
+  "short version" box, sections that open with their point and can be quoted alone, sourced
+  figures, captioned tables, all text in the HTML, and one JSON-LD graph per page
+  (BlogPosting, Organization, WebSite, Blog, WebPage, BreadcrumbList). No FAQPage markup:
+  Google retired FAQ rich results in May 2026, so the questions are visible text only.
+- **Blog pages load no GSAP or Lenis.** `main.js` still runs the menu and the form.
+- **Numbers.** Same population as the Instagram SOP: 2,910 whole home Airbnb listings, 5+
+  bedrooms, 180+ days available, 1+ reserved day, AirDNA trailing 12 months to October 2026.
+  New cuts made for the blog from that population (not on the SOP's approved list, so check
+  them before reusing on Instagram): by bedroom count, by area (coordinate boxes), by rating
+  band, by review count, by minimum stay. The pricing page uses a narrower group (6+
+  bedrooms, 271+ days); article 03 says so.
+- **Claims left out on purpose:** that guests are answered around the clock, and that owners
+  keep the listing, reviews and data on leaving. Both were still unconfirmed for Instagram.
+  Articles 07 and 09 give them as what a good manager offers, not as an IndaVillas promise.
+- **Management fee range.** Two published guides (Own Property Abroad: 10 to 20%, average
+  20% of gross; Global Investments: 18 to 25% of gross). The examples use 15 and 25%, the
+  range already on /pricing/.
+- **Author** is the organisation ("By IndaVillas"). A named person with a short bio would
+  be stronger; add one in `sources_block()` and the BlogPosting `author` in `_v4/blog.py`.
+- **Dates.** Every article is dated 13 November 2026. If the upload happens later, change
+  `"date"` in each meta block to the real day and rebuild. Do not backdate.
+- **Navigation.** "Blog" added to `NAV` in `_v4/build.py`, so it shows in the top bar, the
+  mobile menu and the footer of every v4 page. Remove that tuple to take it out.
+- **After upload:** submit `https://indavillas.com/sitemap.xml` in Google Search Console
+  and Bing Webmaster Tools, and leave the "Search generative AI" setting in Search Console
+  on "include". `robots.txt` already allows every crawler, AI search crawlers included.
+- **Citation audit (same day).** Scored with the claude-blog `blog-geo` audit, then fixed:
+  every section that states a figure now names AirDNA and the period (12 sections had not),
+  the Airbnb Help Centre and fee guide pages are linked where they are cited, the three data
+  articles carry a definitions block (`{{terms}}` in `_v4/blog.py`, checked against AirDNA's
+  help pages), and "large villas" became "villas with 5 or more bedrooms". AirDNA's revenue
+  potential means "if available all 365 days"; article 03 now says so. The plugin's script
+  went from 55-69 to 62-74; it only recognises Markdown link and definition patterns, so it
+  under-reads these HTML pages. Do not rewrite copy to chase it.
+- Upload: `indavillas-v4-full-upload-2026-11-13b.zip` (everything in the 11-12 zip, plus
+  `blog/`, `v4/blog.css`, `v4/img/blog/`, `sitemap.xml`, `llms.txt`). 11-12 and the first
+  11-13 zip are now STALE.

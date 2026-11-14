@@ -1,0 +1,36 @@
+# IndaVillas
+
+> IndaVillas runs the commercial side of 5+ bedroom luxury villas in Bali: rate strategy and pricing, listings, photography, distribution on the booking sites and guest communication. The owner's own team keeps running the house (arrivals, cleaning, maintenance) and guest payments stay with the owner. One flat yearly fee, quoted per villa, not a percentage of bookings. Legal entity: PT. Flatiro Property Management, Canggu, Bali, Indonesia.
+
+## Main pages
+- [Home](https://indavillas.com/): what IndaVillas does and for whom
+- [Services](https://indavillas.com/services/): listing, photography, pricing, guest communication, arrivals, concierge
+- [The system](https://indavillas.com/system/): the three phase revenue growth system
+- [Pricing](https://indavillas.com/pricing/): the Growth and Excellence plans, and how the flat fee compares
+- [Listing audit](https://indavillas.com/listing-audit/): free tool that scores an Airbnb or Booking.com listing out of 100
+- [Revenue calculator](https://indavillas.com/revenue-calculator/): free tool showing what booking site commission costs a villa
+
+## Blog
+- [Your first Airbnb photo has one job: earn the click](https://indavillas.com/blog/airbnb-cover-photo-villa/): Your Airbnb cover photo decides whether a guest opens your villa or scrolls past. How to choose it, test it at thumbnail size and plan the shoot around it.
+- [Villa revenue management vs full management: who does what](https://indavillas.com/blog/villa-revenue-management-vs-full-management/): Full villa management runs the house for a share of every booking. Revenue management keeps your team and works on rate, listing and reach for a flat fee.
+- [What a 5+ bedroom villa in Bali earns: occupancy, nightly rate and revenue](https://indavillas.com/blog/bali-villa-occupancy-revenue-5-bedroom/): The median Bali villa with 5+ bedrooms was 44% occupied and earned $46,000 in the year to October 2026. The top quarter earned $101,700. Data by size and area.
+- [The last ten minutes before a guest arrives: a villa checklist](https://indavillas.com/blog/villa-arrival-checklist/): Guests never mention the crease you fixed. They mention the one you missed. A written ten minute checklist for your villa team, from the gate to the bedroom.
+- [Where 5 star villa reviews come from: scent, light, comfort, clarity](https://indavillas.com/blog/five-star-airbnb-reviews-villa/): Five star reviews rarely come from the pool. They come from how a room smells, whether the lamp works, how the bed feels and how clear the arrival message is.
+- [Do higher Airbnb ratings mean more revenue? What 1,439 Bali villas show](https://indavillas.com/blog/airbnb-rating-revenue-bali-villas/): Bali villas rated 4.85 or higher earned a median of $65,900 a year. Villas under 4.5 earned $30,500. Where the gap opens, and what an owner controls.
+- [A guest messages at 2am: what should happen next](https://indavillas.com/blog/after-hours-guest-messages-villa/): The air conditioning stops, or the taxi cannot find the gate. A simple night plan for villa owners: who answers, how to sort the problem, and when to wake the team.
+- [Building a villa in Bali? Four decisions to make before your first listing](https://indavillas.com/blog/building-a-villa-in-bali-before-you-list/): Most launch problems start months earlier. Decide who the villa is for, what similar villas really earn, who runs the house and what the first guests will see.
+- [5 questions to ask a Bali villa management company before you sign](https://indavillas.com/blog/questions-to-ask-villa-management-company/): Who reviews my prices? What is in the monthly report? Who answers guests at 2am? What does it cost in total? What if I leave? What a good answer sounds like.
+
+## Key facts (source: AirDNA, Bali, trailing 12 months to October 2026, analysis by IndaVillas)
+- Population: 2,910 whole home Airbnb listings in Bali with 5 or more bedrooms, at least 180 days available and at least one reserved day.
+- Median occupancy: 44%. 59% of these villas fill less than half their nights.
+- Median yearly revenue: $46,000. Top 25% starts at $75,100; top 10% at $110,000.
+- Top 25% of villas (median): $101,700 a year, $700 a night, 61% occupied.
+- Bottom 25% (median): $8,900 a year, $341 a night, 22% occupied; includes many new or barely active listings.
+- Villas rated 4.85 or higher (5+ reviews) had a median of $65,900 a year; villas rated under 4.5 had $30,500.
+- Superhost villas had a median of $60,500 a year; others $32,000.
+- These figures show patterns, not causes, and are not a forecast for any one villa.
+
+## Contact
+- Email: hi.flatiro@gmail.com
+- Instagram: https://www.instagram.com/inda.villas/
