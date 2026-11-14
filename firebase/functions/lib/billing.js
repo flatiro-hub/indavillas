@@ -189,6 +189,23 @@ async function createInvoice({ db, email, body, me, fromPlan }) {
   return { id, no, total, currency };
 }
 
+// A file the admin uploaded by hand (report, invoice, other): tell the owner it's in Documents, like the ones the portal makes
+async function notifyUpload({ db, email, id }) {
+  const s = await db.doc(`clients/${email}/docs/${String(id || "")}`).get();
+  if (!s.exists) throw Object.assign(new Error("That file isn't there any more."), { code: "not-found" });
+  const x = s.data(), cl = (await db.doc("clients/" + email).get()).data() || {}, st = await getSettings(db);
+  const villa = cl.villaName || cl.data?.villaName || cl.data?.data?.villaName || "your villa", hi = `Hi ${firstName(cl.ownerName || cl.name) || "there"},`;
+  const period = /^\d{4}-\d{2}$/.test(x.period || "") ? monthName(x.period) : "";
+  let subject, line;
+  if (x.type === "Invoice") {
+    const amt = x.amount != null && !isNaN(Number(x.amount)) ? ` for ${[x.currency, Number(x.amount).toLocaleString("en-US", { minimumFractionDigits: 2 })].filter(Boolean).join(" ")}` : "";
+    subject = `${x.title || "New invoice"} from ${st.companyName}`; line = `${x.title || "A new invoice"}${amt} is in your IndaVillas owner portal, under Documents.`;
+  } else if (x.type === "Monthly report") {
+    subject = `Your ${period ? period + " " : ""}report for ${villa}`; line = `Your ${period ? period + " " : ""}report for ${villa} is ready in the IndaVillas owner portal, under Documents.`;
+  } else { subject = `New document from ${st.companyName}: ${x.title || x.fileName || "file"}`; line = `"${x.title || x.fileName || "A new file"}" is in your IndaVillas owner portal, under Documents.`; }
+  return { sent: await notify(db, email, subject, [hi, line], st), emailEnabled: !!st.emailEnabled };
+}
+
 // Billing overview for every client: plan, next invoice, unpaid invoices, last report
 async function overview({ db, now }) {
   const clients = (await db.collection("clients").get()).docs, out = [];
@@ -227,4 +244,4 @@ async function dueInvoices({ db, now }) {
   return { invoices: made, errors };
 }
 
-module.exports = { PLANS, CYCLE_MONTHS, monthFigures, buildStatement, statementData, generate, saveCommentary, publish, unpublish, listStatements, cleanBilling, planLines, advance, createInvoice, overview, monthlyRun, dueInvoices };
+module.exports = { PLANS, CYCLE_MONTHS, monthFigures, buildStatement, statementData, generate, saveCommentary, publish, unpublish, listStatements, cleanBilling, planLines, advance, createInvoice, notifyUpload, overview, monthlyRun, dueInvoices };
