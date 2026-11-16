@@ -145,8 +145,8 @@ LEGAL = {
     "updated": "11 November 2026",
 }
 LEGAL_LABELS = {"name": "registered company name", "address": "registered address", "law": "country whose law applies"}
-NAV = [("services", "/services/", "Services"), ("system", "/system/", "The system"), ("pricing", "/pricing/", "Pricing"),
-       ("blog", "/blog/", "Blog")]
+NAV = [("services", "/services/", "Services"), ("system", "/system/", "The system"), ("pricing", "/pricing/", "Pricing")]
+# The blog sits in the footer only (owner request, 16 November 2026), not in the top bar or the menu.
 CUR = ' aria-current="page"'      # marks the page you are on in the menus
 
 
@@ -311,6 +311,7 @@ def footer():
 {links}
         <a href="/revenue-calculator/">Revenue calculator</a>
         <a href="/listing-audit/">Listing audit</a>
+        <a href="/blog/">Blog</a>
       </nav>
       <div class="ft__contact">
         <a class="ft__mail" href="mailto:hi.flatiro@gmail.com">{icon("letter")} hi.flatiro@gmail.com</a>

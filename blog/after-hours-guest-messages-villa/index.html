@@ -179,7 +179,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/v4/style.css?v=1794430484">
-<link rel="stylesheet" href="/v4/blog.css?v=1794589914">
+<link rel="stylesheet" href="/v4/blog.css?v=1794860887">
 <script type="module" src="/v4/main.js?v=1794402613"></script>
 </head>
 <body>
@@ -194,7 +194,6 @@
     <a href="/services/">Services</a>
     <a href="/system/">The system</a>
     <a href="/pricing/">Pricing</a>
-    <a href="/blog/" aria-current="page">Blog</a>
   </nav>
   <a class="btn btn--plain nav__cta" href="#analysis">Free analysis</a>
   <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
@@ -208,7 +207,6 @@
     <a href="/services/"><span>01</span>Services</a>
     <a href="/system/"><span>02</span>The system</a>
     <a href="/pricing/"><span>03</span>Pricing</a>
-    <a href="/blog/" aria-current="page"><span>04</span>Blog</a>
   </nav>
   <div class="menu__foot">
     <a class="btn" href="#analysis">Get your free revenue analysis <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
@@ -217,21 +215,36 @@
 </div>
 
 <main id="main">
-<article>
+<article class="ar-page">
 <header class="ar-hero s-lime" id="top" data-hero>
   <div class="wrap ar-hero__grid">
-    <div>
+    <div class="ar-hero__text">
       <nav aria-label="Breadcrumb"><ol class="crumbs">
-        <li><a href="/">Home</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><span aria-current="page">Guest experience</span></li>
       </ol></nav>
       <h1 class="ar-title">A guest messages at 2am: what should happen next</h1>
-      <p class="ar-lede"><b>When a guest messages a villa at 2am, three things should happen: someone acknowledges the message quickly, the problem is sorted into safety, comfort or information, and the guest is told what will happen and when.</b> Most night messages are small. What a guest remembers, and reviews, is whether anyone answered.</p>
-      <p class="ar-meta"><span>By <b>IndaVillas</b></span> <span>Published <time datetime="2026-11-14">14 November 2026</time></span> <span>5 minute read</span></p>
+      <p class="ar-deck">The air conditioning stops, or the taxi cannot find the gate. A simple night plan for villa owners: who answers, how to sort the problem, and when to wake the team.</p>
+      <div class="ar-byrow">
+        <div class="by">
+  <span class="by__av" aria-hidden="true"><svg viewBox="0 0 296 244" fill="currentColor" aria-hidden="true"><polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/></svg></span>
+  <p><b>IndaVillas</b><span>Revenue management for 5+ bedroom villas in Bali</span></p>
+</div>
+        <p class="ar-meta"><span class="tag">Guest experience</span><span>Published <time datetime="2026-11-14">14 November 2026</time></span><span>5 min read</span></p>
+      </div>
+      <div class="share" role="group" aria-label="Share this article (top)">
+  <span class="share__h">Share</span>
+  <button class="share__a" type="button" data-copy="https://indavillas.com/blog/after-hours-guest-messages-villa/" hidden>Copy link</button>
+  <a class="share__a" href="https://wa.me/?text=A%20guest%20messages%20at%202am%3A%20what%20should%20happen%20next%20https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F" rel="noopener" target="_blank">WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F" rel="noopener" target="_blank">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F" rel="noopener" target="_blank">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://x.com/intent/post?url=https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F&amp;text=A%20guest%20messages%20at%202am%3A%20what%20should%20happen%20next" rel="noopener" target="_blank">X<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="mailto:?subject=A%20guest%20messages%20at%202am%3A%20what%20should%20happen%20next&amp;body=https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F">Email</a>
+  <span class="share__ok" role="status" aria-live="polite"></span>
+</div>
     </div>
     <figure class="ar-fig">
-      <img src="/v4/img/blog/night-600.jpg" srcset="/v4/img/blog/night-600.jpg 597w, /v4/img/blog/night-1200.jpg 1194w" sizes="(max-width:900px) 100vw, 34vw" alt="A brass lamp lit on a stone side table at dusk beside a linen chair, a phone on the table and a dark garden through the open door" width="597" height="800" fetchpriority="high" decoding="async">
+      <img src="/v4/img/blog/night-600.jpg" srcset="/v4/img/blog/night-600.jpg 597w, /v4/img/blog/night-1200.jpg 1194w" sizes="(max-width:900px) 100vw, 420px" alt="A brass lamp lit on a stone side table at dusk beside a linen chair, a phone on the table and a dark garden through the open door" width="597" height="800" fetchpriority="high" decoding="async">
       <figcaption>Illustrative image.</figcaption>
     </figure>
   </div>
@@ -239,8 +252,8 @@
 
 <div class="ar s-lime">
   <div class="wrap ar__grid">
-    <nav class="lg__toc" aria-label="On this page">
-      <p class="lg__toc-h">On this page</p>
+    <nav class="ar-toc" aria-label="On this page">
+      <p class="ar-toc__h">On this page</p>
       <ol>
         <li><a href="#what">What do guests message about at night?</a></li>
         <li><a href="#levels">Sort every message into three levels</a></li>
@@ -254,21 +267,40 @@
     </nav>
 
     <div class="ar__body">
-      <aside class="ar-key" aria-labelledby="key-h">
-        <h2 id="key-h">The short version</h2>
+      <details class="ar-toc-m">
+        <summary>On this page</summary>
         <ol>
+        <li><a href="#what">What do guests message about at night?</a></li>
+        <li><a href="#levels">Sort every message into three levels</a></li>
+        <li><a href="#rota">Build the rota before you need it</a></li>
+        <li><a href="#reply">What the first reply should say</a></li>
+        <li><a href="#prevent">Prevent the message in the first place</a></li>
+        <li><a href="#who">Who should answer: the owner, the staff or a manager?</a></li>
+        <li><a href="#questions">Questions owners ask</a></li>
+        <li><a href="#sources">Sources and method</a></li>
+        </ol>
+      </details>
+
+      <aside class="ar-qa-box" aria-labelledby="qa-h">
+        <h2 id="qa-h">Quick answer</h2>
+        <p><b>When a guest messages a villa at 2am, three things should happen: someone acknowledges the message quickly, the problem is sorted into safety, comfort or information, and the guest is told what will happen and when.</b> Most night messages are small. What a guest remembers, and reviews, is whether anyone answered.</p>
+      </aside>
+
+      <aside class="ar-key" aria-labelledby="key-h">
+        <h2 id="key-h">Key takeaways</h2>
+        <ul>
           <li>Decide before the season who answers at night, and write it down as a rota.</li>
           <li>Sort every night message into one of three levels: safety, comfort or information.</li>
           <li>Acknowledge first, solve second. A guest who knows help is coming waits calmly.</li>
           <li>Airbnb scores communication as its own rating category, and response rate counts toward Superhost.</li>
-        </ol>
+        </ul>
       </aside>
 
-<h2 id="what">What do guests message about at night?</h2>
+<h2 id="what">What do guests message about at night? <a class="ar-hash" href="#what" aria-label="Link to this section">#</a></h2>
 <p>Guests message a villa at night about a short list of things: the air conditioning has stopped, the power is out, the driver cannot find the gate, they are locked out, there is no hot water, or they cannot get the wifi to work. Now and then it is something serious.</p>
 <p>Because the list is short, the answers can be prepared. A villa does not need a night shift. It needs a plan that says who sees the message, how they judge it and who they call.</p>
 
-<h2 id="levels">Sort every message into three levels</h2>
+<h2 id="levels">Sort every message into three levels <a class="ar-hash" href="#levels" aria-label="Link to this section">#</a></h2>
 <p>Every night message belongs to one of three levels, and the level decides who gets woken. Agree on the levels with your team in advance, so nobody has to judge it alone at 2am.</p>
 
 <div class="ar-tw" tabindex="0" role="region" aria-label="Three levels of night message">
@@ -285,7 +317,7 @@
 
 <p>Most messages are the third kind, and most of those are answered by the house guide. The second kind is where reviews are won or lost: a guest lying in a hot bedroom at night is patient for about as long as it takes to feel ignored. <a href="https://www.airbnb.com/help/article/1257" rel="noopener">Airbnb asks guests to rate communication</a> as its own category, so a slow night shows up in the score.</p>
 
-<h2 id="rota">Build the rota before you need it</h2>
+<h2 id="rota">Build the rota before you need it <a class="ar-hash" href="#rota" aria-label="Link to this section">#</a></h2>
 <p>A night rota is a written answer to one question: tonight, whose phone rings? Set it up once, before high season.</p>
 <ol>
   <li><b>Put every booking site into one inbox.</b> A channel manager or shared inbox means one place to watch, not four apps.</li>
@@ -297,13 +329,13 @@
 </ol>
 <p>The log is what turns nights into improvements. If the same air conditioner appears three times, the fix is a technician in daylight, not a faster reply.</p>
 
-<h2 id="reply">What the first reply should say</h2>
+<h2 id="reply">What the first reply should say <a class="ar-hash" href="#reply" aria-label="Link to this section">#</a></h2>
 <p>The first reply should do three things in three sentences: confirm you have read the problem, say what happens next, and say when the guest will hear from you again. It does not need to solve anything yet.</p>
 <p>For a comfort level message it can be as short as this:</p>
 <aside class="ar-note" aria-label="Example reply"><b>Example reply</b>Hi Sarah, thank you for telling us, and sorry about the air conditioning in the upstairs bedroom. Made from our team is on his way and will be with you in about 20 minutes. I will message you again as soon as he has looked at it.</aside>
 <p>Name the person who is coming and give a time. Then keep the promise in the last sentence, even if the news is "the part arrives at 9am, and we have set up a fan and the second bedroom for tonight".</p>
 
-<h2 id="prevent">Prevent the message in the first place</h2>
+<h2 id="prevent">Prevent the message in the first place <a class="ar-hash" href="#prevent" aria-label="Link to this section">#</a></h2>
 <p>Many night messages are questions the arrival message should have answered. Each one is a small sign that something was unclear.</p>
 <ul>
   <li><b>Cannot find the gate.</b> Send a map pin that lands on the gate, a photo of it, and directions a driver can follow in the dark.</li>
@@ -318,7 +350,7 @@
   <a class="btn" href="/pricing/">See how pricing works <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
 </aside>
 
-<h2 id="who">Who should answer: the owner, the staff or a manager?</h2>
+<h2 id="who">Who should answer: the owner, the staff or a manager? <a class="ar-hash" href="#who" aria-label="Link to this section">#</a></h2>
 <p>The best person to answer at night is whoever can do both halves of the job: reply well, and get someone to the villa. In practice that is usually two people working together.</p>
 <ul>
   <li><b>The owner</b> knows the house best but is often in another time zone, and should not be the plan.</li>
@@ -327,7 +359,7 @@
 </ul>
 <p>IndaVillas handles guest communication for the villas it works with. When something needs hands on site, we reach the owner’s local team and keep the guest informed until it is solved. Your team runs the house, and we take the messages.</p>
 
-<h2 id="questions">Questions owners ask</h2>
+<h2 id="questions">Questions owners ask <a class="ar-hash" href="#questions" aria-label="Link to this section">#</a></h2>
 <div class="ar-qa">
 <h3>How fast should a villa reply at night?</h3>
 <p>As fast as it can acknowledge, which with a rota is a few minutes. <a href="https://www.airbnb.com/help/article/829" rel="noopener">Airbnb counts a reply within 24 hours</a> toward the response rate it uses for Superhost, but a guest with a problem at night is not counting in hours. The first reply matters more than the fix.</p>
@@ -343,34 +375,94 @@
         <li><a href="https://www.airbnb.com/help/article/1257" rel="noopener">Airbnb Help Centre: star ratings</a></li>
         <li><a href="https://www.airbnb.com/help/article/829" rel="noopener">Airbnb Help Centre: Superhost requirements</a></li>
       </ol>
-      <div class="ar-by">
-        <svg viewBox="0 0 296 244" fill="currentColor" aria-hidden="true"><polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/></svg>
-        <p><b>Written by IndaVillas.</b> We run the commercial side of 5+ bedroom villas in Bali: rate strategy, listings, photography, distribution and guest communication, while the owner’s team runs the house. Market figures on this blog come from our own analysis of AirDNA data. Spotted an error? Email <a href="mailto:hi.flatiro@gmail.com">hi.flatiro@gmail.com</a>.</p>
-      </div>
-    </section>
+      </section>
+
+      <aside class="ar-ask" aria-labelledby="ask-h">
+        <h2 id="ask-h">Questions about this article?</h2>
+        <p>Ask us about your own villa, or tell us if a figure looks wrong.</p>
+        <p class="ar-ask__btns"><a class="btn btn--sm" href="mailto:hi.flatiro@gmail.com?subject=A%20guest%20messages%20at%202am%3A%20what%20should%20happen%20next">Email us</a> <a class="btn btn--sm btn--ghost" href="/pricing/">See pricing</a></p>
+      </aside>
+
+      <aside class="ar-author" aria-label="About the author">
+        <div class="by by--sm">
+  <span class="by__av" aria-hidden="true"><svg viewBox="0 0 296 244" fill="currentColor" aria-hidden="true"><polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/></svg></span>
+  <p><b>IndaVillas</b><span>Revenue management for 5+ bedroom villas in Bali</span></p>
+</div>
+        <p>We run the commercial side of 5+ bedroom villas in Bali: rate strategy, listings, photography, distribution and guest communication, while the owner’s team runs the house. Market figures on this blog come from our own analysis of AirDNA data.</p>
+        <p class="ar-author__links"><a href="/system/">How we work</a> <a href="https://www.instagram.com/inda.villas/" rel="noopener" target="_blank">Instagram<span class="sr-only"> (opens in a new tab)</span></a></p>
+      </aside>
+
+      <div class="share" role="group" aria-label="Share this article (bottom)">
+  <span class="share__h">Share</span>
+  <button class="share__a" type="button" data-copy="https://indavillas.com/blog/after-hours-guest-messages-villa/" hidden>Copy link</button>
+  <a class="share__a" href="https://wa.me/?text=A%20guest%20messages%20at%202am%3A%20what%20should%20happen%20next%20https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F" rel="noopener" target="_blank">WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F" rel="noopener" target="_blank">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F" rel="noopener" target="_blank">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://x.com/intent/post?url=https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F&amp;text=A%20guest%20messages%20at%202am%3A%20what%20should%20happen%20next" rel="noopener" target="_blank">X<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="mailto:?subject=A%20guest%20messages%20at%202am%3A%20what%20should%20happen%20next&amp;body=https%3A%2F%2Findavillas.com%2Fblog%2Fafter-hours-guest-messages-villa%2F">Email</a>
+  <span class="share__ok" role="status" aria-live="polite"></span>
+</div>
+      <nav class="pn" aria-label="More articles">
+  <a class="pn__a" href="/blog/airbnb-rating-revenue-bali-villas/" rel="prev"><span>Previous</span>Do higher Airbnb ratings mean more revenue? What 1,439 Bali villas show</a>
+  <a class="pn__a pn__a--next" href="/blog/building-a-villa-in-bali-before-you-list/" rel="next"><span>Next</span>Building a villa in Bali? Four decisions to make before your first listing</a>
+</nav>
     </div>
+
+    <aside class="ar-side" aria-label="More from IndaVillas">
+      <div class="ar-side__rel">
+        <p class="ar-toc__h">Related articles</p>
+        <ul>
+        <li><a href="/blog/villa-arrival-checklist/"><span>How we work</span>The last ten minutes before a guest arrives: a villa checklist</a></li>
+        <li><a href="/blog/villa-revenue-management-vs-full-management/"><span>How we work</span>Villa revenue management vs full management: who does what</a></li>
+        <li><a href="/blog/questions-to-ask-villa-management-company/"><span>Choosing a manager</span>5 questions to ask a Bali villa management company before you sign</a></li>
+        </ul>
+      </div>
+      <div class="ar-side__cta s-night">
+        <p class="tag">Free listing audit</p>
+        <p class="ar-side__big">100</p>
+        <p class="ar-side__lbl">point score for your Airbnb or Booking.com listing</p>
+        <ul>
+          <li>Photos, title, description, amenities, reviews and booking setup</li>
+          <li>Every fix ranked</li>
+          <li>Takes about a minute</li>
+        </ul>
+        <a class="btn btn--sm" href="/listing-audit/">Score my listing <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
+      </div>
+    </aside>
   </div>
 </div>
 </article>
 
 <section class="rel s-lime2" aria-labelledby="rel-h">
   <div class="wrap">
-    <h2 id="rel-h">Keep reading</h2>
-    <div class="bl-list">
-<article class="bl-row">
-  <p class="bl-row__meta"><b>How we work</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h3><a href="/blog/villa-arrival-checklist/">The last ten minutes before a guest arrives: a villa checklist</a></h3><p>Guests never mention the crease you fixed. They mention the one you missed. A written ten minute checklist for your villa team, from the gate to the bedroom.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+    <div class="rel__head"><h2 id="rel-h">Related reads</h2><a class="lnk" href="/blog/">All articles</a></div>
+    <div class="bc-grid">
+<article class="bc" data-cat="how-we-work">
+  <div class="bc__media"><img src="/v4/img/blog/hands-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">How we work</p>
+    <h3 class="bc__title"><a href="/blog/villa-arrival-checklist/">The last ten minutes before a guest arrives: a villa checklist</a></h3>
+    <p class="bc__desc">Guests never mention the crease you fixed. They mention the one you missed. A written ten minute checklist for your villa team, from the gate to the bedroom.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>5 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>How we work</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h3><a href="/blog/villa-revenue-management-vs-full-management/">Villa revenue management vs full management: who does what</a></h3><p>Full villa management runs the house for a share of every booking. Revenue management keeps your team and works on rate, listing and reach for a flat fee.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="how-we-work">
+  <div class="bc__media bc__media--num s-night" aria-hidden="true"><b>15<small> to </small>25%</b><span>of every booking is a typical fee for full villa management in Bali</span></div>
+  <div class="bc__body">
+    <p class="tag">How we work</p>
+    <h3 class="bc__title"><a href="/blog/villa-revenue-management-vs-full-management/">Villa revenue management vs full management: who does what</a></h3>
+    <p class="bc__desc">Full villa management runs the house for a share of every booking. Revenue management keeps your team and works on rate, listing and reach for a flat fee.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>6 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Choosing a manager</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h3><a href="/blog/questions-to-ask-villa-management-company/">5 questions to ask a Bali villa management company before you sign</a></h3><p>Who reviews my prices? What is in the monthly report? Who answers guests at 2am? What does it cost in total? What if I leave? What a good answer sounds like.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="choosing-a-manager">
+  <div class="bc__media bc__media--num s-night" aria-hidden="true"><b>5</b><span>questions to ask before you sign a villa management contract</span></div>
+  <div class="bc__body">
+    <p class="tag">Choosing a manager</p>
+    <h3 class="bc__title"><a href="/blog/questions-to-ask-villa-management-company/">5 questions to ask a Bali villa management company before you sign</a></h3>
+    <p class="bc__desc">Who reviews my prices? What is in the monthly report? Who answers guests at 2am? What does it cost in total? What if I leave? What a good answer sounds like.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>5 min read</span></p>
+  </div>
 </article>
     </div>
   </div>
@@ -433,9 +525,9 @@
       <a href="/services/">Services</a>
       <a href="/system/">The system</a>
       <a href="/pricing/">Pricing</a>
-      <a href="/blog/">Blog</a>
         <a href="/revenue-calculator/">Revenue calculator</a>
         <a href="/listing-audit/">Listing audit</a>
+        <a href="/blog/">Blog</a>
       </nav>
       <div class="ft__contact">
         <a class="ft__mail" href="mailto:hi.flatiro@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.23 2 6.34 3.17 5.17C4.34 4 6.23 4 10 4H14C17.77 4 19.66 4 20.83 5.17C22 6.34 22 8.23 22 12C22 15.77 22 17.66 20.83 18.83C19.66 20 17.77 20 14 20H10C6.23 20 4.34 20 3.17 18.83C2 17.66 2 15.77 2 12Z"/><path d="M6 8L8.16 9.8C10 11.33 10.91 12.09 12 12.09C13.09 12.09 14 11.33 15.84 9.8L18 8"/></g></svg> hi.flatiro@gmail.com</a>
@@ -452,5 +544,6 @@
     </div>
   </div>
 </footer>
+<script src="/v4/blog.js?v=1794860958" defer></script>
 </body>
 </html>

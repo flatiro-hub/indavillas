@@ -179,7 +179,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/v4/style.css?v=1794430484">
-<link rel="stylesheet" href="/v4/blog.css?v=1794589914">
+<link rel="stylesheet" href="/v4/blog.css?v=1794860887">
 <script type="module" src="/v4/main.js?v=1794402613"></script>
 </head>
 <body>
@@ -194,7 +194,6 @@
     <a href="/services/">Services</a>
     <a href="/system/">The system</a>
     <a href="/pricing/">Pricing</a>
-    <a href="/blog/" aria-current="page">Blog</a>
   </nav>
   <a class="btn btn--plain nav__cta" href="#analysis">Free analysis</a>
   <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
@@ -208,7 +207,6 @@
     <a href="/services/"><span>01</span>Services</a>
     <a href="/system/"><span>02</span>The system</a>
     <a href="/pricing/"><span>03</span>Pricing</a>
-    <a href="/blog/" aria-current="page"><span>04</span>Blog</a>
   </nav>
   <div class="menu__foot">
     <a class="btn" href="#analysis">Get your free revenue analysis <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
@@ -217,21 +215,36 @@
 </div>
 
 <main id="main">
-<article>
+<article class="ar-page">
 <header class="ar-hero s-lime" id="top" data-hero>
   <div class="wrap ar-hero__grid">
-    <div>
+    <div class="ar-hero__text">
       <nav aria-label="Breadcrumb"><ol class="crumbs">
-        <li><a href="/">Home</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><span aria-current="page">How we work</span></li>
       </ol></nav>
       <h1 class="ar-title">The last ten minutes before a guest arrives: a villa checklist</h1>
-      <p class="ar-lede"><b>A villa arrival checklist is a short written list your team walks through in the last ten minutes before a guest arrives, in the order the guest will see the house: gate, entrance, living area, pool, bedrooms, bathrooms.</b> It exists because the people who see a villa every day stop seeing its small faults. Guests see everything for the first time.</p>
-      <p class="ar-meta"><span>By <b>IndaVillas</b></span> <span>Published <time datetime="2026-11-14">14 November 2026</time></span> <span>5 minute read</span></p>
+      <p class="ar-deck">Guests never mention the crease you fixed. They mention the one you missed. A written ten minute checklist for your villa team, from the gate to the bedroom.</p>
+      <div class="ar-byrow">
+        <div class="by">
+  <span class="by__av" aria-hidden="true"><svg viewBox="0 0 296 244" fill="currentColor" aria-hidden="true"><polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/></svg></span>
+  <p><b>IndaVillas</b><span>Revenue management for 5+ bedroom villas in Bali</span></p>
+</div>
+        <p class="ar-meta"><span class="tag">How we work</span><span>Published <time datetime="2026-11-14">14 November 2026</time></span><span>5 min read</span></p>
+      </div>
+      <div class="share" role="group" aria-label="Share this article (top)">
+  <span class="share__h">Share</span>
+  <button class="share__a" type="button" data-copy="https://indavillas.com/blog/villa-arrival-checklist/" hidden>Copy link</button>
+  <a class="share__a" href="https://wa.me/?text=The%20last%20ten%20minutes%20before%20a%20guest%20arrives%3A%20a%20villa%20checklist%20https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F" rel="noopener" target="_blank">WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F" rel="noopener" target="_blank">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F" rel="noopener" target="_blank">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://x.com/intent/post?url=https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F&amp;text=The%20last%20ten%20minutes%20before%20a%20guest%20arrives%3A%20a%20villa%20checklist" rel="noopener" target="_blank">X<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="mailto:?subject=The%20last%20ten%20minutes%20before%20a%20guest%20arrives%3A%20a%20villa%20checklist&amp;body=https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F">Email</a>
+  <span class="share__ok" role="status" aria-live="polite"></span>
+</div>
     </div>
     <figure class="ar-fig">
-      <img src="/v4/img/blog/hands-600.jpg" srcset="/v4/img/blog/hands-600.jpg 597w, /v4/img/blog/hands-1200.jpg 1194w" sizes="(max-width:900px) 100vw, 34vw" alt="Hands smoothing a linen bed cover in a villa bedroom, seen past a teak door" width="597" height="800" fetchpriority="high" decoding="async">
+      <img src="/v4/img/blog/hands-600.jpg" srcset="/v4/img/blog/hands-600.jpg 597w, /v4/img/blog/hands-1200.jpg 1194w" sizes="(max-width:900px) 100vw, 420px" alt="Hands smoothing a linen bed cover in a villa bedroom, seen past a teak door" width="597" height="800" fetchpriority="high" decoding="async">
       <figcaption>Illustrative image.</figcaption>
     </figure>
   </div>
@@ -239,8 +252,8 @@
 
 <div class="ar s-lime">
   <div class="wrap ar__grid">
-    <nav class="lg__toc" aria-label="On this page">
-      <p class="lg__toc-h">On this page</p>
+    <nav class="ar-toc" aria-label="On this page">
+      <p class="ar-toc__h">On this page</p>
       <ol>
         <li><a href="#why">Why does a villa team miss what a guest sees?</a></li>
         <li><a href="#list">The ten minute arrival checklist</a></li>
@@ -253,21 +266,39 @@
     </nav>
 
     <div class="ar__body">
-      <aside class="ar-key" aria-labelledby="key-h">
-        <h2 id="key-h">The short version</h2>
+      <details class="ar-toc-m">
+        <summary>On this page</summary>
         <ol>
+        <li><a href="#why">Why does a villa team miss what a guest sees?</a></li>
+        <li><a href="#list">The ten minute arrival checklist</a></li>
+        <li><a href="#run">How to run the checklist</a></li>
+        <li><a href="#guest">Walk the villa the way a guest does</a></li>
+        <li><a href="#worth">Is ten minutes per arrival worth it?</a></li>
+        <li><a href="#questions">Questions owners ask</a></li>
+        <li><a href="#sources">Sources and method</a></li>
+        </ol>
+      </details>
+
+      <aside class="ar-qa-box" aria-labelledby="qa-h">
+        <h2 id="qa-h">Quick answer</h2>
+        <p><b>A villa arrival checklist is a short written list your team walks through in the last ten minutes before a guest arrives, in the order the guest will see the house: gate, entrance, living area, pool, bedrooms, bathrooms.</b> It exists because the people who see a villa every day stop seeing its small faults. Guests see everything for the first time.</p>
+      </aside>
+
+      <aside class="ar-key" aria-labelledby="key-h">
+        <h2 id="key-h">Key takeaways</h2>
+        <ul>
           <li>Write the checklist down. A list kept in someone’s head gets shorter on busy days.</li>
           <li>Walk it in guest order, from the gate to the bedroom, in the last ten minutes before arrival.</li>
           <li>It is a second look, not the clean. Cleaning should be finished before it starts.</li>
           <li>Once a month, someone who does not work in the villa daily should walk it too.</li>
-        </ol>
+        </ul>
       </aside>
 
-<h2 id="why">Why does a villa team miss what a guest sees?</h2>
+<h2 id="why">Why does a villa team miss what a guest sees? <a class="ar-hash" href="#why" aria-label="Link to this section">#</a></h2>
 <p>A villa team misses small faults because it sees the villa every day. A crease in the bed cover, a dim bulb or a smudge on the glass door becomes part of the background for anyone who walks past it each morning. A guest walks in once, rested or tired, and notices all of it in the first minute.</p>
 <p>Guests never mention the crease you fixed. They mention the one you missed. A written checklist replaces memory with a routine, so the standard no longer depends on who is on shift or how busy the day was.</p>
 
-<h2 id="list">The ten minute arrival checklist</h2>
+<h2 id="list">The ten minute arrival checklist <a class="ar-hash" href="#list" aria-label="Link to this section">#</a></h2>
 <p>The checklist follows the guest’s path through the house, so nothing is checked twice and nothing is skipped. In a villa with five or more bedrooms, split it between two people: one takes the shared areas, the other takes the bedrooms and bathrooms.</p>
 
 <h3>Gate and entrance</h3>
@@ -311,7 +342,7 @@
   <li>Staff bags, phones and chargers out of guest areas<small>The house should look ready, not recently worked in.</small></li>
 </ul>
 
-<h2 id="run">How to run the checklist</h2>
+<h2 id="run">How to run the checklist <a class="ar-hash" href="#run" aria-label="Link to this section">#</a></h2>
 <p>The checklist only works if one named person owns it for each arrival. Four rules keep it from fading after the first month.</p>
 <ol>
   <li><b>Name the checker.</b> One person per arrival is responsible, and it should not be the person who cleaned that room. A second pair of eyes is the whole point.</li>
@@ -320,7 +351,7 @@
   <li><b>Decide what happens to a fault.</b> If it takes under two minutes, fix it. If not, tell the guest on arrival and give a time. A fault a guest was told about lands very differently from one they find.</li>
 </ol>
 
-<h2 id="guest">Walk the villa the way a guest does</h2>
+<h2 id="guest">Walk the villa the way a guest does <a class="ar-hash" href="#guest" aria-label="Link to this section">#</a></h2>
 <p>Once a month, someone who does not work in the villa every day should arrive as a guest would. Come by car at the usual arrival time, carry a bag, and use only the arrival message to find the gate and get in.</p>
 <p>Then sit on the sofa, lie on a bed, run a shower and connect to the wifi from the furthest room. Write down what you notice in the first five minutes, before your eyes adjust. That list is what the next guest will see. The fuller version of this walk is in <a href="/blog/five-star-airbnb-reviews-villa/">where 5 star villa reviews come from</a>.</p>
 
@@ -329,11 +360,11 @@
   <a class="btn" href="/pricing/">See how pricing works <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
 </aside>
 
-<h2 id="worth">Is ten minutes per arrival worth it?</h2>
+<h2 id="worth">Is ten minutes per arrival worth it? <a class="ar-hash" href="#worth" aria-label="Link to this section">#</a></h2>
 <p>Ten minutes per arrival is small against what reviews are worth. <a href="https://www.airbnb.com/help/article/1257" rel="noopener">Airbnb asks each guest to rate cleanliness and accuracy</a> alongside their overall rating, and both are judged in the first minutes of a stay.</p>
 <p>In <a href="#sources">AirDNA data</a> for the 12 months to October 2026, Bali villas with 5 or more bedrooms rated 4.85 or higher earned a median of $65,900. Villas rated under 4.5 earned $30,500. A rating alone does not double revenue, but a team that checks the villa before every arrival tends to earn the rating and the bookings together. See <a href="/blog/airbnb-rating-revenue-bali-villas/">the full rating and revenue data</a>.</p>
 
-<h2 id="questions">Questions owners ask</h2>
+<h2 id="questions">Questions owners ask <a class="ar-hash" href="#questions" aria-label="Link to this section">#</a></h2>
 <div class="ar-qa">
 <h3>Who should do the final check?</h3>
 <p>The villa manager or the most senior person on shift, and never the person who prepared the room being checked. People do not see their own misses.</p>
@@ -349,34 +380,94 @@
         <li><a href="https://www.airbnb.com/help/article/1257" rel="noopener">Airbnb Help Centre: star ratings</a></li>
         <li><a href="https://www.airdna.co/" rel="noopener">AirDNA, Bali market data, trailing 12 months to October 2026 (analysis by IndaVillas)</a></li>
       </ol>
-      <div class="ar-by">
-        <svg viewBox="0 0 296 244" fill="currentColor" aria-hidden="true"><polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/></svg>
-        <p><b>Written by IndaVillas.</b> We run the commercial side of 5+ bedroom villas in Bali: rate strategy, listings, photography, distribution and guest communication, while the owner’s team runs the house. Market figures on this blog come from our own analysis of AirDNA data. Spotted an error? Email <a href="mailto:hi.flatiro@gmail.com">hi.flatiro@gmail.com</a>.</p>
-      </div>
-    </section>
+      </section>
+
+      <aside class="ar-ask" aria-labelledby="ask-h">
+        <h2 id="ask-h">Questions about this article?</h2>
+        <p>Ask us about your own villa, or tell us if a figure looks wrong.</p>
+        <p class="ar-ask__btns"><a class="btn btn--sm" href="mailto:hi.flatiro@gmail.com?subject=The%20last%20ten%20minutes%20before%20a%20guest%20arrives%3A%20a%20villa%20checklist">Email us</a> <a class="btn btn--sm btn--ghost" href="/pricing/">See pricing</a></p>
+      </aside>
+
+      <aside class="ar-author" aria-label="About the author">
+        <div class="by by--sm">
+  <span class="by__av" aria-hidden="true"><svg viewBox="0 0 296 244" fill="currentColor" aria-hidden="true"><polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/></svg></span>
+  <p><b>IndaVillas</b><span>Revenue management for 5+ bedroom villas in Bali</span></p>
+</div>
+        <p>We run the commercial side of 5+ bedroom villas in Bali: rate strategy, listings, photography, distribution and guest communication, while the owner’s team runs the house. Market figures on this blog come from our own analysis of AirDNA data.</p>
+        <p class="ar-author__links"><a href="/system/">How we work</a> <a href="https://www.instagram.com/inda.villas/" rel="noopener" target="_blank">Instagram<span class="sr-only"> (opens in a new tab)</span></a></p>
+      </aside>
+
+      <div class="share" role="group" aria-label="Share this article (bottom)">
+  <span class="share__h">Share</span>
+  <button class="share__a" type="button" data-copy="https://indavillas.com/blog/villa-arrival-checklist/" hidden>Copy link</button>
+  <a class="share__a" href="https://wa.me/?text=The%20last%20ten%20minutes%20before%20a%20guest%20arrives%3A%20a%20villa%20checklist%20https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F" rel="noopener" target="_blank">WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F" rel="noopener" target="_blank">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F" rel="noopener" target="_blank">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://x.com/intent/post?url=https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F&amp;text=The%20last%20ten%20minutes%20before%20a%20guest%20arrives%3A%20a%20villa%20checklist" rel="noopener" target="_blank">X<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="mailto:?subject=The%20last%20ten%20minutes%20before%20a%20guest%20arrives%3A%20a%20villa%20checklist&amp;body=https%3A%2F%2Findavillas.com%2Fblog%2Fvilla-arrival-checklist%2F">Email</a>
+  <span class="share__ok" role="status" aria-live="polite"></span>
+</div>
+      <nav class="pn" aria-label="More articles">
+  <a class="pn__a" href="/blog/bali-villa-occupancy-revenue-5-bedroom/" rel="prev"><span>Previous</span>What a 5+ bedroom villa in Bali earns: occupancy, nightly rate and revenue</a>
+  <a class="pn__a pn__a--next" href="/blog/five-star-airbnb-reviews-villa/" rel="next"><span>Next</span>Where 5 star villa reviews come from: scent, light, comfort, clarity</a>
+</nav>
     </div>
+
+    <aside class="ar-side" aria-label="More from IndaVillas">
+      <div class="ar-side__rel">
+        <p class="ar-toc__h">Related articles</p>
+        <ul>
+        <li><a href="/blog/five-star-airbnb-reviews-villa/"><span>Guest experience</span>Where 5 star villa reviews come from: scent, light, comfort, clarity</a></li>
+        <li><a href="/blog/airbnb-rating-revenue-bali-villas/"><span>Market data</span>Do higher Airbnb ratings mean more revenue? What 1,439 Bali villas show</a></li>
+        <li><a href="/blog/after-hours-guest-messages-villa/"><span>Guest experience</span>A guest messages at 2am: what should happen next</a></li>
+        </ul>
+      </div>
+      <div class="ar-side__cta s-night">
+        <p class="tag">Free listing audit</p>
+        <p class="ar-side__big">100</p>
+        <p class="ar-side__lbl">point score for your Airbnb or Booking.com listing</p>
+        <ul>
+          <li>Photos, title, description, amenities, reviews and booking setup</li>
+          <li>Every fix ranked</li>
+          <li>Takes about a minute</li>
+        </ul>
+        <a class="btn btn--sm" href="/listing-audit/">Score my listing <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
+      </div>
+    </aside>
   </div>
 </div>
 </article>
 
 <section class="rel s-lime2" aria-labelledby="rel-h">
   <div class="wrap">
-    <h2 id="rel-h">Keep reading</h2>
-    <div class="bl-list">
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Guest experience</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h3><a href="/blog/five-star-airbnb-reviews-villa/">Where 5 star villa reviews come from: scent, light, comfort, clarity</a></h3><p>Five star reviews rarely come from the pool. They come from how a room smells, whether the lamp works, how the bed feels and how clear the arrival message is.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+    <div class="rel__head"><h2 id="rel-h">Related reads</h2><a class="lnk" href="/blog/">All articles</a></div>
+    <div class="bc-grid">
+<article class="bc" data-cat="guest-experience">
+  <div class="bc__media"><img src="/v4/img/blog/bedside-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">Guest experience</p>
+    <h3 class="bc__title"><a href="/blog/five-star-airbnb-reviews-villa/">Where 5 star villa reviews come from: scent, light, comfort, clarity</a></h3>
+    <p class="bc__desc">Five star reviews rarely come from the pool. They come from how a room smells, whether the lamp works, how the bed feels and how clear the arrival message is.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>6 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Market data</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h3><a href="/blog/airbnb-rating-revenue-bali-villas/">Do higher Airbnb ratings mean more revenue? What 1,439 Bali villas show</a></h3><p>Bali villas rated 4.85 or higher earned a median of $65,900 a year. Villas under 4.5 earned $30,500. Where the gap opens, and what an owner controls.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="market-data">
+  <div class="bc__media bc__media--num s-night" aria-hidden="true"><b>2<small>x</small></b><span>the yearly revenue of villas rated 4.85 or higher, against villas rated under 4.5</span></div>
+  <div class="bc__body">
+    <p class="tag">Market data</p>
+    <h3 class="bc__title"><a href="/blog/airbnb-rating-revenue-bali-villas/">Do higher Airbnb ratings mean more revenue? What 1,439 Bali villas show</a></h3>
+    <p class="bc__desc">Bali villas rated 4.85 or higher earned a median of $65,900 a year. Villas under 4.5 earned $30,500. Where the gap opens, and what an owner controls.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>6 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Guest experience</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h3><a href="/blog/after-hours-guest-messages-villa/">A guest messages at 2am: what should happen next</a></h3><p>The air conditioning stops, or the taxi cannot find the gate. A simple night plan for villa owners: who answers, how to sort the problem, and when to wake the team.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="guest-experience">
+  <div class="bc__media"><img src="/v4/img/blog/night-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">Guest experience</p>
+    <h3 class="bc__title"><a href="/blog/after-hours-guest-messages-villa/">A guest messages at 2am: what should happen next</a></h3>
+    <p class="bc__desc">The air conditioning stops, or the taxi cannot find the gate. A simple night plan for villa owners: who answers, how to sort the problem, and when to wake the team.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>5 min read</span></p>
+  </div>
 </article>
     </div>
   </div>
@@ -439,9 +530,9 @@
       <a href="/services/">Services</a>
       <a href="/system/">The system</a>
       <a href="/pricing/">Pricing</a>
-      <a href="/blog/">Blog</a>
         <a href="/revenue-calculator/">Revenue calculator</a>
         <a href="/listing-audit/">Listing audit</a>
+        <a href="/blog/">Blog</a>
       </nav>
       <div class="ft__contact">
         <a class="ft__mail" href="mailto:hi.flatiro@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.23 2 6.34 3.17 5.17C4.34 4 6.23 4 10 4H14C17.77 4 19.66 4 20.83 5.17C22 6.34 22 8.23 22 12C22 15.77 22 17.66 20.83 18.83C19.66 20 17.77 20 14 20H10C6.23 20 4.34 20 3.17 18.83C2 17.66 2 15.77 2 12Z"/><path d="M6 8L8.16 9.8C10 11.33 10.91 12.09 12 12.09C13.09 12.09 14 11.33 15.84 9.8L18 8"/></g></svg> hi.flatiro@gmail.com</a>
@@ -458,5 +549,6 @@
     </div>
   </div>
 </footer>
+<script src="/v4/blog.js?v=1794860958" defer></script>
 </body>
 </html>

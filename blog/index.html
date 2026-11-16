@@ -179,7 +179,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/v4/style.css?v=1794430484">
-<link rel="stylesheet" href="/v4/blog.css?v=1794589914">
+<link rel="stylesheet" href="/v4/blog.css?v=1794860887">
 <script type="module" src="/v4/main.js?v=1794402613"></script>
 </head>
 <body>
@@ -194,7 +194,6 @@
     <a href="/services/">Services</a>
     <a href="/system/">The system</a>
     <a href="/pricing/">Pricing</a>
-    <a href="/blog/" aria-current="page">Blog</a>
   </nav>
   <a class="btn btn--plain nav__cta" href="#analysis">Free analysis</a>
   <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
@@ -208,7 +207,6 @@
     <a href="/services/"><span>01</span>Services</a>
     <a href="/system/"><span>02</span>The system</a>
     <a href="/pricing/"><span>03</span>Pricing</a>
-    <a href="/blog/" aria-current="page"><span>04</span>Blog</a>
   </nav>
   <div class="menu__foot">
     <a class="btn" href="#analysis">Get your free revenue analysis <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
@@ -219,69 +217,108 @@
 <main id="main">
 <section class="bl-hero s-lime" id="top" data-hero aria-labelledby="hero-title">
   <div class="wrap">
-    <p class="idx" data-hero-mark><span>09</span>Articles</p>
-    <h1 class="pg__title" id="hero-title">Run the villa like a business.</h1>
-    <p class="lede">Market data on 5+ bedroom villas in Bali, and what we have learned running the commercial side of them: listings, photography, pricing, reviews and guest communication. Every figure names its source.</p>
+    <p class="tag">Blog</p>
+    <h1 class="bl-hero__title" id="hero-title">Run the villa <em>like a business.</em></h1>
+    <p class="bl-hero__lede">Market data on 5+ bedroom villas in Bali, and what we have learned running the commercial side of them: listings, photography, pricing, reviews and guest communication. Every figure names its source.</p>
+    <a class="btn" href="#analysis">Get your free revenue analysis <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
   </div>
 </section>
 
 <section class="bl s-lime" aria-label="Articles">
   <div class="wrap">
-    <article class="bl-feat">
-      <div>
-        <p class="idx"><span>03</span>Market data</p>
-        <h2><a href="/blog/bali-villa-occupancy-revenue-5-bedroom/">What a 5+ bedroom villa in Bali earns: occupancy, nightly rate and revenue</a></h2>
-        <p class="lede">The median Bali villa with 5+ bedrooms was 44% occupied and earned $46,000 in the year to October 2026. The top quarter earned $101,700. Data by size and area.</p>
-        <span class="btn" aria-hidden="true">Read the article <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></span>
-      </div>
-      <div class="ar-num s-night">
-      <p class="ar-num__n">44%</p>
-      <p class="ar-num__l">median occupancy of a Bali villa with 5 or more bedrooms</p>
-      <p class="ar-num__s">AirDNA, Bali, 12 months to October 2026. 2,910 listings.</p>
+    <div class="bl-filter" role="group" aria-label="Filter by topic" data-filters hidden>
+      <button type="button" class="pill" data-filter="all" aria-pressed="true">All topics <span>9</span></button>
+      <button type="button" class="pill" data-filter="market-data" aria-pressed="false">Market data <span>2</span></button>
+      <button type="button" class="pill" data-filter="how-we-work" aria-pressed="false">How we work <span>3</span></button>
+      <button type="button" class="pill" data-filter="guest-experience" aria-pressed="false">Guest experience <span>2</span></button>
+      <button type="button" class="pill" data-filter="launching-a-villa" aria-pressed="false">Launching a villa <span>1</span></button>
+      <button type="button" class="pill" data-filter="choosing-a-manager" aria-pressed="false">Choosing a manager <span>1</span></button>
     </div>
-    </article>
-    <div class="bl-list">
-<article class="bl-row">
-  <p class="bl-row__meta"><b>How we work</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h2><a href="/blog/airbnb-cover-photo-villa/">Your first Airbnb photo has one job: earn the click</a></h2><p>Your Airbnb cover photo decides whether a guest opens your villa or scrolls past. How to choose it, test it at thumbnail size and plan the shoot around it.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+    <p class="sr-only" role="status" aria-live="polite" data-filter-status></p>
+    <div class="bc-grid bc-grid--index">
+<article class="bc" data-cat="market-data">
+  <div class="bc__media bc__media--num s-night" aria-hidden="true"><b>44%</b><span>median occupancy of a Bali villa with 5 or more bedrooms</span></div>
+  <div class="bc__body">
+    <p class="tag">Market data</p>
+    <h2 class="bc__title"><a href="/blog/bali-villa-occupancy-revenue-5-bedroom/">What a 5+ bedroom villa in Bali earns: occupancy, nightly rate and revenue</a></h2>
+    <p class="bc__desc">The median Bali villa with 5+ bedrooms was 44% occupied and earned $46,000 in the year to October 2026. The top quarter earned $101,700. Data by size and area.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>8 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>How we work</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h2><a href="/blog/villa-revenue-management-vs-full-management/">Villa revenue management vs full management: who does what</a></h2><p>Full villa management runs the house for a share of every booking. Revenue management keeps your team and works on rate, listing and reach for a flat fee.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="how-we-work">
+  <div class="bc__media"><img src="/v4/img/blog/photoday-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">How we work</p>
+    <h2 class="bc__title"><a href="/blog/airbnb-cover-photo-villa/">Your first Airbnb photo has one job: earn the click</a></h2>
+    <p class="bc__desc">Your Airbnb cover photo decides whether a guest opens your villa or scrolls past. How to choose it, test it at thumbnail size and plan the shoot around it.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>5 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>How we work</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h2><a href="/blog/villa-arrival-checklist/">The last ten minutes before a guest arrives: a villa checklist</a></h2><p>Guests never mention the crease you fixed. They mention the one you missed. A written ten minute checklist for your villa team, from the gate to the bedroom.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="how-we-work">
+  <div class="bc__media bc__media--num s-night" aria-hidden="true"><b>15<small> to </small>25%</b><span>of every booking is a typical fee for full villa management in Bali</span></div>
+  <div class="bc__body">
+    <p class="tag">How we work</p>
+    <h2 class="bc__title"><a href="/blog/villa-revenue-management-vs-full-management/">Villa revenue management vs full management: who does what</a></h2>
+    <p class="bc__desc">Full villa management runs the house for a share of every booking. Revenue management keeps your team and works on rate, listing and reach for a flat fee.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>6 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Guest experience</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h2><a href="/blog/five-star-airbnb-reviews-villa/">Where 5 star villa reviews come from: scent, light, comfort, clarity</a></h2><p>Five star reviews rarely come from the pool. They come from how a room smells, whether the lamp works, how the bed feels and how clear the arrival message is.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="how-we-work">
+  <div class="bc__media"><img src="/v4/img/blog/hands-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">How we work</p>
+    <h2 class="bc__title"><a href="/blog/villa-arrival-checklist/">The last ten minutes before a guest arrives: a villa checklist</a></h2>
+    <p class="bc__desc">Guests never mention the crease you fixed. They mention the one you missed. A written ten minute checklist for your villa team, from the gate to the bedroom.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>5 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Market data</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h2><a href="/blog/airbnb-rating-revenue-bali-villas/">Do higher Airbnb ratings mean more revenue? What 1,439 Bali villas show</a></h2><p>Bali villas rated 4.85 or higher earned a median of $65,900 a year. Villas under 4.5 earned $30,500. Where the gap opens, and what an owner controls.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="guest-experience">
+  <div class="bc__media"><img src="/v4/img/blog/bedside-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">Guest experience</p>
+    <h2 class="bc__title"><a href="/blog/five-star-airbnb-reviews-villa/">Where 5 star villa reviews come from: scent, light, comfort, clarity</a></h2>
+    <p class="bc__desc">Five star reviews rarely come from the pool. They come from how a room smells, whether the lamp works, how the bed feels and how clear the arrival message is.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>6 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Guest experience</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h2><a href="/blog/after-hours-guest-messages-villa/">A guest messages at 2am: what should happen next</a></h2><p>The air conditioning stops, or the taxi cannot find the gate. A simple night plan for villa owners: who answers, how to sort the problem, and when to wake the team.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="market-data">
+  <div class="bc__media bc__media--num s-night" aria-hidden="true"><b>2<small>x</small></b><span>the yearly revenue of villas rated 4.85 or higher, against villas rated under 4.5</span></div>
+  <div class="bc__body">
+    <p class="tag">Market data</p>
+    <h2 class="bc__title"><a href="/blog/airbnb-rating-revenue-bali-villas/">Do higher Airbnb ratings mean more revenue? What 1,439 Bali villas show</a></h2>
+    <p class="bc__desc">Bali villas rated 4.85 or higher earned a median of $65,900 a year. Villas under 4.5 earned $30,500. Where the gap opens, and what an owner controls.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>6 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Launching a villa</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h2><a href="/blog/building-a-villa-in-bali-before-you-list/">Building a villa in Bali? Four decisions to make before your first listing</a></h2><p>Most launch problems start months earlier. Decide who the villa is for, what similar villas really earn, who runs the house and what the first guests will see.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="guest-experience">
+  <div class="bc__media"><img src="/v4/img/blog/night-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">Guest experience</p>
+    <h2 class="bc__title"><a href="/blog/after-hours-guest-messages-villa/">A guest messages at 2am: what should happen next</a></h2>
+    <p class="bc__desc">The air conditioning stops, or the taxi cannot find the gate. A simple night plan for villa owners: who answers, how to sort the problem, and when to wake the team.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>5 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Choosing a manager</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h2><a href="/blog/questions-to-ask-villa-management-company/">5 questions to ask a Bali villa management company before you sign</a></h2><p>Who reviews my prices? What is in the monthly report? Who answers guests at 2am? What does it cost in total? What if I leave? What a good answer sounds like.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="launching-a-villa">
+  <div class="bc__media"><img src="/v4/img/blog/inspect-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">Launching a villa</p>
+    <h2 class="bc__title"><a href="/blog/building-a-villa-in-bali-before-you-list/">Building a villa in Bali? Four decisions to make before your first listing</a></h2>
+    <p class="bc__desc">Most launch problems start months earlier. Decide who the villa is for, what similar villas really earn, who runs the house and what the first guests will see.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>7 min read</span></p>
+  </div>
+</article>
+<article class="bc" data-cat="choosing-a-manager">
+  <div class="bc__media bc__media--num s-night" aria-hidden="true"><b>5</b><span>questions to ask before you sign a villa management contract</span></div>
+  <div class="bc__body">
+    <p class="tag">Choosing a manager</p>
+    <h2 class="bc__title"><a href="/blog/questions-to-ask-villa-management-company/">5 questions to ask a Bali villa management company before you sign</a></h2>
+    <p class="bc__desc">Who reviews my prices? What is in the monthly report? Who answers guests at 2am? What does it cost in total? What if I leave? What a good answer sounds like.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>5 min read</span></p>
+  </div>
 </article>
     </div>
+    <p class="bl-empty" data-filter-empty hidden>No articles in this topic yet. <button type="button" class="lnk" data-filter="all">Show all articles</button></p>
     <p class="bl__note">New articles follow the same subjects as our Instagram, <a href="https://www.instagram.com/inda.villas/" rel="noopener">@inda.villas</a>. Subscribe with the <a href="/blog/feed.xml">feed</a>.</p>
   </div>
 </section>
@@ -343,9 +380,9 @@
       <a href="/services/">Services</a>
       <a href="/system/">The system</a>
       <a href="/pricing/">Pricing</a>
-      <a href="/blog/">Blog</a>
         <a href="/revenue-calculator/">Revenue calculator</a>
         <a href="/listing-audit/">Listing audit</a>
+        <a href="/blog/">Blog</a>
       </nav>
       <div class="ft__contact">
         <a class="ft__mail" href="mailto:hi.flatiro@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.23 2 6.34 3.17 5.17C4.34 4 6.23 4 10 4H14C17.77 4 19.66 4 20.83 5.17C22 6.34 22 8.23 22 12C22 15.77 22 17.66 20.83 18.83C19.66 20 17.77 20 14 20H10C6.23 20 4.34 20 3.17 18.83C2 17.66 2 15.77 2 12Z"/><path d="M6 8L8.16 9.8C10 11.33 10.91 12.09 12 12.09C13.09 12.09 14 11.33 15.84 9.8L18 8"/></g></svg> hi.flatiro@gmail.com</a>
@@ -362,5 +399,6 @@
     </div>
   </div>
 </footer>
+<script src="/v4/blog.js?v=1794860958" defer></script>
 </body>
 </html>

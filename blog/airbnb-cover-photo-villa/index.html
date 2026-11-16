@@ -180,7 +180,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Hanken+Grotesk:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="/v4/style.css?v=1794430484">
-<link rel="stylesheet" href="/v4/blog.css?v=1794589914">
+<link rel="stylesheet" href="/v4/blog.css?v=1794860887">
 <script type="module" src="/v4/main.js?v=1794402613"></script>
 </head>
 <body>
@@ -195,7 +195,6 @@
     <a href="/services/">Services</a>
     <a href="/system/">The system</a>
     <a href="/pricing/">Pricing</a>
-    <a href="/blog/" aria-current="page">Blog</a>
   </nav>
   <a class="btn btn--plain nav__cta" href="#analysis">Free analysis</a>
   <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
@@ -209,7 +208,6 @@
     <a href="/services/"><span>01</span>Services</a>
     <a href="/system/"><span>02</span>The system</a>
     <a href="/pricing/"><span>03</span>Pricing</a>
-    <a href="/blog/" aria-current="page"><span>04</span>Blog</a>
   </nav>
   <div class="menu__foot">
     <a class="btn" href="#analysis">Get your free revenue analysis <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
@@ -218,21 +216,36 @@
 </div>
 
 <main id="main">
-<article>
+<article class="ar-page">
 <header class="ar-hero s-lime" id="top" data-hero>
   <div class="wrap ar-hero__grid">
-    <div>
+    <div class="ar-hero__text">
       <nav aria-label="Breadcrumb"><ol class="crumbs">
-        <li><a href="/">Home</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><span aria-current="page">How we work</span></li>
       </ol></nav>
       <h1 class="ar-title">Your first Airbnb photo has one job: earn the click</h1>
-      <p class="ar-lede"><b>The cover photo is the first image of your listing, and the only part of your villa most guests ever see.</b> In search results it competes at thumbnail size with every other villa on the page. Pick one clear subject, straight lines, soft natural light and an uncluttered frame, and pick it before the shoot starts.</p>
-      <p class="ar-meta"><span>By <b>IndaVillas</b></span> <span>Published <time datetime="2026-11-14">14 November 2026</time></span> <span>5 minute read</span></p>
+      <p class="ar-deck">Your Airbnb cover photo decides whether a guest opens your villa or scrolls past. How to choose it, test it at thumbnail size and plan the shoot around it.</p>
+      <div class="ar-byrow">
+        <div class="by">
+  <span class="by__av" aria-hidden="true"><svg viewBox="0 0 296 244" fill="currentColor" aria-hidden="true"><polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/></svg></span>
+  <p><b>IndaVillas</b><span>Revenue management for 5+ bedroom villas in Bali</span></p>
+</div>
+        <p class="ar-meta"><span class="tag">How we work</span><span>Published <time datetime="2026-11-14">14 November 2026</time></span><span>5 min read</span></p>
+      </div>
+      <div class="share" role="group" aria-label="Share this article (top)">
+  <span class="share__h">Share</span>
+  <button class="share__a" type="button" data-copy="https://indavillas.com/blog/airbnb-cover-photo-villa/" hidden>Copy link</button>
+  <a class="share__a" href="https://wa.me/?text=Your%20first%20Airbnb%20photo%20has%20one%20job%3A%20earn%20the%20click%20https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F" rel="noopener" target="_blank">WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F" rel="noopener" target="_blank">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F" rel="noopener" target="_blank">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://x.com/intent/post?url=https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F&amp;text=Your%20first%20Airbnb%20photo%20has%20one%20job%3A%20earn%20the%20click" rel="noopener" target="_blank">X<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="mailto:?subject=Your%20first%20Airbnb%20photo%20has%20one%20job%3A%20earn%20the%20click&amp;body=https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F">Email</a>
+  <span class="share__ok" role="status" aria-live="polite"></span>
+</div>
     </div>
     <figure class="ar-fig">
-      <img src="/v4/img/blog/photoday-600.jpg" srcset="/v4/img/blog/photoday-600.jpg 597w, /v4/img/blog/photoday-1200.jpg 1194w" sizes="(max-width:900px) 100vw, 34vw" alt="A photographer seen from behind, setting up a tripod and a softbox in a villa living room that opens to the garden" width="597" height="800" fetchpriority="high" decoding="async">
+      <img src="/v4/img/blog/photoday-600.jpg" srcset="/v4/img/blog/photoday-600.jpg 597w, /v4/img/blog/photoday-1200.jpg 1194w" sizes="(max-width:900px) 100vw, 420px" alt="A photographer seen from behind, setting up a tripod and a softbox in a villa living room that opens to the garden" width="597" height="800" fetchpriority="high" decoding="async">
       <figcaption>Illustrative image.</figcaption>
     </figure>
   </div>
@@ -240,8 +253,8 @@
 
 <div class="ar s-lime">
   <div class="wrap ar__grid">
-    <nav class="lg__toc" aria-label="On this page">
-      <p class="lg__toc-h">On this page</p>
+    <nav class="ar-toc" aria-label="On this page">
+      <p class="ar-toc__h">On this page</p>
       <ol>
         <li><a href="#why">Why does the cover photo matter so much?</a></li>
         <li><a href="#choose">What makes a good cover photo for a villa?</a></li>
@@ -254,22 +267,40 @@
     </nav>
 
     <div class="ar__body">
-      <aside class="ar-key" aria-labelledby="key-h">
-        <h2 id="key-h">The short version</h2>
+      <details class="ar-toc-m">
+        <summary>On this page</summary>
         <ol>
+        <li><a href="#why">Why does the cover photo matter so much?</a></li>
+        <li><a href="#choose">What makes a good cover photo for a villa?</a></li>
+        <li><a href="#test">The thumbnail test: check your cover photo in one minute</a></li>
+        <li><a href="#shoot">Plan the shoot around the first photo</a></li>
+        <li><a href="#change">When should you change the cover photo?</a></li>
+        <li><a href="#questions">Questions owners ask</a></li>
+        <li><a href="#sources">Sources and method</a></li>
+        </ol>
+      </details>
+
+      <aside class="ar-qa-box" aria-labelledby="qa-h">
+        <h2 id="qa-h">Quick answer</h2>
+        <p><b>The cover photo is the first image of your listing, and the only part of your villa most guests ever see.</b> In search results it competes at thumbnail size with every other villa on the page. Pick one clear subject, straight lines, soft natural light and an uncluttered frame, and pick it before the shoot starts.</p>
+      </aside>
+
+      <aside class="ar-key" aria-labelledby="key-h">
+        <h2 id="key-h">Key takeaways</h2>
+        <ul>
           <li>The cover photo has one job: make a guest open your listing instead of the next one.</li>
           <li>A good cover photo has one clear subject, straight lines, soft natural light and nothing cluttering the frame.</li>
           <li>Test it on a phone at thumbnail size. If you cannot tell what makes the villa different in two seconds, a guest cannot either.</li>
           <li>Choose the cover shot before the photo day, then plan the time and the styling around it.</li>
-        </ol>
+        </ul>
       </aside>
 
-<h2 id="why">Why does the cover photo matter so much?</h2>
+<h2 id="why">Why does the cover photo matter so much? <a class="ar-hash" href="#why" aria-label="Link to this section">#</a></h2>
 <p>The cover photo matters because it does most of the work in search results. A guest looking for a villa for a group in Bali sees a grid of listings, each reduced to one photo, a short title, a price and a rating. The photo takes most of the space, and it is the only part that shows the house.</p>
 <p>The list is long. <a href="#sources">AirDNA data</a> for the 12 months to October 2026 counts 2,910 active whole home Airbnb listings in Bali with 5 or more bedrooms. A guest will open a handful of them. The first photo decides whether yours is one.</p>
 <p>It also feeds what comes after. <a href="https://www.airbnb.com/help/article/39" rel="noopener">Airbnb says its search</a> weighs a listing’s quality, popularity, price and location, and that popularity reflects how often guests save, message and book. A villa nobody opens cannot be saved or booked, however good the other forty photos are.</p>
 
-<h2 id="choose">What makes a good cover photo for a villa?</h2>
+<h2 id="choose">What makes a good cover photo for a villa? <a class="ar-hash" href="#choose" aria-label="Link to this section">#</a></h2>
 <p>A good cover photo shows one thing clearly, and that thing is the reason to choose this villa over the ones beside it. We look for four qualities.</p>
 <ul>
   <li><b>One clear subject.</b> The pool and the pavilion behind it, or the living room opening to the garden. Not a collage, and not a wide shot that shows a little of everything.</li>
@@ -286,7 +317,7 @@
   <li><b>An orange sunset.</b> It hides the villa and looks like every other listing in the grid.</li>
 </ul>
 
-<h2 id="test">The thumbnail test: check your cover photo in one minute</h2>
+<h2 id="test">The thumbnail test: check your cover photo in one minute <a class="ar-hash" href="#test" aria-label="Link to this section">#</a></h2>
 <p>The thumbnail test shows your cover photo the way guests see it: small, on a phone, between competitors.</p>
 <ol>
   <li><b>Search like a guest.</b> Open Airbnb on a phone, not signed in as host. Search your area with real dates and your villa’s guest count.</li>
@@ -296,7 +327,7 @@
   <li><b>Ask someone who has never seen the villa.</b> Their first word is what guests see.</li>
 </ol>
 
-<h2 id="shoot">Plan the shoot around the first photo</h2>
+<h2 id="shoot">Plan the shoot around the first photo <a class="ar-hash" href="#shoot" aria-label="Link to this section">#</a></h2>
 <p>Choose the cover photo before the photographer arrives, because the best angle of a villa usually works for about an hour a day. Decide the shot first, then build the day around it.</p>
 <ol>
   <li><b>Pick the subject.</b> Walk the villa and ask what a guest would describe to a friend afterwards. That is the subject.</li>
@@ -312,11 +343,11 @@
   <a class="btn" href="/listing-audit/">Score my listing <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
 </aside>
 
-<h2 id="change">When should you change the cover photo?</h2>
+<h2 id="change">When should you change the cover photo? <a class="ar-hash" href="#change" aria-label="Link to this section">#</a></h2>
 <p>Change the cover photo when the villa has changed, or when the current one fails the thumbnail test. A new pool deck, new furniture or a matured garden all deserve a new first photo.</p>
 <p>When you change it, change only that. The performance section of your host account reports listing views. Note the views for a few weeks before and after, across similar dates, so you can see what the new photo did. Changing the title, the price and the photo in the same week tells you nothing about any of them.</p>
 
-<h2 id="questions">Questions owners ask</h2>
+<h2 id="questions">Questions owners ask <a class="ar-hash" href="#questions" aria-label="Link to this section">#</a></h2>
 <div class="ar-qa">
 <h3>Should the cover photo be the pool?</h3>
 <p>Only if the pool is what sets the villa apart. In AirDNA’s data, 98% of Bali villas with 5 or more bedrooms list a pool, so a pool alone does not stand out in the results. A pool with the living pavilion behind it, or the view beyond it, usually does more.</p>
@@ -333,34 +364,93 @@
         <li><a href="https://www.airbnb.com/help/article/1257" rel="noopener">Airbnb Help Centre: star ratings</a></li>
         <li><a href="https://www.airdna.co/" rel="noopener">AirDNA, Bali market data, trailing 12 months to October 2026 (analysis by IndaVillas)</a></li>
       </ol>
-      <div class="ar-by">
-        <svg viewBox="0 0 296 244" fill="currentColor" aria-hidden="true"><polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/></svg>
-        <p><b>Written by IndaVillas.</b> We run the commercial side of 5+ bedroom villas in Bali: rate strategy, listings, photography, distribution and guest communication, while the owner’s team runs the house. Market figures on this blog come from our own analysis of AirDNA data. Spotted an error? Email <a href="mailto:hi.flatiro@gmail.com">hi.flatiro@gmail.com</a>.</p>
-      </div>
-    </section>
+      </section>
+
+      <aside class="ar-ask" aria-labelledby="ask-h">
+        <h2 id="ask-h">Questions about this article?</h2>
+        <p>Ask us about your own villa, or tell us if a figure looks wrong.</p>
+        <p class="ar-ask__btns"><a class="btn btn--sm" href="mailto:hi.flatiro@gmail.com?subject=Your%20first%20Airbnb%20photo%20has%20one%20job%3A%20earn%20the%20click">Email us</a> <a class="btn btn--sm btn--ghost" href="/pricing/">See pricing</a></p>
+      </aside>
+
+      <aside class="ar-author" aria-label="About the author">
+        <div class="by by--sm">
+  <span class="by__av" aria-hidden="true"><svg viewBox="0 0 296 244" fill="currentColor" aria-hidden="true"><polygon points="0,0 88,0 44,75"/><polygon points="88,24 88,150 51,88"/><polygon points="100,23 100,166 141,95"/><polygon points="142,117 142,244 106,179"/><polygon points="154,117 154,244 190,179"/><polygon points="196,23 196,166 155,95"/><polygon points="208,24 208,150 245,88"/><polygon points="296,0 208,0 252,75"/></svg></span>
+  <p><b>IndaVillas</b><span>Revenue management for 5+ bedroom villas in Bali</span></p>
+</div>
+        <p>We run the commercial side of 5+ bedroom villas in Bali: rate strategy, listings, photography, distribution and guest communication, while the owner’s team runs the house. Market figures on this blog come from our own analysis of AirDNA data.</p>
+        <p class="ar-author__links"><a href="/system/">How we work</a> <a href="https://www.instagram.com/inda.villas/" rel="noopener" target="_blank">Instagram<span class="sr-only"> (opens in a new tab)</span></a></p>
+      </aside>
+
+      <div class="share" role="group" aria-label="Share this article (bottom)">
+  <span class="share__h">Share</span>
+  <button class="share__a" type="button" data-copy="https://indavillas.com/blog/airbnb-cover-photo-villa/" hidden>Copy link</button>
+  <a class="share__a" href="https://wa.me/?text=Your%20first%20Airbnb%20photo%20has%20one%20job%3A%20earn%20the%20click%20https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F" rel="noopener" target="_blank">WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F" rel="noopener" target="_blank">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F" rel="noopener" target="_blank">Facebook<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="https://x.com/intent/post?url=https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F&amp;text=Your%20first%20Airbnb%20photo%20has%20one%20job%3A%20earn%20the%20click" rel="noopener" target="_blank">X<span class="sr-only"> (opens in a new tab)</span></a>
+  <a class="share__a" href="mailto:?subject=Your%20first%20Airbnb%20photo%20has%20one%20job%3A%20earn%20the%20click&amp;body=https%3A%2F%2Findavillas.com%2Fblog%2Fairbnb-cover-photo-villa%2F">Email</a>
+  <span class="share__ok" role="status" aria-live="polite"></span>
+</div>
+      <nav class="pn" aria-label="More articles">
+  <a class="pn__a pn__a--next" href="/blog/villa-revenue-management-vs-full-management/" rel="next"><span>Next</span>Villa revenue management vs full management: who does what</a>
+</nav>
     </div>
+
+    <aside class="ar-side" aria-label="More from IndaVillas">
+      <div class="ar-side__rel">
+        <p class="ar-toc__h">Related articles</p>
+        <ul>
+        <li><a href="/blog/five-star-airbnb-reviews-villa/"><span>Guest experience</span>Where 5 star villa reviews come from: scent, light, comfort, clarity</a></li>
+        <li><a href="/blog/bali-villa-occupancy-revenue-5-bedroom/"><span>Market data</span>What a 5+ bedroom villa in Bali earns: occupancy, nightly rate and revenue</a></li>
+        <li><a href="/blog/building-a-villa-in-bali-before-you-list/"><span>Launching a villa</span>Building a villa in Bali? Four decisions to make before your first listing</a></li>
+        </ul>
+      </div>
+      <div class="ar-side__cta s-night">
+        <p class="tag">Free listing audit</p>
+        <p class="ar-side__big">100</p>
+        <p class="ar-side__lbl">point score for your Airbnb or Booking.com listing</p>
+        <ul>
+          <li>Photos, title, description, amenities, reviews and booking setup</li>
+          <li>Every fix ranked</li>
+          <li>Takes about a minute</li>
+        </ul>
+        <a class="btn btn--sm" href="/listing-audit/">Score my listing <span class="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span></a>
+      </div>
+    </aside>
   </div>
 </div>
 </article>
 
 <section class="rel s-lime2" aria-labelledby="rel-h">
   <div class="wrap">
-    <h2 id="rel-h">Keep reading</h2>
-    <div class="bl-list">
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Guest experience</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h3><a href="/blog/five-star-airbnb-reviews-villa/">Where 5 star villa reviews come from: scent, light, comfort, clarity</a></h3><p>Five star reviews rarely come from the pool. They come from how a room smells, whether the lamp works, how the bed feels and how clear the arrival message is.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+    <div class="rel__head"><h2 id="rel-h">Related reads</h2><a class="lnk" href="/blog/">All articles</a></div>
+    <div class="bc-grid">
+<article class="bc" data-cat="guest-experience">
+  <div class="bc__media"><img src="/v4/img/blog/bedside-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">Guest experience</p>
+    <h3 class="bc__title"><a href="/blog/five-star-airbnb-reviews-villa/">Where 5 star villa reviews come from: scent, light, comfort, clarity</a></h3>
+    <p class="bc__desc">Five star reviews rarely come from the pool. They come from how a room smells, whether the lamp works, how the bed feels and how clear the arrival message is.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>6 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Market data</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h3><a href="/blog/bali-villa-occupancy-revenue-5-bedroom/">What a 5+ bedroom villa in Bali earns: occupancy, nightly rate and revenue</a></h3><p>The median Bali villa with 5+ bedrooms was 44% occupied and earned $46,000 in the year to October 2026. The top quarter earned $101,700. Data by size and area.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="market-data">
+  <div class="bc__media bc__media--num s-night" aria-hidden="true"><b>44%</b><span>median occupancy of a Bali villa with 5 or more bedrooms</span></div>
+  <div class="bc__body">
+    <p class="tag">Market data</p>
+    <h3 class="bc__title"><a href="/blog/bali-villa-occupancy-revenue-5-bedroom/">What a 5+ bedroom villa in Bali earns: occupancy, nightly rate and revenue</a></h3>
+    <p class="bc__desc">The median Bali villa with 5+ bedrooms was 44% occupied and earned $46,000 in the year to October 2026. The top quarter earned $101,700. Data by size and area.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>8 min read</span></p>
+  </div>
 </article>
-<article class="bl-row">
-  <p class="bl-row__meta"><b>Launching a villa</b><time datetime="2026-11-14">14 November 2026</time></p>
-  <div><h3><a href="/blog/building-a-villa-in-bali-before-you-list/">Building a villa in Bali? Four decisions to make before your first listing</a></h3><p>Most launch problems start months earlier. Decide who the villa is for, what similar villas really earn, who runs the house and what the first guests will see.</p></div>
-  <span class="bl-row__go" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"/></svg></span>
+<article class="bc" data-cat="launching-a-villa">
+  <div class="bc__media"><img src="/v4/img/blog/inspect-600.jpg" alt="" width="597" height="800" loading="lazy" decoding="async"></div>
+  <div class="bc__body">
+    <p class="tag">Launching a villa</p>
+    <h3 class="bc__title"><a href="/blog/building-a-villa-in-bali-before-you-list/">Building a villa in Bali? Four decisions to make before your first listing</a></h3>
+    <p class="bc__desc">Most launch problems start months earlier. Decide who the villa is for, what similar villas really earn, who runs the house and what the first guests will see.</p>
+    <p class="bc__meta"><time datetime="2026-11-14">14 November 2026</time><span>7 min read</span></p>
+  </div>
 </article>
     </div>
   </div>
@@ -423,9 +513,9 @@
       <a href="/services/">Services</a>
       <a href="/system/">The system</a>
       <a href="/pricing/">Pricing</a>
-      <a href="/blog/">Blog</a>
         <a href="/revenue-calculator/">Revenue calculator</a>
         <a href="/listing-audit/">Listing audit</a>
+        <a href="/blog/">Blog</a>
       </nav>
       <div class="ft__contact">
         <a class="ft__mail" href="mailto:hi.flatiro@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.23 2 6.34 3.17 5.17C4.34 4 6.23 4 10 4H14C17.77 4 19.66 4 20.83 5.17C22 6.34 22 8.23 22 12C22 15.77 22 17.66 20.83 18.83C19.66 20 17.77 20 14 20H10C6.23 20 4.34 20 3.17 18.83C2 17.66 2 15.77 2 12Z"/><path d="M6 8L8.16 9.8C10 11.33 10.91 12.09 12 12.09C13.09 12.09 14 11.33 15.84 9.8L18 8"/></g></svg> hi.flatiro@gmail.com</a>
@@ -442,5 +532,6 @@
     </div>
   </div>
 </footer>
+<script src="/v4/blog.js?v=1794860958" defer></script>
 </body>
 </html>

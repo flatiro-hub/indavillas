@@ -636,3 +636,20 @@ indexable page, real change dates), `llms.txt` and `blog/feed.xml` on every run.
 - Upload: `indavillas-v4-full-upload-2026-11-13b.zip` (everything in the 11-12 zip, plus
   `blog/`, `v4/blog.css`, `v4/img/blog/`, `sitemap.xml`, `llms.txt`). 11-12 and the first
   11-13 zip are now STALE.
+
+### 17g. Blog layout v2 and footer-only link (16 November 2026)
+
+- Owner asked: Blog out of the top bar (and mobile menu), into the footer only; layout like
+  useshift.org/blog (index) and traffic-creator.com/blog (articles). `NAV` in `_v4/build.py` is back to
+  three items; the footer has an explicit Blog link.
+- Index: centred intro, topic filter pills (`?topic=` links work), 3/2/1 column card grid. Cards show the
+  photo or, for data pieces, the headline figure on night (no stock imagery).
+- Article: breadcrumb, title, deck, byline (brand mark, no invented author), meta, share row; optional
+  three-figure stat band (`"stats"` in the meta block; used on 03, 06, 08); three columns on wide
+  screens: sticky contents left, text, sticky related list + listing audit card right. Quick answer and
+  Key takeaways boxes open the text; then Questions about this article, author box, share, previous/next,
+  related reads (3 cards), free analysis form.
+- `/v4/blog.js` (new): topic filter, copy link, current section in the contents. Without JS the filter
+  bar and the copy button stay hidden and everything else works.
+- Upload: `indavillas-blog-layout-2026-11-16.zip` (all v4 pages for the footer change, blog/, v4/blog.css,
+  v4/blog.js, sitemap.xml, llms.txt). Delete the zip from public_html after extracting.

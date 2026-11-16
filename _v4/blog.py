@@ -46,6 +46,7 @@ import pathlib
 import re
 import subprocess
 import sys
+from urllib.parse import quote
 
 import build
 
@@ -237,12 +238,17 @@ def chrome(nav="blog"):
     return dict(bar="ink", nav=nav, cta=("#analysis", "Free analysis", "Get your free revenue analysis"))
 
 
-def hero_figure(p):
+def slug_of(text):
+    return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+
+def hero_figure(p, cls="ar-fig"):
+    """The article's picture: its photo, or its headline figure set on night."""
     h = p["hero"]
     if "img" in h:
-        return (f'<figure class="ar-fig">\n'
+        return (f'<figure class="{cls}">\n'
                 f'      <img src="/v4/img/blog/{h["img"]}-600.jpg" srcset="/v4/img/blog/{h["img"]}-600.jpg 597w, /v4/img/blog/{h["img"]}-1200.jpg 1194w" '
-                f'sizes="(max-width:900px) 100vw, 34vw" alt="{html.escape(h["alt"])}" width="597" height="800" fetchpriority="high" decoding="async">\n'
+                f'sizes="(max-width:900px) 100vw, 420px" alt="{html.escape(h["alt"])}" width="597" height="800" fetchpriority="high" decoding="async">\n'
                 f'      <figcaption>Illustrative image.</figcaption>\n    </figure>')
     return (f'<div class="ar-num s-night">\n'
             f'      <p class="ar-num__n">{h["num"]}</p>\n'
@@ -250,11 +256,47 @@ def hero_figure(p):
             f'      <p class="ar-num__s">{h.get("src", "")}</p>\n    </div>')
 
 
-def row(p, level="h3"):
-    return (f'<article class="bl-row">\n'
-            f'  <p class="bl-row__meta"><b>{p["pillar"]}</b><time datetime="{p["date"]}">{nice(p["date"])}</time></p>\n'
-            f'  <div><{level}><a href="{p["path"]}">{p["title"]}</a></{level}><p>{p["desc"]}</p></div>\n'
-            f'  <span class="bl-row__go" aria-hidden="true">{build.icon("arrow-right")}</span>\n</article>')
+def thumb(p):
+    """Card picture: the photo, or the article's figure on night (no stock imagery)."""
+    h = p["hero"]
+    if "img" in h:
+        return (f'<div class="bc__media"><img src="/v4/img/blog/{h["img"]}-600.jpg" alt="" width="597" height="800" '
+                f'loading="lazy" decoding="async"></div>')
+    return f'<div class="bc__media bc__media--num s-night" aria-hidden="true"><b>{h["num"]}</b><span>{h["label"]}</span></div>'
+
+
+def card(p, level="h2"):
+    """One article card, as on the blog index and under every article."""
+    return (f'<article class="bc" data-cat="{slug_of(p["pillar"])}">\n'
+            f'  {thumb(p)}\n'
+            f'  <div class="bc__body">\n'
+            f'    <p class="tag">{p["pillar"]}</p>\n'
+            f'    <{level} class="bc__title"><a href="{p["path"]}">{p["title"]}</a></{level}>\n'
+            f'    <p class="bc__desc">{p["desc"]}</p>\n'
+            f'    <p class="bc__meta"><time datetime="{p["date"]}">{nice(p["date"])}</time><span>{p["minutes"]} min read</span></p>\n'
+            f'  </div>\n</article>')
+
+
+def share(p, where):
+    """Share links: plain links to each service (nothing loads until clicked), plus copy link."""
+    u = html.escape(p["url"], quote=True)
+    qu, qt = quote(p["url"], safe=""), quote(p["title"], safe="")
+    tab = '<span class="sr-only"> (opens in a new tab)</span>'
+    return (f'<div class="share" role="group" aria-label="Share this article ({where})">\n'
+            f'  <span class="share__h">Share</span>\n'
+            f'  <button class="share__a" type="button" data-copy="{u}" hidden>Copy link</button>\n'
+            f'  <a class="share__a" href="https://wa.me/?text={qt}%20{qu}" rel="noopener" target="_blank">WhatsApp{tab}</a>\n'
+            f'  <a class="share__a" href="https://www.linkedin.com/sharing/share-offsite/?url={qu}" rel="noopener" target="_blank">LinkedIn{tab}</a>\n'
+            f'  <a class="share__a" href="https://www.facebook.com/sharer/sharer.php?u={qu}" rel="noopener" target="_blank">Facebook{tab}</a>\n'
+            f'  <a class="share__a" href="https://x.com/intent/post?url={qu}&amp;text={qt}" rel="noopener" target="_blank">X{tab}</a>\n'
+            f'  <a class="share__a" href="mailto:?subject={qt}&amp;body={qu}">Email</a>\n'
+            f'  <span class="share__ok" role="status" aria-live="polite"></span>\n</div>')
+
+
+def byline(small=False):
+    return (f'<div class="by{" by--sm" if small else ""}">\n'
+            f'  <span class="by__av" aria-hidden="true">{build.BRAND_MARK}</span>\n'
+            f'  <p><b>IndaVillas</b><span>Revenue management for 5+ bedroom villas in Bali</span></p>\n</div>')
 
 
 def sources_block(p):
@@ -266,26 +308,44 @@ def sources_block(p):
     items = "\n".join(f'        <li><a href="{u}" rel="noopener">{html.escape(label)}</a></li>' for label, u in srcs)
     how = f"<p>{METHOD}</p>\n      " if p.get("data") else ""
     lst = f"<ol>\n{items}\n      </ol>\n      " if srcs else ""
-    return f'''<section class="ar-src" id="sources" aria-labelledby="sources-h">
-      <h2 id="sources-h">Sources and method</h2>
-      {how}{lst}<div class="ar-by">
-        {build.BRAND_MARK}
-        <p><b>Written by IndaVillas.</b> We run the commercial side of 5+ bedroom villas in Bali: rate strategy, listings, photography, distribution and guest communication, while the owner's team runs the house. Market figures on this blog come from our own analysis of AirDNA data. Spotted an error? Email <a href="mailto:hi.flatiro@gmail.com">hi.flatiro@gmail.com</a>.</p>
-      </div>
-    </section>'''
+    return (f'<section class="ar-src" id="sources" aria-labelledby="sources-h">\n'
+            f'      <h2 id="sources-h">Sources and method</h2>\n'
+            f'      {how}{lst}</section>')
+
+
+def anchors(body):
+    """A visible # link on every section heading, so a section can be linked to directly."""
+    return re.sub(r'<h2 id="([^"]+)">(.*?)</h2>',
+                  lambda m: f'<h2 id="{m.group(1)}">{m.group(2)} <a class="ar-hash" href="#{m.group(1)}" aria-label="Link to this section">#</a></h2>',
+                  body)
+
+
+def stats_band(p):
+    st = p.get("stats")
+    if not st:
+        return ""
+    tiles = "\n".join(f'      <div><dt>{lab}</dt><dd>{num}</dd></div>' for num, lab in st["items"])
+    return (f'  <div class="wrap">\n    <dl class="ar-stats">\n{tiles}\n    </dl>\n'
+            f'    <p class="ar-stats__src">{st["src"]}</p>\n  </div>\n')
+
+
+def script_tag():
+    return f'<script src="/v4/blog.js?v={build.stamp("v4/blog.js")}" defer></script>\n</body>'
 
 
 def article_page(p, posts):
     body = expand(p["body"])
     toc = re.findall(r'<h2 id="([^"]+)">(.*?)</h2>', body)
-    words = len(text_of(p["lede"] + " ".join(p["key"]) + body).split())
-    p["words"] = words
-    minutes = max(2, round(words / 220))
+    body = anchors(body)
     by_slug = {q["slug"]: q for q in posts}
     related = [by_slug[s] for s in p.get("related", []) if s in by_slug][:3]
     if len(related) < 3:
         related += [q for q in posts if q is not p and q not in related][: 3 - len(related)]
-    srcs = [u for _, u in p.get("sources", [])] + ([AIRDNA[1]] if p.get("data") else []) + ([AIRDNA_HELP[1]] if p.get("terms") else [])
+    i = posts.index(p)
+    prev_p = posts[i - 1] if i > 0 else None
+    next_p = posts[i + 1] if i + 1 < len(posts) else None
+    srcs = ([u for _, u in p.get("sources", [])] + ([AIRDNA[1]] if p.get("data") else [])
+            + ([AIRDNA_HELP[1]] if p.get("terms") else []))
     graph = org_nodes() + [
         {"@type": "WebPage", "@id": p["url"] + "#webpage", "url": p["url"], "name": p["seo"], "description": p["desc"],
          "inLanguage": "en", "isPartOf": {"@id": WEBSITE}, "breadcrumb": {"@id": p["url"] + "#breadcrumb"},
@@ -295,74 +355,144 @@ def article_page(p, posts):
          "datePublished": iso(p["date"]), "dateModified": iso(p["updated"]),
          "author": {"@type": "Organization", "@id": ORG, "name": "IndaVillas", "url": SITE + "/"},
          "publisher": {"@id": ORG}, "mainEntityOfPage": {"@id": p["url"] + "#webpage"}, "isPartOf": {"@id": BLOG},
-         "articleSection": p["pillar"], "inLanguage": "en", "wordCount": words,
+         "articleSection": p["pillar"], "inLanguage": "en", "wordCount": p["words"],
          "about": [{"@type": "Thing", "name": a} for a in p.get("about", [])],
          **({"citation": srcs} if srcs else {})},
         crumbs_ld(p["url"], [("Home", "/"), ("Blog", "/blog/"), (p["title"], p["path"])]),
     ]
-    toc_html = "\n".join(f'        <li><a href="#{i}">{t}</a></li>' for i, t in toc + [("sources", "Sources and method")])
+    toc_html = "\n".join(f'        <li><a href="#{a}">{t}</a></li>' for a, t in toc + [("sources", "Sources and method")])
     keys = "\n".join(f"          <li>{k}</li>" for k in p["key"])
-    upd = f' <span>Updated <time datetime="{p["updated"]}">{nice(p["updated"])}</time></span>' if p["updated"] != p["date"] else ""
-    page = head(p["seo"], p["desc"], p["path"], p["title"], p["og_image"], graph, article=p) + "\n" + build.header(chrome()) + f'''<article>
+    rel_side = "\n".join(f'        <li><a href="{q["path"]}"><span>{q["pillar"]}</span>{q["title"]}</a></li>' for q in related)
+    pn = ""
+    if prev_p or next_p:
+        pn = '<nav class="pn" aria-label="More articles">\n'
+        if prev_p:
+            pn += f'  <a class="pn__a" href="{prev_p["path"]}" rel="prev"><span>Previous</span>{prev_p["title"]}</a>\n'
+        if next_p:
+            pn += f'  <a class="pn__a pn__a--next" href="{next_p["path"]}" rel="next"><span>Next</span>{next_p["title"]}</a>\n'
+        pn += '</nav>'
+    mail_subject = quote(p["title"], safe="")
+    tab = '<span class="sr-only"> (opens in a new tab)</span>'
+    page = (head(p["seo"], p["desc"], p["path"], p["title"], p["og_image"], graph, article=p) + "\n"
+            + build.header(chrome()) + f'''<article class="ar-page">
 <header class="ar-hero s-lime" id="top" data-hero>
   <div class="wrap ar-hero__grid">
-    <div>
+    <div class="ar-hero__text">
       <nav aria-label="Breadcrumb"><ol class="crumbs">
-        <li><a href="/">Home</a></li>
         <li><a href="/blog/">Blog</a></li>
         <li><span aria-current="page">{p["pillar"]}</span></li>
       </ol></nav>
       <h1 class="ar-title">{p["title"]}</h1>
-      <p class="ar-lede">{p["lede"]}</p>
-      <p class="ar-meta"><span>By <b>IndaVillas</b></span> <span>Published <time datetime="{p["date"]}">{nice(p["date"])}</time></span>{upd} <span>{minutes} minute read</span></p>
+      <p class="ar-deck">{p["desc"]}</p>
+      <div class="ar-byrow">
+        {byline()}
+        <p class="ar-meta"><span class="tag">{p["pillar"]}</span><span>Published <time datetime="{p["date"]}">{nice(p["date"])}</time></span><span>{p["minutes"]} min read</span></p>
+      </div>
+      {share(p, "top")}
     </div>
     {hero_figure(p)}
   </div>
-</header>
+{stats_band(p)}</header>
 
 <div class="ar s-lime">
   <div class="wrap ar__grid">
-    <nav class="lg__toc" aria-label="On this page">
-      <p class="lg__toc-h">On this page</p>
+    <nav class="ar-toc" aria-label="On this page">
+      <p class="ar-toc__h">On this page</p>
       <ol>
 {toc_html}
       </ol>
     </nav>
 
     <div class="ar__body">
-      <aside class="ar-key" aria-labelledby="key-h">
-        <h2 id="key-h">The short version</h2>
+      <details class="ar-toc-m">
+        <summary>On this page</summary>
         <ol>
-{keys}
+{toc_html}
         </ol>
+      </details>
+
+      <aside class="ar-qa-box" aria-labelledby="qa-h">
+        <h2 id="qa-h">Quick answer</h2>
+        <p>{p["lede"]}</p>
+      </aside>
+
+      <aside class="ar-key" aria-labelledby="key-h">
+        <h2 id="key-h">Key takeaways</h2>
+        <ul>
+{keys}
+        </ul>
       </aside>
 
 {body}
     {sources_block(p)}
+
+      <aside class="ar-ask" aria-labelledby="ask-h">
+        <h2 id="ask-h">Questions about this article?</h2>
+        <p>Ask us about your own villa, or tell us if a figure looks wrong.</p>
+        <p class="ar-ask__btns"><a class="btn btn--sm" href="mailto:hi.flatiro@gmail.com?subject={mail_subject}">Email us</a> <a class="btn btn--sm btn--ghost" href="/pricing/">See pricing</a></p>
+      </aside>
+
+      <aside class="ar-author" aria-label="About the author">
+        {byline(small=True)}
+        <p>We run the commercial side of 5+ bedroom villas in Bali: rate strategy, listings, photography, distribution and guest communication, while the owner's team runs the house. Market figures on this blog come from our own analysis of AirDNA data.</p>
+        <p class="ar-author__links"><a href="/system/">How we work</a> <a href="{build.INSTAGRAM}" rel="noopener" target="_blank">Instagram{tab}</a></p>
+      </aside>
+
+      {share(p, "bottom")}
+      {pn}
     </div>
+
+    <aside class="ar-side" aria-label="More from IndaVillas">
+      <div class="ar-side__rel">
+        <p class="ar-toc__h">Related articles</p>
+        <ul>
+{rel_side}
+        </ul>
+      </div>
+      <div class="ar-side__cta s-night">
+        <p class="tag">Free listing audit</p>
+        <p class="ar-side__big">100</p>
+        <p class="ar-side__lbl">point score for your Airbnb or Booking.com listing</p>
+        <ul>
+          <li>Photos, title, description, amenities, reviews and booking setup</li>
+          <li>Every fix ranked</li>
+          <li>Takes about a minute</li>
+        </ul>
+        <a class="btn btn--sm" href="/listing-audit/">Score my listing {build.btn_icon()}</a>
+      </div>
+    </aside>
   </div>
 </div>
 </article>
 
 <section class="rel s-lime2" aria-labelledby="rel-h">
   <div class="wrap">
-    <h2 id="rel-h">Keep reading</h2>
-    <div class="bl-list">
-{chr(10).join(row(q) for q in related)}
+    <div class="rel__head"><h2 id="rel-h">Related reads</h2><a class="lnk" href="/blog/">All articles</a></div>
+    <div class="bc-grid">
+{chr(10).join(card(q, "h3") for q in related)}
     </div>
   </div>
 </section>
 
-''' + build.final(f"New villa revenue analysis - IndaVillas (Blog: {p['slug']})", p["n"], "terrace") + build.footer()
+''' + build.final(f"New villa revenue analysis - IndaVillas (Blog: {p['slug']})", p["n"], "terrace") + build.footer())
+    page = page.replace("</body>", script_tag())
     out = OUT / p["slug"] / "index.html"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(build.typeset(page))
-    return words, minutes
+    return p["words"], p["minutes"]
 
 
 def index_page(posts):
     order = sorted(posts, key=lambda q: (not q.get("featured"), q["n"]))
-    first, rest = order[0], order[1:]
+    first = order[0]
+    cats = []
+    for q in order:
+        if q["pillar"] not in cats:
+            cats.append(q["pillar"])
+    count = {c: sum(q["pillar"] == c for q in posts) for c in cats}
+    pills = "\n".join(
+        f'      <button type="button" class="pill" data-filter="{slug_of(c)}" aria-pressed="false">{c} <span>{count[c]}</span></button>'
+        for c in cats)
     graph = org_nodes() + [
         {"@type": "CollectionPage", "@id": SITE + "/blog/#webpage", "url": SITE + "/blog/", "name": BLOG_TITLE,
          "description": BLOG_DESC, "inLanguage": "en", "isPartOf": {"@id": WEBSITE}, "about": {"@id": BLOG},
@@ -371,33 +501,33 @@ def index_page(posts):
              {"@type": "ListItem", "position": i, "url": q["url"], "name": q["title"]} for i, q in enumerate(order, 1)]}},
         crumbs_ld(SITE + "/blog/", [("Home", "/"), ("Blog", "/blog/")]),
     ]
-    page = head(BLOG_TITLE, BLOG_DESC, "/blog/", "The IndaVillas blog", first["og_image"], graph) + "\n" + build.header(chrome()) + f'''<section class="bl-hero s-lime" id="top" data-hero aria-labelledby="hero-title">
+    page = (head(BLOG_TITLE, BLOG_DESC, "/blog/", "The IndaVillas blog", first["og_image"], graph) + "\n"
+            + build.header(chrome()) + f'''<section class="bl-hero s-lime" id="top" data-hero aria-labelledby="hero-title">
   <div class="wrap">
-    <p class="idx" data-hero-mark><span>{len(posts):02d}</span>Articles</p>
-    <h1 class="pg__title" id="hero-title">Run the villa like a business.</h1>
-    <p class="lede">Market data on 5+ bedroom villas in Bali, and what we have learned running the commercial side of them: listings, photography, pricing, reviews and guest communication. Every figure names its source.</p>
+    <p class="tag">Blog</p>
+    <h1 class="bl-hero__title" id="hero-title">Run the villa <em>like a business.</em></h1>
+    <p class="bl-hero__lede">Market data on 5+ bedroom villas in Bali, and what we have learned running the commercial side of them: listings, photography, pricing, reviews and guest communication. Every figure names its source.</p>
+    <a class="btn" href="#analysis">Get your free revenue analysis {build.btn_icon()}</a>
   </div>
 </section>
 
 <section class="bl s-lime" aria-label="Articles">
   <div class="wrap">
-    <article class="bl-feat">
-      <div>
-        <p class="idx"><span>{first["n"]}</span>{first["pillar"]}</p>
-        <h2><a href="{first["path"]}">{first["title"]}</a></h2>
-        <p class="lede">{first["desc"]}</p>
-        <span class="btn" aria-hidden="true">Read the article {build.btn_icon()}</span>
-      </div>
-      {hero_figure(first)}
-    </article>
-    <div class="bl-list">
-{chr(10).join(row(q, "h2") for q in rest)}
+    <div class="bl-filter" role="group" aria-label="Filter by topic" data-filters hidden>
+      <button type="button" class="pill" data-filter="all" aria-pressed="true">All topics <span>{len(posts)}</span></button>
+{pills}
     </div>
+    <p class="sr-only" role="status" aria-live="polite" data-filter-status></p>
+    <div class="bc-grid bc-grid--index">
+{chr(10).join(card(q) for q in order)}
+    </div>
+    <p class="bl-empty" data-filter-empty hidden>No articles in this topic yet. <button type="button" class="lnk" data-filter="all">Show all articles</button></p>
     <p class="bl__note">New articles follow the same subjects as our Instagram, <a href="{build.INSTAGRAM}" rel="noopener">@inda.villas</a>. Subscribe with the <a href="/blog/feed.xml">feed</a>.</p>
   </div>
 </section>
 
-''' + build.final("New villa revenue analysis - IndaVillas (Blog)", "00", "cliff") + build.footer()
+''' + build.final("New villa revenue analysis - IndaVillas (Blog)", "00", "cliff") + build.footer())
+    page = page.replace("</body>", script_tag())
     OUT.mkdir(exist_ok=True)
     (OUT / "index.html").write_text(build.typeset(page))
 
@@ -522,6 +652,9 @@ def main():
     posts = load()
     if "--og" in sys.argv:
         print(f"  share images rendered: {og_images(posts, force='--force' in sys.argv)}")
+    for p in posts:
+        p["words"] = len(text_of(p["lede"] + " ".join(p["key"]) + expand(p["body"])).split())
+        p["minutes"] = max(2, round(p["words"] / 220))
     for p in posts:
         if not (IMG / p["og_image"]).exists():
             print(f"  WARNING {p['slug']}: share image missing, run with --og")
