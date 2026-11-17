@@ -160,6 +160,11 @@ button.lnk{min-height:44px}
 .ar__body .ar-toc-m li::before{content:none}
 .ar__body .ar-toc-m a{text-decoration:none;color:var(--fg2)}
 
+/* inline photos: as wide as the text, rounded like the cards, captioned as illustrative */
+.ar__body .ar-img{margin-top:32px}
+.ar-img img{width:100%;height:auto;aspect-ratio:1200/670;object-fit:cover;border-radius:16px;background:var(--lime-2)}
+.ar-img figcaption{margin-top:8px;font-size:.84rem;color:var(--fg3)}
+
 /* a figure worth stopping on, inside the text */
 .ar__body .ar-stat{display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 28px;align-items:center;margin-top:36px;padding-block:24px;border-block:1px solid var(--ln);color:var(--fg)}
 .ar-stat b{font:500 clamp(3rem,1.8rem + 4.4vw,5.4rem)/.9 var(--f-d);letter-spacing:-.055em;font-variant-numeric:tabular-nums;color:var(--hi)}

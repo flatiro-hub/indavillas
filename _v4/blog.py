@@ -153,6 +153,12 @@ def expand(body):
         body = body.replace("{{" + kind + "}}", cta(kind))
     body = body.replace("{{method}}", f'<aside class="ar-note" aria-label="About these figures"><b>About these figures</b>{METHOD}</aside>')
     body = body.replace("{{terms}}", TERMS)
+    # {{img:NAME|ALT}}: an inline photo from /v4/img/blog/in-NAME-{800,1200}.jpg (AI generated, so captioned)
+    body = re.sub(r"\{\{img:([a-z0-9-]+)\|([^}]+)\}\}", lambda m: (
+        f'<figure class="ar-img"><img src="/v4/img/blog/in-{m.group(1)}-1200.jpg" '
+        f'srcset="/v4/img/blog/in-{m.group(1)}-800.jpg 800w, /v4/img/blog/in-{m.group(1)}-1200.jpg 1200w" '
+        f'sizes="(max-width:900px) 100vw, 680px" alt="{html.escape(m.group(2), quote=True)}" width="1200" height="670" '
+        f'loading="lazy" decoding="async"><figcaption>Illustrative image.</figcaption></figure>'), body)
     body = body.replace("{{btn}}", build.btn_icon())
     body = re.sub(r"\{\{icon:([a-z0-9-]+)\}\}", lambda m: build.icon(m.group(1)), body)
     left = re.findall(r"\{\{[^}]*\}\}", body)
